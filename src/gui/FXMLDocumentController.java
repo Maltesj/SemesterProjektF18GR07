@@ -1,10 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package gui;
 
+import Acquaintance.IBusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -23,23 +24,16 @@ import javafx.scene.control.Slider;
  * @author malte
  */
 public class FXMLDocumentController implements Initializable {
-
-    private Label label;
-    private Slider slideBar;
-    private Button theStartButton;
-    private Button theStopButton;
     
-    private Thread t;
-
     /**
      * Initializes the controller class.
      */
-  @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-       
- 
-    
-}
+        
+        
+        
+    }
 }
