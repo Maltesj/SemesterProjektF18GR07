@@ -14,6 +14,12 @@ import Acquaintance.IGUIFacade;
  */
 public class GUIFacade implements IGUIFacade {
     
+    /*
+    At bruge denne klasse betyder at der ikke er tvivl om om den eksisterer når man forsøger at injecte businessFacaden, i modsætning
+    til hvis man prøver at injecte i controlleren. for den eksisterer ikke?? før main i guiStarter har kørt, hvilket den ikke har før 
+    start.java har kørt.
+    */
+    
     private static GUIFacade instance;
     private IBusinessFacade businessFacade;
 
