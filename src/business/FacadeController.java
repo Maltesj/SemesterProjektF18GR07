@@ -12,20 +12,20 @@ import acquaintance.IDataFacade;
  *
  * @author HCHB
  */
-public class BusinessFacade implements IBusinessFacade {
+public class FacadeController implements IBusinessFacade {
     
-    private static BusinessFacade instance;
+    private static FacadeController instance;
     private IDataFacade dataFacade;
     
-    public static BusinessFacade getInstance(){
+    public static FacadeController getInstance(){
         if (instance == null) {
-            instance = new BusinessFacade();
+            instance = new FacadeController();
         }
         
         return instance;
     }
     
-    private BusinessFacade(){
+    private FacadeController(){
         
     }
     
