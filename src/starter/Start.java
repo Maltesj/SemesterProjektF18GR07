@@ -8,7 +8,7 @@ package starter;
 import acquaintance.IBusinessFacade;
 import acquaintance.IDataFacade;
 import acquaintance.IGUIFacade;
-import Data.DataFacade;
+import data.DataFacade;
 import business.BusinessFacade;
 import gui.GUIFacade;
 
