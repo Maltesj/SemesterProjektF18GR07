@@ -5,8 +5,8 @@
  */
 package gui;
 
-import Acquaintance.IBusinessFacade;
-import Acquaintance.IGUIFacade;
+import acquaintance.IBusinessFacade;
+import acquaintance.IGUIFacade;
 
 /**
  *

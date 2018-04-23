@@ -5,8 +5,8 @@
  */
 package business;
 
-import Acquaintance.IBusinessFacade;
-import Acquaintance.IDataFacade;
+import acquaintance.IBusinessFacade;
+import acquaintance.IDataFacade;
 
 /**
  *

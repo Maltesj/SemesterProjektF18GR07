@@ -5,7 +5,7 @@
 */
 package gui;
 
-import Acquaintance.IBusinessFacade;
+import acquaintance.IBusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
