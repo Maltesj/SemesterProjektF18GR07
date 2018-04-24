@@ -21,6 +21,7 @@ public class CheckList {
      */
     public CheckList() {
         checkList = new HashSet<String>();
+        checkList.add(acquaintance.Constants.fieldAcademicallyAssessment);
     }
     
     /**

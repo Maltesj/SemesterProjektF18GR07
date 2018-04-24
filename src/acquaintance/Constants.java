@@ -11,8 +11,10 @@ package acquaintance;
  */
 public abstract class Constants {
     
+    //System field names
+    public static String fieldAcademicallyAssessment = "academically assessment";
+    
     private Constants(){}
-    
-    
+
     
 }
