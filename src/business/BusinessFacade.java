@@ -34,5 +34,7 @@ public class BusinessFacade implements IBusinessFacade {
         this.dataFacade = dataFacade;
         
     }
-    
+   IDataFacade getDataFacade(){
+       return this.dataFacade;
+   } 
 }

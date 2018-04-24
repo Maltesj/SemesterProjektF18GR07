@@ -5,7 +5,9 @@
  */
 package data;
 
+import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
+import business.Information;
 
 /**
  *
@@ -26,4 +28,15 @@ public class DataFacade implements IDataFacade{
     private DataFacade(){
         
     }
+
+    @Override
+    public ICaseInformation getInfo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void save(Information info) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

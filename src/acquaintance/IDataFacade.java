@@ -5,10 +5,15 @@
  */
 package acquaintance;
 
+import business.Information;
+import java.util.Map;
+
 /**
  *
  * @author HCHB
  */
 public interface IDataFacade {
     
+    public ICaseInformation getInfo();     
+    public void save(Information info);
 }
