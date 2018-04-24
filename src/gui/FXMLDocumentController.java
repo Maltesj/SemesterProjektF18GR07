@@ -60,8 +60,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void onaction(ActionEvent event) {
-        chooseCase.get
-       GUIFacade.getInstance().startAssessment(CaseID, caseWorkerID);
-        
+//        chooseCase.get
+//       GUIFacade.getInstance().startAssessment(CaseID, caseWorkerID);
+//        
     }
 }
