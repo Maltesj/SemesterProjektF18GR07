@@ -16,6 +16,6 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ComboBox fx:id="chooseCase" onAction="#onaction" onContextMenuRequested="#menureq" onMouseClicked="#moiuseclick" onScroll="#hej" prefWidth="150.0" />
+      <ComboBox fx:id="chooseCase" onAction="#onaction" prefWidth="150.0" promptText="sdads" />
    </children>
 </GridPane>
