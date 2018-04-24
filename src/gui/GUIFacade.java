@@ -39,6 +39,11 @@ public class GUIFacade implements IGUIFacade {
     private GUIFacade(){
         
     }
+    void startAssessment(String CaseID, String caseWorkerID){
+        
+        
+    }
+          
     
     @Override
     public void startApplication(String[] args) {

@@ -11,12 +11,20 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.Slider;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 
 /**
  * FXML Controller class
@@ -24,16 +32,47 @@ import javafx.scene.control.Slider;
  * @author malte
  */
 public class FXMLDocumentController implements Initializable {
-    
+
+    @FXML
+    private ComboBox<String> chooseCase;
+    private ObservableList<String> listen;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+     listen = FXCollections.observableArrayList();  
+        listen.add("123242415");
+        listen.add("123132123");
+        chooseCase.setItems(listen);
+        
+        
         // TODO
+  
         
         
         
         
+ 
+    }
+
+    @FXML
+    private void menureq(ContextMenuEvent event) {
+        System.out.println("Menureq");
+    }
+    
+    @FXML
+    private void moiuseclick(MouseEvent event) {
+        System.out.println("mouseclick");
+    }
+
+    @FXML
+    private void hej(ScrollEvent event) {
+        System.out.println("Hej");
+    }
+
+    @FXML
+    private void onaction(ActionEvent event) {
+        System.out.println("Onaction");
     }
 }
