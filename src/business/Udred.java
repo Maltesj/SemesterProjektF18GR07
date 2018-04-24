@@ -18,15 +18,22 @@ public class Udred {
     private String currentCaseID;
     private Map<String, Information> cases;
     private CheckList checkList;
-    
-    public boolean startAssessment(String caseID , String caseWorkerID) {
+
+    /**
+     * The method loads case information and sets up for the assessment.
+     *
+     * @param caseID The ID of the current case
+     * @param caseWorkerID The ID of the current caseworker
+     * @return Returns true if there was case information in the database
+     */
+    public boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
-        
+
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         CaseInformation Cinfo = (CaseInformation) data.getInfo();
-        
+
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
         if (info == null) {
@@ -34,42 +41,61 @@ public class Udred {
         }
         return true;
     }
-    
-    public boolean save(){
-       BusinessFacade business = BusinessFacade.getInstance();
-       IDataFacade data = business.getDataFacade();
-       
-       data.save(cases.get(currentCaseID));
-       
+
+    /**
+     * The method sends the current case to the database
+     * @return
+     */
+    public boolean save() {
+        BusinessFacade business = BusinessFacade.getInstance();
+        IDataFacade data = business.getDataFacade();
+
+        data.save(cases.get(currentCaseID));
+
         if (currentCaseID == null) {
             return false;
         }
-       return true;
-        
+        return true;
+
     }
-    
-    public Set<String> done(){
+
+    /**
+     * The method goes through the assessmentsfields and returns the missing fields
+     * @return
+     */
+    public Set<String> done() {
         Information info = cases.get(currentCaseID);
         Set<String> filedAssessment = info.getFilledAssessmentFields();
-        
+
         Set<String> missingFields = checkList.checkCollection(filedAssessment);
-        
+
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         data.save(info);
-        
+
         return missingFields;
     }
-    public void write(String text, String sourceInfo){
+
+    /**
+     * the method 
+     * @param text
+     * @param sourceInfo
+     */
+    public void write(String text, String sourceInfo) {
         Information info = cases.get(text);
         info.write(text, sourceInfo);
-        
+
     }
-    public Map<String, String> getCaseInformation(){
+
+    /**
+     *
+     * @return
+     */
+    public Map<String, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
         Map<String, String> caseinfo = info.getCaseInformation();
-        
-        return  caseinfo;
+
+        return caseinfo;
     }
-    
+
 }
