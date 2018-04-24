@@ -56,23 +56,12 @@ public class FXMLDocumentController implements Initializable {
  
     }
 
-    @FXML
-    private void menureq(ContextMenuEvent event) {
-        System.out.println("Menureq");
-    }
-    
-    @FXML
-    private void moiuseclick(MouseEvent event) {
-        System.out.println("mouseclick");
-    }
-
-    @FXML
-    private void hej(ScrollEvent event) {
-        System.out.println("Hej");
-    }
+ 
 
     @FXML
     private void onaction(ActionEvent event) {
-        System.out.println("Onaction");
+        chooseCase.get
+       GUIFacade.getInstance().startAssessment(CaseID, caseWorkerID);
+        
     }
 }
