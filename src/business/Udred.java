@@ -19,7 +19,7 @@ public class Udred {
     private Map<String, Information> cases;
     private CheckList checkList;
     
-    public boolean startAssessment(String caseID , String caseWorkerID) {
+    boolean startAssessment(String caseID , String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
         
@@ -35,7 +35,7 @@ public class Udred {
         return true;
     }
     
-    public boolean save(){
+    boolean save(){
        BusinessFacade business = BusinessFacade.getInstance();
        IDataFacade data = business.getDataFacade();
        
@@ -48,7 +48,7 @@ public class Udred {
         
     }
     
-    public Set<String> done(){
+    Set<String> done(){
         Information info = cases.get(currentCaseID);
         Set<String> filedAssessment = info.getFilledAssessmentFields();
         
@@ -60,12 +60,12 @@ public class Udred {
         
         return missingFields;
     }
-    public void write(String text, String sourceInfo){
+    void write(String text, String sourceInfo){
         Information info = cases.get(text);
         info.write(text, sourceInfo);
         
     }
-    public Map<String, String> getCaseInformation(){
+    Map<String, String> getCaseInformation(){
         Information info = cases.get(currentCaseID);
         Map<String, String> caseinfo = info.getCaseInformation();
         
