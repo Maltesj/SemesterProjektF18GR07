@@ -19,6 +19,8 @@ import gui.GUIFacade;
 public class Start {
     
     public static void main(String[] args) {
+        
+        
         IDataFacade dataFacade = DataFacade.getInstance();
         IBusinessFacade businessFacade = BusinessFacade.getInstance();
         IGUIFacade guiFacade = GUIFacade.getInstance();
