@@ -8,6 +8,7 @@ package gui;
 import acquaintance.IBusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -36,20 +37,23 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<String> chooseCase;
     private ObservableList<String> listen;
+    private String caseWorkerID;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      listen = FXCollections.observableArrayList();  
-        listen.add("123242415");
-        listen.add("123132123");
-        chooseCase.setItems(listen);
-        
-        
-        // TODO
-  
-        
+     Set<String> caseIDs = GUIFacade.getInstance().getCaseIDS();
+     listen.addAll(caseIDs);
+     
+     
+     
+     
+     
+     
+     chooseCase.setItems(listen);
+    
         
         
         
@@ -60,8 +64,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void onaction(ActionEvent event) {
-//        chooseCase.get
-//       GUIFacade.getInstance().startAssessment(CaseID, caseWorkerID);
-//        
+        
+      String caseID =  chooseCase.getValue();
+        
+      GUIFacade.getInstance().startAssessment(caseID, caseWorkerID);      
     }
 }

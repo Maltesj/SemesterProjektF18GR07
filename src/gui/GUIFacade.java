@@ -7,6 +7,8 @@ package gui;
 
 import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -39,10 +41,18 @@ public class GUIFacade implements IGUIFacade {
     private GUIFacade(){
         
     }
-    void startAssessment(String CaseID, String caseWorkerID){
-        
+    void startAssessment(String caseID, String caseWorkerID){
+        System.out.println(caseID+ "\t"  + caseWorkerID);  
         
     }
+    Set<String> getCaseIDS(){
+        TreeSet<String> getCaseIDs = new TreeSet();
+        getCaseIDs.add("hej");
+        getCaseIDs.add("adasd");
+        getCaseIDs.add("adasdsdsd");
+      return getCaseIDs;
+        
+    } 
           
     
     @Override
