@@ -8,6 +8,7 @@ package data;
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
 import business.Information;
+import java.util.Set;
 
 /**
  *
@@ -36,6 +37,11 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public void save(Information info) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Set<String> getCaseIDs() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

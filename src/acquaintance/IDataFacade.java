@@ -7,6 +7,7 @@ package acquaintance;
 
 import business.Information;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface IDataFacade {
     
     public ICaseInformation getInfo();     
     public void save(Information info);
+    public Set<String> getCaseIDs();
 }
