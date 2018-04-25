@@ -6,6 +6,7 @@
  */
 package business;
 
+import acquaintance.ICaseInformation;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -13,7 +14,7 @@ import java.util.HashMap;
  *
  * @author michael
  */
-public class CaseInformation implements Serializable {
+public class CaseInformation implements Serializable, ICaseInformation {
  private HashMap<String, String> textInformation;
  
  public CaseInformation(){
