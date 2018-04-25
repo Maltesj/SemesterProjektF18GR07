@@ -47,5 +47,15 @@ public class CaseInformationGUIController implements Initializable {
         fysiskFunktion.setVisible(false);
         
     }
+
+    @FXML
+    private void HideExamplePsy(MouseEvent event) {
+        psykiskFunktionFXID.setVisible(false);
+    }
+
+    @FXML
+    private void showExamplePsy(MouseEvent event) {
+        psykiskFunktionFXID.setVisible(true);
+    }
     
 }

@@ -44,7 +44,7 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fx:id="fysiskFunktion" layoutX="356.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Døvblindhed, Hørenedsættelse, kommunikationsnedsættelse, mobilitetsnedsættelse og synsnedsættelse" visible="false" wrappingWidth="423.13671875" />
+                  <Text fx:id="fysiskFunktion" layoutX="344.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Døvblindhed, Hørenedsættelse, kommunikationsnedsættelse, mobilitetsnedsættelse og synsnedsættelse" visible="false" wrappingWidth="423.13671875" />
                   <TextArea layoutX="272.0" layoutY="57.0" opacity="0.0" prefHeight="88.0" prefWidth="535.0" />
                   <Text layoutX="15.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oplysninger fra borgeren" wrappingWidth="242.353515625">
                      <font>
@@ -71,13 +71,13 @@
                   </Text>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6eb" height="62.0" layoutX="272.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="536.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0e6eb" height="62.0" layoutX="272.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="175.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8ebee" height="95.0" layoutX="-1.0" layoutY="413.0" stroke="BLACK" strokeType="INSIDE" width="808.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8ebee" height="65.0" layoutX="-1.0" layoutY="412.0" stroke="BLACK" strokeType="INSIDE" width="808.0" />
                   <Text layoutX="13.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Psykisk funktionsnedsættelse" wrappingWidth="346.13671875">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fx:id="psykiskFunktionFXID" layoutX="371.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eksempelvis: Sindslidelse som angst, depression, forandret virkelighedsopfattelse, spiseforstyrrelse, personlighedsforstyrelse" wrappingWidth="428.13671875" />
+                  <Text fx:id="psykiskFunktionFXID" layoutX="353.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sindslidelse som angst, depression, forandret virkelighedsopfattelse, spiseforstyrrelse, personlighedsforstyrelse" visible="false" wrappingWidth="428.13671875" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="360.0" layoutY="-4.0" opacity="0.12" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 200;" visible="false" width="415.0" />
                   <Text fx:id="FysiskeksFXID" layoutX="20.0" layoutY="50.0" onMouseEntered="#showExample" onMouseExited="#HideExample" strokeType="OUTSIDE" strokeWidth="0.0" text="Eksempel" wrappingWidth="97.13671875">
                      <font>
