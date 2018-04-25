@@ -45,7 +45,7 @@ public class Udred {
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        CaseInformation Cinfo = (CaseInformation) data.getInfo();
+        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(null);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);

@@ -34,8 +34,8 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public ICaseInformation getcCasenfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ICaseInformation getcCasenfo(String caseID) {
+        return caseInfoLoader.getCaseInfo(caseID);
     }
 
     @Override
