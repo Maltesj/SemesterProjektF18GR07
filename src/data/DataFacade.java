@@ -18,6 +18,7 @@ import java.util.TreeSet;
 public class DataFacade implements IDataFacade{
     
     private static DataFacade instance;
+    private CaseInfoLoader caseInfoLoader;
     
     public static DataFacade getInstance(){
         if (instance == null) {
@@ -28,6 +29,7 @@ public class DataFacade implements IDataFacade{
     }
     
     private DataFacade(){
+        caseInfoLoader = new CaseInfoLoader();
         
     }
 
@@ -43,12 +45,8 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public Set<String> getCaseIDs() {
-        Set<String> set = new TreeSet<>();
-        set.add("Hubba");
-        set.add("HubbaDUBBAH!!");
-        set.add("BOOB");
-        set.add("bob");
-        return set;
+        
+        return caseInfoLoader.getCaseIDs();
     }
     
 }
