@@ -6,22 +6,30 @@
  */
 package business;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-/**
+/** Class for storage of case information
  *
  * @author michael
  */
-public class CaseInformation {
+public class CaseInformation implements Serializable {
  private HashMap<String, String> textInformation;
  
  public CaseInformation(){
      
  }
+ /** Allows for constructing with a HashMap
+  * 
+  * @param textInformation 
+  */
  public CaseInformation(HashMap<String, String> textInformation){
      this.textInformation = textInformation;
  }
- 
+ /** Method for getting the hashmap
+  * 
+  * @return 
+  */
  HashMap<String, String> getInformation(){
     return textInformation;
      

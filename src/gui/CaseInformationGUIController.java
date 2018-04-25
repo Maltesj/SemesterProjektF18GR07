@@ -7,7 +7,10 @@ package gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -16,6 +19,15 @@ import javafx.fxml.Initializable;
  */
 public class CaseInformationGUIController implements Initializable {
 
+    @FXML
+    private Text fysiskFunktion;
+    @FXML
+    private Text FysiskeksFXID;
+    @FXML
+    private Text pysiskeksFXID;
+    @FXML
+    private Text psykiskFunktionFXID;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +35,17 @@ public class CaseInformationGUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void showExample(MouseEvent event) {
+        fysiskFunktion.setVisible(true);
+        
+    }
+
+    @FXML
+    private void HideExample(MouseEvent event) {
+        fysiskFunktion.setVisible(false);
+        
+    }
     
 }
