@@ -46,11 +46,9 @@ public class GUIFacade implements IGUIFacade {
         
     }
     Set<String> getCaseIDS(){
-        TreeSet<String> getCaseIDs = new TreeSet();
-        getCaseIDs.add("hej");
-        getCaseIDs.add("adasd");
-        getCaseIDs.add("adasdsdsd");
-      return getCaseIDs;
+        
+       
+      return businessFacade.getCaseIDs();
         
     } 
           

@@ -9,6 +9,7 @@ import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
 import business.Information;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -42,7 +43,12 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public Set<String> getCaseIDs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Set<String> set = new TreeSet<>();
+        set.add("Hubba");
+        set.add("HubbaDUBBAH!!");
+        set.add("BOOB");
+        set.add("bob");
+        return set;
     }
     
 }

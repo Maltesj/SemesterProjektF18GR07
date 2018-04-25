@@ -5,6 +5,7 @@
  */
 package business;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  *
  * @author malte
  */
-public class Information {
+public class Information implements Serializable {
   private String caseID;
   private AssessmentInformation assessmentInformation;
   private CaseInformation caseInformation;
