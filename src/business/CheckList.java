@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package business;
 
 import java.util.HashSet;
@@ -26,7 +26,7 @@ public class CheckList {
     
     /**
      * Checks if the specified element contains all the required elements for an assessment.
-     * 
+     *
      * @param info - filled fields
      * @return missingElements - Required fields which hasn't been filled.
      */

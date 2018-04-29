@@ -27,14 +27,11 @@ public class CaseInfoLoader {
         caseIDs = new TreeSet<>();
     }
     
-    ICaseInformation getCaseInfo(String caseID)
-    {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("C:\\Users\\malte\\OneDrive\\Dokumenter\\NetBeansProjects\\SemesterProjektF18\\assets\\" + caseID + ".dummy")))
+    ICaseInformation getCaseInfo(String caseID) {
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("assets\\" + caseID + ".dummy")))
         {
-            
             ICaseInformation caseInfo = (ICaseInformation) in.readObject();
             return caseInfo;
-            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -45,22 +42,16 @@ public class CaseInfoLoader {
         return null;
     }
     
-    
     Set<String> getCaseIDs(){
-        
-        File file = new File("C:\\Users\\malte\\OneDrive\\Dokumenter\\NetBeansProjects\\SemesterProjektF18\\assets\\");
+        File file = new File("assets\\");
         String[] files = file.list(); 
         for (int i = 0; i < files.length; i++) {
             int endIndex = files[i].indexOf('.');
-            if(endIndex != -1)
-            {
+            if(endIndex != -1) {
                 caseIDs.add(files[i].substring(0, endIndex));
             }
-          
         }
      
         return caseIDs;
     }
-
-    
 }

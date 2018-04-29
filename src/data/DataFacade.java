@@ -45,7 +45,6 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public Set<String> getCaseIDs() {
-        
         return caseInfoLoader.getCaseIDs();
     }
     
