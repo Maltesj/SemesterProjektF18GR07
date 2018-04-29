@@ -5,6 +5,7 @@
  */
 package gui;
 
+import acquaintance.IController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import javafx.scene.text.Text;
  *
  * @author micha
  */
-public class CaseInformationGUIController implements Initializable {
+public class CaseInformationGUIController implements Initializable, IController {
 
     @FXML
     private Text fysiskFunktion;

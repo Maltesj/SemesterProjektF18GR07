@@ -43,7 +43,7 @@ public class GUIFacade implements IGUIFacade {
     }
     
     void startAssessment(String caseID, String caseWorkerID){
-        System.out.println(caseID+ "\t"  + caseWorkerID);
+        this.businessFacade.startAssessment(caseID, caseWorkerID);
     }
     
     Set<String> getCaseIDS(){

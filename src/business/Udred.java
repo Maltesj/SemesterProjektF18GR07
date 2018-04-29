@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.IDataFacade;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,6 +33,11 @@ public class Udred {
      */
     private CheckList checkList;
     
+    Udred(){
+        this.checkList = new CheckList();
+        this.cases = new HashMap<>();
+    }
+    
     /**
      * The method loads case information and sets up for the assessment.
      *
@@ -39,13 +45,13 @@ public class Udred {
      * @param caseWorkerID The ID of the current caseworker
      * @return Returns true if there was case information in the database
      */
-    public boolean startAssessment(String caseID, String caseWorkerID) {
+    boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(null);
+        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
@@ -59,7 +65,7 @@ public class Udred {
      * The method sends the current case to the database
      * @return Returns true if the current case wasn't null
      */
-    public boolean save() {
+    boolean save() {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         
@@ -75,7 +81,7 @@ public class Udred {
      * The method goes through the assessmentsfields and returns the missing fields after saving the case
      * @return Returns a set with the missing obligatory fields
      */
-    public Set<String> done() {
+    Set<String> done() {
         Information info = cases.get(currentCaseID);
         Set<String> filedAssessment = info.getFilledAssessmentFields();
         
@@ -93,7 +99,7 @@ public class Udred {
      * @param text
      * @param sourceInfo
      */
-    public void write(String text, String sourceInfo) {
+    void write(String text, String sourceInfo) {
         Information info = cases.get(text);
         info.write(text, sourceInfo);
     }
@@ -102,7 +108,7 @@ public class Udred {
      * The method returns the case information
      * @return Returns a map with information and its source
      */
-    public Map<String, String> getCaseInformation() {
+    Map<String, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
         Map<String, String> caseinfo = info.getCaseInformation();
         
