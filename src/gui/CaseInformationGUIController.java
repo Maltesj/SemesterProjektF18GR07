@@ -8,6 +8,7 @@ package gui;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
@@ -80,6 +81,20 @@ public class CaseInformationGUIController implements Initializable, IController 
 
     @FXML
     private void ShowPsykisk(MouseEvent event) {
+        // ScrollpaneIndholdfortegnelse.setVvalue(0.092);
+       //psykiskFunktionFXID.getLayoutY();
+//       double scrollTo = psykiskFunktionFXID.getLayoutY() / (ScrollpaneIndholdfortegnelse.getHeight());
+       double scrollTo1 = psyksikfunktionsFXID.getLayoutY() / (testAnchor.getHeight()-990);
+//       ScrollpaneIndholdfortegnelse.getChildrenUnmodifiable().get(0);
+//        System.out.println(psykiskFunktionFXID.getLayoutY());
+//        System.out.println(ScrollpaneIndholdfortegnelse.getHeight());
+        Platform.runLater(()-> {
+            ScrollpaneIndholdfortegnelse.setVvalue(scrollTo1);
+        });
+//        ScrollpaneIndholdfortegnelse.setVvalue(scrollTo1);
+//        ScrollpaneIndholdfortegnelse.setv
+//        System.out.println(test.getLayoutY());
+//        System.out.println(test.getLayoutBounds().getMinY());
     }
 
     @FXML
