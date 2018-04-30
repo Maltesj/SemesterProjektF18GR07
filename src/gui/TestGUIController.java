@@ -58,8 +58,8 @@ public class TestGUIController implements Initializable {
     }
 
     @FXML
-    private void AcademicallyAssessmentUpdate(InputMethodEvent event) {
-        
+    private void SaveAction(ActionEvent event) {
+        BusinessFacade.getInstance().save();
         
     }
     
