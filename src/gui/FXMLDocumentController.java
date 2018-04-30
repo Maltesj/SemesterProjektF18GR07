@@ -5,27 +5,25 @@
 */
 package gui;
 
-import acquaintance.IBusinessFacade;
+import acquaintance.IController;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.Slider;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -33,40 +31,76 @@ import javafx.scene.input.ScrollEvent;
  * @author malte
  */
 public class FXMLDocumentController implements Initializable {
-
+    
     @FXML
     private ComboBox<String> chooseCase;
+    
     private ObservableList<String> listen;
     private String caseWorkerID;
+    private List<IController> controllers;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     listen = FXCollections.observableArrayList();  
-     Set<String> caseIDs = GUIFacade.getInstance().getCaseIDS();
-     listen.addAll(caseIDs);
-     
-     
-     
-     
-     
-     
-     chooseCase.setItems(listen);
-    
+        controllers = new ArrayList<>();
+        
+        this.caseWorkerID = "worker 1";
+        
+        listen = FXCollections.observableArrayList();
+        Set<String> caseIDs = GUIFacade.getInstance().getCaseIDS();
+        listen.addAll(caseIDs);
         
         
         
- 
+        
+        
+        
+        chooseCase.setItems(listen);
+        
+        
+        
+        
+        
     }
-
- 
-
+    
     @FXML
     private void onaction(ActionEvent event) {
+        String caseID =  chooseCase.getValue();
         
-      String caseID =  chooseCase.getValue();
+        GUIFacade.getInstance().startAssessment(caseID, caseWorkerID);
+    }
+    
+    @FXML
+    private void showCaseInformationtEventHandler(ActionEvent event) {
         
-      GUIFacade.getInstance().startAssessment(caseID, caseWorkerID);      
+        String caseID = this.chooseCase.getValue();
+        ObservableList<String> caseIDs = this.chooseCase.getItems();
+        
+        if (caseIDs.contains(caseID)) {
+            FXMLLoader loader = new FXMLLoader();
+            
+            loader.setLocation(getClass().getResource("CaseInformationGUI.fxml"));
+            
+            IController controller = loader.getController();
+            controllers.add(controller);
+            
+            Stage stage = new Stage();
+            
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            System.out.println("No such case exists");
+            
+        }
     }
 }

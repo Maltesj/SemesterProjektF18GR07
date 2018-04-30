@@ -33,6 +33,11 @@ public class Udred {
      */
     private CheckList checkList;
     
+    Udred(){
+        this.checkList = new CheckList();
+        this.cases = new HashMap<>();
+    }
+    
     /**
      * The method loads case information and sets up for the assessment.
      *
@@ -40,7 +45,7 @@ public class Udred {
      * @param caseWorkerID The ID of the current caseworker
      * @return Returns true if there was case information in the database
      */
-    public boolean startAssessment(String caseID, String caseWorkerID) {
+    boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
         this.cases = new HashMap<String, Information>();
@@ -52,6 +57,7 @@ public class Udred {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
+        //CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
@@ -65,7 +71,7 @@ public class Udred {
      * The method sends the current case to the database
      * @return Returns true if the current case wasn't null
      */
-    public boolean save() {
+    boolean save() {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         
@@ -81,7 +87,7 @@ public class Udred {
      * The method goes through the assessmentsfields and returns the missing fields after saving the case
      * @return Returns a set with the missing obligatory fields
      */
-    public Set<String> done() {
+    Set<String> done() {
         Information info = cases.get(currentCaseID);
         Set<String> filledAssessment = info.getFilledAssessmentFields();
         //sout for testing.
@@ -116,7 +122,7 @@ public class Udred {
      * The method returns the case information
      * @return Returns a map with information and its source
      */
-    public Map<String, String> getCaseInformation() {
+    Map<String, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
         Map<String, String> caseinfo = info.getCaseInformation();
         

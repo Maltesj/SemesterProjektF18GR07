@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public interface IDataFacade {
     
-    public ICaseInformation getInfo();     
+    public ICaseInformation getcCasenfo(String caseID);     
     public void save(Information info);
     public Set<String> getCaseIDs();
 }

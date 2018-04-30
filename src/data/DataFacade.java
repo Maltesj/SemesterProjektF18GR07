@@ -9,6 +9,7 @@ import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
 import business.Information;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -17,6 +18,7 @@ import java.util.Set;
 public class DataFacade implements IDataFacade{
     
     private static DataFacade instance;
+    private CaseInfoLoader caseInfoLoader;
     
     public static DataFacade getInstance(){
         if (instance == null) {
@@ -27,12 +29,13 @@ public class DataFacade implements IDataFacade{
     }
     
     private DataFacade(){
+        caseInfoLoader = new CaseInfoLoader();
         
     }
 
     @Override
-    public ICaseInformation getInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ICaseInformation getcCasenfo(String caseID) {
+        return caseInfoLoader.getCaseInfo(caseID);
     }
 
     @Override
@@ -42,7 +45,7 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public Set<String> getCaseIDs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return caseInfoLoader.getCaseIDs();
     }
     
 }
