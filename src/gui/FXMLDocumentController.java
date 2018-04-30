@@ -98,6 +98,7 @@ public class FXMLDocumentController implements Initializable {
                 
                 Tab tab = new Tab();
                 tab.setContent(root);
+                tab.setText("Case Information");
                 
                 this.topTab.getTabs().add(tab);
                 
@@ -137,6 +138,7 @@ public class FXMLDocumentController implements Initializable {
                 
                 Tab tab = new Tab();
                 tab.setContent(root);
+                tab.setText("Assessment");
                 
                 this.topTab.getTabs().add(tab);
                 

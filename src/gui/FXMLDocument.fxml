@@ -10,7 +10,7 @@
 
 <TabPane fx:id="topTab" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
    <tabs>
-      <Tab>
+      <Tab text="Main menu">
          <content>
             <GridPane maxHeight="1536.0" maxWidth="2048.0" minHeight="600.0" minWidth="800.0" prefHeight="768.0" prefWidth="1024.0">
               <columnConstraints>
