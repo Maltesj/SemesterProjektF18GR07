@@ -48,7 +48,7 @@ public class Udred {
     boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
-        this.cases = new HashMap<String, Information>();
+        this.cases = new HashMap<>();
         
         //test data initializering:
         HashMap testInfo = new HashMap<String,String>();
