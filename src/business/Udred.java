@@ -53,7 +53,7 @@ public class Udred {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
 
-        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
+        CaseInformation Cinfo = (CaseInformation) data.getCaseInfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
@@ -70,8 +70,8 @@ public class Udred {
     boolean save() {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        
-        data.save(cases.get(currentCaseID), currentCaseID);
+        Information info = cases.get(currentCaseID);
+        data.save(info, currentCaseID);
         
         if (currentCaseID == null) {
             return false;
@@ -91,13 +91,8 @@ public class Udred {
             System.out.println(string);
         }
         System.out.println(filledAssessment);
-        
-        
         Set<String> missingFields = checkList.checkCollection(filledAssessment);
-        
-        BusinessFacade business = BusinessFacade.getInstance();
-        IDataFacade data = business.getDataFacade();
-        //data.save(info, this.currentCaseID);
+        save();
         
         return missingFields;
     }
@@ -108,7 +103,7 @@ public class Udred {
      * @param sourceInfo
      */
     public void write(String text, String sourceInfo) {
-        Information info = cases.get("1"); //Hard coded case as input
+        Information info = cases.get(currentCaseID); //Hard coded case as input
         info.write(text, sourceInfo);
     }
     

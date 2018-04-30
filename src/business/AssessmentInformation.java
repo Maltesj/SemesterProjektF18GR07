@@ -21,7 +21,7 @@ public class AssessmentInformation implements Serializable {
     private HashMap<String, String> textInformation;
     
     public AssessmentInformation(){
-        textInformation =   new HashMap<>();
+        textInformation = new HashMap<>();
     }
     
     /** Method to get keyset for filled fields

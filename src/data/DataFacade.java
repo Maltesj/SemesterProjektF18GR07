@@ -31,11 +31,12 @@ public class DataFacade implements IDataFacade{
     
     private DataFacade(){
         caseInfoLoader = new CaseInfoLoader();
+        si = new SaveInformation();
         
     }
 
     @Override
-    public ICaseInformation getcCasenfo(String caseID) {
+    public ICaseInformation getCaseInfo(String caseID) {
         return caseInfoLoader.getCaseInfo(caseID);
     }
 
