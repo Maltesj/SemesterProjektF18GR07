@@ -75,7 +75,7 @@ public class Udred {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         
-        data.save(cases.get(currentCaseID));
+        data.save(cases.get(currentCaseID), currentCaseID);
         
         if (currentCaseID == null) {
             return false;
