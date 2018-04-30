@@ -12,7 +12,7 @@ package acquaintance;
 public enum ConstantsEnum {
     
     
-    PHYSICPROBLEM1("PhysicProblem1"), 
+    PHYSICPROBLEM1("Fysisk_borger_oplysning"), 
     PHYSICPROBLEM2("PhysicProblem2"), 
     PHYSICPROBLEM3("PhysicProblem3"), 
     PHYSICPROBLEM4("PhysicProblem4"),

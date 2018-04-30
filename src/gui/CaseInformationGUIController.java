@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
@@ -48,6 +49,40 @@ public class CaseInformationGUIController implements Initializable, IController 
     private Text psykiskindholdsfortegnelse;
     @FXML
     private Text fysiskfunktionFXID;
+    @FXML
+    private TextArea Fysisk_borger_oplysning;
+    @FXML
+    private Rectangle psykisk_funktions_tal;
+    @FXML
+    private TextArea Fysisk_oplysning_andre;
+    @FXML
+    private TextArea fysisk_sagsbehandlers_bemaerk;
+    @FXML
+    private TextArea psyisk_borger_oplysning;
+    @FXML
+    private TextArea pyskisk_oplysning_borger;
+    @FXML
+    private TextArea psykisk_sagsbehandling_bemaerk;
+    @FXML
+    private TextArea Socialt_behandlers_bemaerk;
+    @FXML
+    private TextArea Socialt_oplysning_andre;
+    @FXML
+    private TextArea Socialt_oplysning_borger;
+    @FXML
+    private TextArea socialt_funktions_tal;
+    @FXML
+    private TextArea Fysisk_funktions_tal;
+    @FXML
+    private TextArea Fysisk_funktions_tekst;
+    @FXML
+    private TextArea psykisk_funtkions_tekst;
+    @FXML
+    private TextArea socialt_funktions_tekst;
+    @FXML
+    private Text fysiskfunktionFXID1;
+    @FXML
+    private Text fysiskfunktionFXID11;
 
     /**
      * Initializes the controller class.
