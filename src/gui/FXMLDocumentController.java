@@ -23,6 +23,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
 /**
@@ -38,6 +40,8 @@ public class FXMLDocumentController implements Initializable {
     private ObservableList<String> listen;
     private String caseWorkerID;
     private List<IController> controllers;
+    @FXML
+    private TabPane topTab;
     
     /**
      * Initializes the controller class.
@@ -91,8 +95,14 @@ public class FXMLDocumentController implements Initializable {
             try {
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                
+                Tab tab = new Tab();
+                tab.setContent(root);
+                
+                this.topTab.getTabs().add(tab);
+                
+//                stage.setScene(scene);
+//                stage.show();
                 
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
