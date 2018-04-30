@@ -82,21 +82,21 @@ public class SaveDummyCaseInfo {
     
     public void saveGame() {
         try{
-            System.out.println("got to here");
-            OutputStream outStream = new FileOutputStream("C:\\Users\\malte\\OneDrive\\Dokumenter\\NetBeansProjects\\SemesterProjektF18\\assets\\DummyCase1.dummy");
+
+            OutputStream outStream = new FileOutputStream("assets\\DummyCase1.dummy");
             ObjectOutputStream fileObjectOut = new ObjectOutputStream(outStream);
             fileObjectOut.writeObject(dummy1);
             fileObjectOut.close();
             outStream.close();
-            System.out.println("made it this far");
+
             
             
-            OutputStream outStream2 = new FileOutputStream("C:\\Users\\malte\\OneDrive\\Dokumenter\\NetBeansProjects\\SemesterProjektF18\\assets\\DummyCase2.dummy");
+            OutputStream outStream2 = new FileOutputStream("assets\\DummyCase2.dummy");
             ObjectOutputStream fileObjectOut2 = new ObjectOutputStream(outStream2);
             fileObjectOut2.writeObject(dummy2);
             fileObjectOut2.close();
             outStream2.close();
-            System.out.println("here too");
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SaveDummyCaseInfo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
