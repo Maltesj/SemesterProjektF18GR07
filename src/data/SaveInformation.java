@@ -20,16 +20,15 @@ import java.util.logging.Logger;
  */
 public class SaveInformation {
     
-    
+   
     
     
      public void saveInformation(IInformation info, String caseID) {
-        try{
-            OutputStream outStream = new FileOutputStream("assets\\" + caseID +".vigtigInfo" );
-            ObjectOutputStream fileObjectOut = new ObjectOutputStream(outStream);
+        try(ObjectOutputStream fileObjectOut = new ObjectOutputStream(new FileOutputStream("assets\\" + caseID +".vigtigInfo" ))){
+             
+            
             fileObjectOut.writeObject(info);
-            fileObjectOut.close();
-            outStream.close();
+  
 
             
             
@@ -40,7 +39,7 @@ public class SaveInformation {
             Logger.getLogger(SaveDummyCaseInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+        
     
     
 }

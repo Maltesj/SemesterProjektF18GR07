@@ -39,7 +39,7 @@ public class TestGUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         dokumentScroller.setVvalue(0);
         checkText.setText("");
-        BusinessFacade.getInstance().startAssessment("1", "1");
+        BusinessFacade.getInstance().startAssessment("DummyCase1", "blah");
         
     }    
 

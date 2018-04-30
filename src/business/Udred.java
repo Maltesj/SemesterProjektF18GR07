@@ -51,13 +51,13 @@ public class Udred {
         this.cases = new HashMap<String, Information>();
         
         //test data initializering:
-        HashMap testInfo = new HashMap<String,String>();
-        testInfo.put("hello", "World");
+//        HashMap testInfo = new HashMap<String,String>();
+//        testInfo.put("hello", "World");
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
-        //CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
+//        CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
+        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
