@@ -19,7 +19,7 @@ public interface IBusinessFacade {
     public boolean save();
     public Set<String> done();
     public void write(String text, String sourceInfo);
-    public Map<String, String> getCaseInformation(String CaseID);
+    public Map<String, String> getCaseInformation(String caseID);
     public Set<String> getCaseIDs();
     public Set<String> checkAssessmentFields();
 }

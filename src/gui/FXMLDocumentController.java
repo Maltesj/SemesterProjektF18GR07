@@ -102,6 +102,9 @@ public class FXMLDocumentController implements Initializable {
                 
                 this.topTab.getTabs().add(tab);
                 
+                CaseInformationGUIController control = (CaseInformationGUIController)controller;
+                control.loadInformation(caseID);
+                
 //                stage.setScene(scene);
 //                stage.show();
                 
@@ -141,9 +144,6 @@ public class FXMLDocumentController implements Initializable {
                 tab.setText("Assessment");
                 
                 this.topTab.getTabs().add(tab);
-                
-//                stage.setScene(scene);
-//                stage.show();
                 
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);

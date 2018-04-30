@@ -5,8 +5,6 @@
 */
 package gui;
 
-import acquaintance.Constants;
-import acquaintance.ConstantsEnum;
 import business.BusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 

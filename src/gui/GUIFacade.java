@@ -7,6 +7,7 @@ package gui;
 
 import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -57,5 +58,9 @@ public class GUIFacade implements IGUIFacade {
     
     Set<String> checkAssessment(){
         return this.businessFacade.checkAssessmentFields();
+    }
+    
+    Map<String, String> getCaseInformation(String caseID){
+        return this.businessFacade.getCaseInformation(caseID);
     }
 }
