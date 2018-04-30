@@ -31,6 +31,7 @@ public class DataFacade implements IDataFacade{
     
     private DataFacade(){
         caseInfoLoader = new CaseInfoLoader();
+        si = new SaveInformation();
         
     }
 
