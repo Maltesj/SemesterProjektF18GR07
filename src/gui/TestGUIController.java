@@ -6,6 +6,7 @@
 package gui;
 
 import acquaintance.Constants;
+import acquaintance.ConstantsEnum;
 import business.BusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,7 +51,7 @@ public class TestGUIController implements Initializable {
 
     @FXML
     private void afslutEvent(ActionEvent event) { 
-        BusinessFacade.getInstance().write(textAreaAcademicallyAssessment.getText(), Constants.fieldAcademicallyAssessment);
+        BusinessFacade.getInstance().write(textAreaAcademicallyAssessment.getText(), ConstantsEnum.PROFFESSIONALASSESSMENT1.toString());
         
         
         checkText.setText(BusinessFacade.getInstance().done().toString());

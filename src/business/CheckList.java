@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.ConstantsEnum;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,10 @@ public class CheckList {
      */
     public CheckList() {
         checkList = new HashSet<String>();
-        checkList.add(acquaintance.Constants.fieldAcademicallyAssessment);
+        ConstantsEnum.values();
+        for (ConstantsEnum value : ConstantsEnum.values()) {
+            checkList.add(value.toString());
+        }
     }
     
     /**
