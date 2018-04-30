@@ -12,8 +12,11 @@ import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
@@ -30,7 +33,11 @@ public class TestGUIController implements Initializable {
     private Text checkText;
     @FXML
     private TextArea textAreaAcademicallyAssessment;
-    
+    @FXML
+    private CheckMenuItem tableOfContentMenuItem;
+    @FXML
+    private GridPane BackgroundGrid;
+
     /**
      * Initializes the controller class.
      */
@@ -66,6 +73,13 @@ public class TestGUIController implements Initializable {
         String textArea = area.getId();
         
         BusinessFacade.getInstance().write(textAreaAcademicallyAssessment.getText(), textArea);
+    }
+
+    @FXML
+    private void tableOfContentMenuItemAction(ActionEvent event) {
+        if(tableOfContentMenuItem.isSelected()){
+            
+        }
     }
     
 }
