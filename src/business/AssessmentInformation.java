@@ -29,7 +29,7 @@ public class AssessmentInformation {
   }
   public void write(String text, String sourceInfo){
       textInformation.put(sourceInfo, text);
-      if (text == null||text == ""){
+      if (text.equals("")||text.equals(null)){
         textInformation.remove(sourceInfo);
         
       }

@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.IDataFacade;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -42,10 +43,15 @@ public class Udred {
     public boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
+        this.cases = new HashMap<String, Information>();
+        
+        //test data initializering:
+        HashMap testInfo = new HashMap<String,String>();
+        testInfo.put("hello", "World");
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        CaseInformation Cinfo = (CaseInformation) data.getInfo();
+        CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
@@ -77,13 +83,21 @@ public class Udred {
      */
     public Set<String> done() {
         Information info = cases.get(currentCaseID);
-        Set<String> filedAssessment = info.getFilledAssessmentFields();
+        Set<String> filledAssessment = info.getFilledAssessmentFields();
+        //sout for testing.
+        for (String string : filledAssessment) {
+            System.out.println(string);
+        }
+        System.out.println(filledAssessment);
         
-        Set<String> missingFields = checkList.checkCollection(filedAssessment);
+        //dummy checkList
+        checkList = new CheckList();
+        
+        Set<String> missingFields = checkList.checkCollection(filledAssessment);
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        data.save(info);
+//        data.save(info);
         
         return missingFields;
     }
@@ -94,7 +108,7 @@ public class Udred {
      * @param sourceInfo
      */
     public void write(String text, String sourceInfo) {
-        Information info = cases.get(text);
+        Information info = cases.get("1"); //Hard coded case as input
         info.write(text, sourceInfo);
     }
     

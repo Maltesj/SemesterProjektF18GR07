@@ -37,6 +37,7 @@ public class CheckList {
                 missingElements.add(string);
             }
         }
+ //       if(missingElements.isEmpty())
         return missingElements;
     }
 }

@@ -5,6 +5,7 @@
  */
 package business;
 
+import acquaintance.Constants;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import java.util.Set;
 public class TestStarterMain {
     public static void main(String[] args) {
         Information info = new Information("den seje case", new CaseInformation());
-        info.write("jfhsdo", "sourceInfo");
+        info.write("jfhsdo", Constants.fieldAcademicallyAssessment);
         info.write("jfhsdo", "sourceInfo1");
         info.write("jfhsdo", "sourceInfo3");
         info.write("jfhsdo", "sourceInfo2");

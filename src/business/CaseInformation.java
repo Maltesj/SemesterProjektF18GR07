@@ -18,6 +18,7 @@ public class CaseInformation {
  public CaseInformation(){
      
  }
+ 
  public CaseInformation(HashMap<String, String> textInformation){
      this.textInformation = textInformation;
  }
