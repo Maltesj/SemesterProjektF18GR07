@@ -86,16 +86,15 @@ public class FXMLDocumentController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             
             loader.setLocation(getClass().getResource("CaseInformationGUI.fxml"));
-            
-            IController controller = loader.getController();
-            controllers.add(controller);
-            
-            Stage stage = new Stage();
+
+//            Stage stage = new Stage();
             
             try {
                 Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
                 Scene scene = new Scene(root);
-                
+
                 Tab tab = new Tab();
                 tab.setContent(root);
                 tab.setText("Case Information");
@@ -130,13 +129,12 @@ public class FXMLDocumentController implements Initializable {
             
             loader.setLocation(getClass().getResource("TestGUI.fxml"));
             
-            IController controller = loader.getController();
-            controllers.add(controller);
-            
-            Stage stage = new Stage();
+//            Stage stage = new Stage();
             
             try {
                 Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
                 Scene scene = new Scene(root);
                 
                 Tab tab = new Tab();

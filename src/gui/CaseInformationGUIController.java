@@ -119,6 +119,7 @@ public class CaseInformationGUIController implements Initializable, IController 
         for (String sourceID : info.keySet()) {
             TextArea area = informationFields.get(sourceID);
             area.setText(info.get(sourceID));
+            break;
         }
     }
 
