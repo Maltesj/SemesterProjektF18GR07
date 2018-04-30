@@ -113,4 +113,43 @@ public class FXMLDocumentController implements Initializable {
             
         }
     }
+
+    @FXML
+    private void startAssesment(ActionEvent event) {
+        
+        
+        String caseID = this.chooseCase.getValue();
+        ObservableList<String> caseIDs = this.chooseCase.getItems();
+        
+        if (caseIDs.contains(caseID)) {
+            FXMLLoader loader = new FXMLLoader();
+            
+            loader.setLocation(getClass().getResource("TestGUI.fxml"));
+            
+            IController controller = loader.getController();
+            controllers.add(controller);
+            
+            Stage stage = new Stage();
+            
+            try {
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                
+                Tab tab = new Tab();
+                tab.setContent(root);
+                
+                this.topTab.getTabs().add(tab);
+                
+//                stage.setScene(scene);
+//                stage.show();
+                
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            System.out.println("No such case exists");
+            
+        }
+    }
 }

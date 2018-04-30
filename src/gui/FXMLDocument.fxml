@@ -24,7 +24,8 @@
               </rowConstraints>
                <children>
                   <ComboBox fx:id="chooseCase" onAction="#onaction" prefWidth="150.0" promptText="Case IDs" />
-                  <Button mnemonicParsing="false" onAction="#showCaseInformationtEventHandler" text="Start Assessment" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#startAssesment" text="Start Assessment" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#showCaseInformationtEventHandler" text="Show case information" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </content>
