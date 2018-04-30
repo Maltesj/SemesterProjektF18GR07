@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package scaryExperimentalShit;
+package acquaintance;
 
 /**
  *
- * @author HCHB
+ * @author malte
  */
-public interface Controller {
+public interface IInformation {
     
 }

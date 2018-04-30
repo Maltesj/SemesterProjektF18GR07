@@ -35,6 +35,5 @@ public class CaseInformation implements Serializable, ICaseInformation {
      */
     HashMap<String, String> getInformation(){
         return textInformation;
-    }
-    
+    }    
 }

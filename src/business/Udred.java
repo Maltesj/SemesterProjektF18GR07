@@ -48,9 +48,15 @@ public class Udred {
     boolean startAssessment(String caseID, String caseWorkerID) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
+        this.cases = new HashMap<String, Information>();
+        
+        //test data initializering:
+        HashMap testInfo = new HashMap<String,String>();
+        testInfo.put("hello", "World");
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
+        //CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
         CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
@@ -69,7 +75,7 @@ public class Udred {
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
         
-        data.save(cases.get(currentCaseID));
+        data.save(cases.get(currentCaseID), currentCaseID);
         
         if (currentCaseID == null) {
             return false;
@@ -83,13 +89,21 @@ public class Udred {
      */
     Set<String> done() {
         Information info = cases.get(currentCaseID);
-        Set<String> filedAssessment = info.getFilledAssessmentFields();
+        Set<String> filledAssessment = info.getFilledAssessmentFields();
+        //sout for testing.
+        for (String string : filledAssessment) {
+            System.out.println(string);
+        }
+        System.out.println(filledAssessment);
         
-        Set<String> missingFields = checkList.checkCollection(filedAssessment);
+        //dummy checkList
+        checkList = new CheckList();
+        
+        Set<String> missingFields = checkList.checkCollection(filledAssessment);
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        data.save(info);
+//        data.save(info);
         
         return missingFields;
     }
@@ -99,8 +113,8 @@ public class Udred {
      * @param text
      * @param sourceInfo
      */
-    void write(String text, String sourceInfo) {
-        Information info = cases.get(text);
+    public void write(String text, String sourceInfo) {
+        Information info = cases.get("1"); //Hard coded case as input
         info.write(text, sourceInfo);
     }
     

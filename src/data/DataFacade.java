@@ -19,6 +19,7 @@ public class DataFacade implements IDataFacade{
     
     private static DataFacade instance;
     private CaseInfoLoader caseInfoLoader;
+    private SaveInformation si;
     
     public static DataFacade getInstance(){
         if (instance == null) {
@@ -39,13 +40,13 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public void save(Information info) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save(Information info, String caseID) {
+        si.saveInformation(info, caseID);
     }
 
     @Override
     public Set<String> getCaseIDs() {
         return caseInfoLoader.getCaseIDs();
     }
-    
+
 }

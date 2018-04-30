@@ -17,7 +17,6 @@ import java.util.Set;
  *
  * @author michael og malte
  */
-
 public class AssessmentInformation implements Serializable {
     private HashMap<String, String> textInformation;
     
@@ -40,7 +39,7 @@ public class AssessmentInformation implements Serializable {
      */
     public void write(String text, String sourceInfo){
         textInformation.put(sourceInfo, text);
-        if (text == null||text == ""){
+        if (text.equals("")||text.equals(null)){
             textInformation.remove(sourceInfo);
         }
     }
