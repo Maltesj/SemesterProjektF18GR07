@@ -24,7 +24,7 @@ public class SaveInformation {
     
     
      public void saveInformation(IInformation info, String caseID) {
-        try(ObjectOutputStream fileObjectOut = new ObjectOutputStream(new FileOutputStream("assets\\" + caseID +".vigtigInfo" ))){
+        try(ObjectOutputStream fileObjectOut = new ObjectOutputStream(new FileOutputStream("assets\\" + caseID +".heltSikkertIkkePorno" ))){
              
             
             fileObjectOut.writeObject(info);
