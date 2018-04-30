@@ -36,7 +36,7 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public ICaseInformation getcCasenfo(String caseID) {
+    public ICaseInformation getCaseInfo(String caseID) {
         return caseInfoLoader.getCaseInfo(caseID);
     }
 
