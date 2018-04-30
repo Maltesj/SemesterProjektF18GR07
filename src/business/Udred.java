@@ -56,8 +56,8 @@ public class Udred {
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-        //CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
-        CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
+        CaseInformation Cinfo = new CaseInformation(testInfo);//(CaseInformation) data.getInfo();
+        //CaseInformation Cinfo = (CaseInformation) data.getcCasenfo(this.currentCaseID);
         
         Information info = new Information(caseID, Cinfo);
         cases.put(caseID, info);
@@ -96,14 +96,12 @@ public class Udred {
         }
         System.out.println(filledAssessment);
         
-        //dummy checkList
-        checkList = new CheckList();
         
         Set<String> missingFields = checkList.checkCollection(filledAssessment);
         
         BusinessFacade business = BusinessFacade.getInstance();
         IDataFacade data = business.getDataFacade();
-//        data.save(info);
+        //data.save(info, this.currentCaseID);
         
         return missingFields;
     }
