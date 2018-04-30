@@ -102,7 +102,7 @@ public class Udred {
      * @param text
      * @param sourceInfo
      */
-    public void write(String text, String sourceInfo) {
+    void write(String text, String sourceInfo) {
         Information info = cases.get(currentCaseID); //Hard coded case as input
         info.write(text, sourceInfo);
     }
@@ -116,6 +116,16 @@ public class Udred {
         Map<String, String> caseinfo = info.getCaseInformation();
         
         return caseinfo;
+    }
+    
+    Set<String> checkAssessmentFields(){
+        Information info = this.cases.get(this.currentCaseID);
+        
+        Set<String> filledFields = info.getFilledAssessmentFields();
+        
+        Set<String> missingFields = this.checkList.checkCollection(filledFields);
+        
+        return missingFields;
     }
     
 }
