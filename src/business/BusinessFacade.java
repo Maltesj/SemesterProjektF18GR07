@@ -127,5 +127,11 @@ public class BusinessFacade implements IBusinessFacade {
         Set<String> returnValue = this.dataFacade.getCaseIDs();
         return returnValue;
     }
+
+    @Override
+    public Set<String> checkAssessmentFields() {
+        return this.udred.checkAssessmentFields();
+        
+    }
     
 }

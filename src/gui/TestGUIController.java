@@ -46,7 +46,8 @@ public class TestGUIController implements Initializable {
     
     @FXML
     private void checkEvent(ActionEvent event) {
-        
+        Set<String> obligatoryFields = BusinessFacade.getInstance().checkAssessmentFields();
+        checkText.setText(obligatoryFields.toString());
     }
     
     @FXML

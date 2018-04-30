@@ -54,4 +54,8 @@ public class GUIFacade implements IGUIFacade {
     public void startApplication(String[] args) {
         guiStarter.main(args);
     }
+    
+    Set<String> checkAssessment(){
+        return this.businessFacade.checkAssessmentFields();
+    }
 }
