@@ -15,11 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<<<<<<< HEAD
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1160.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CaseInformationGUIController">
-=======
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CaseInformationGUIController">
->>>>>>> 1ea000eab24f662716d79851488fbb76c0abc202
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefHeight="1160.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CaseInformationGUIController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="100.0" prefWidth="200.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="2000.0" minWidth="10.0" prefWidth="820.0" />
@@ -54,12 +50,8 @@
                   <Text fx:id="fysiskFunktion" fill="#ebe7e7" layoutX="329.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Døvblindhed, Hørenedsættelse, kommunikationsnedsættelse, mobilitetsnedsættelse og synsnedsættelse" visible="false" wrappingWidth="423.13671875">
                      <font>
                         <Font size="13.0" />
-<<<<<<< HEAD
-                     </font></Text>
-=======
                      </font>
                   </Text>
->>>>>>> 1ea000eab24f662716d79851488fbb76c0abc202
                   <Text fill="WHITE" layoutX="15.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oplysninger fra borgeren" wrappingWidth="242.353515625">
                      <font>
                         <Font size="16.0" />
@@ -216,18 +208,6 @@
                   </Text>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="537.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="174.0" />
-<<<<<<< HEAD
-                  <TextArea fx:id="psyisk_borger_oplysning" layoutX="272.0" layoutY="437.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="pyskisk_oplysning_borger" layoutX="272.0" layoutY="519.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="psykisk_sagsbehandling_bemaerk" layoutX="268.0" layoutY="604.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea layoutX="274.0" layoutY="821.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="Socialt_behandlers_bemaerk" layoutX="274.0" layoutY="988.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="Socialt_oplysning_andre" layoutX="274.0" layoutY="904.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="Socialt_oplysning_borger" layoutX="272.0" layoutY="820.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="socialt_funktions_tal" layoutX="278.0" layoutY="1077.0" maxHeight="1024.0" opacity="0.0" prefHeight="47.0" prefWidth="162.0" />
-                  <TextArea fx:id="psykisk_funtkions_tekst" layoutX="452.0" layoutY="692.0" maxHeight="1024.0" opacity="0.0" prefHeight="54.0" prefWidth="350.0" />
-                  <TextArea fx:id="socialt_funktions_tekst" layoutX="445.0" layoutY="1077.0" maxHeight="1024.0" opacity="0.0" prefHeight="45.0" prefWidth="356.0" />
-=======
                   <TextArea fx:id="Fysisk_oplysning_andre" layoutX="272.0" layoutY="135.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="fysisk_sagsbehandlers_bemaerk" layoutX="272.0" layoutY="219.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="psyisk_borger_oplysning" layoutX="272.0" layoutY="437.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
@@ -242,21 +222,12 @@
                   <TextArea fx:id="Fysisk_funktions_tekst" layoutX="452.0" layoutY="309.0" maxHeight="1024.0" opacity="1" prefHeight="54.0" prefWidth="350.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="psykisk_funtkions_tekst" layoutX="452.0" layoutY="692.0" maxHeight="1024.0" opacity="1.0" prefHeight="54.0" prefWidth="350.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="socialt_funktions_tekst" layoutX="445.0" layoutY="1077.0" maxHeight="1024.0" opacity="1.0" prefHeight="45.0" prefWidth="356.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
->>>>>>> 1ea000eab24f662716d79851488fbb76c0abc202
                   <Text fx:id="SocialtproblemFXID" layoutX="312.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sindslidelse som angst, depression, forandret virkelighedsopfattelse, spiseforstyrrelse, personlighedsforstyrelse" visible="false" wrappingWidth="428.13671875">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Text>
-<<<<<<< HEAD
-                  <TextArea fx:id="Fysisk_borger_oplysning" layoutX="274.0" layoutY="58.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="Fysisk_oplysning_andre" layoutX="272.0" layoutY="135.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" />
-                  <TextArea fx:id="Fysisk_funktions_tal" layoutX="276.0" layoutY="309.0" maxHeight="1024.0" opacity="0.0" prefHeight="54.0" prefWidth="167.0" />
-                  <TextArea fx:id="Fysisk_funktions_tekst" layoutX="452.0" layoutY="309.0" maxHeight="1024.0" opacity="0.0" prefHeight="54.0" prefWidth="350.0" />
-                  <TextArea fx:id="fysisk_sagsbehandlers_bemaerk" layoutX="272.0" layoutY="219.0" maxHeight="1024.0" prefHeight="81.0" prefWidth="529.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
-=======
                   <TextArea fx:id="Fysisk_borger_oplysning" layoutX="274.0" layoutY="58.0" maxHeight="1024.0" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
->>>>>>> 1ea000eab24f662716d79851488fbb76c0abc202
                </children>
             </AnchorPane>
         </content>
