@@ -88,6 +88,11 @@ public class CaseInformationGUIController implements Initializable, IController 
     private Text fysiskfunktionFXID11;
     
     private Map<String, TextArea> informationFields;
+    @FXML
+    private Text SocialtproblemFXID;
+    private TextArea testText;
+    @FXML
+    private TextArea testTexr;
 
     /**
      * Initializes the controller class.
@@ -108,7 +113,10 @@ public class CaseInformationGUIController implements Initializable, IController 
         informationFields.put(ConstantsEnum.SOCIALPROBLEM2.toString(), Socialt_oplysning_andre);
         informationFields.put(ConstantsEnum.SOCIALPROBLEM3.toString(), Socialt_behandlers_bemaerk);
         informationFields.put(ConstantsEnum.SOCIALPROBLEM4.toString(), socialt_funktions_tekst);
-      
+        this.Fysisk_funktions_tal.setText("Initialise");
+        this.Fysisk_funktions_tal.appendText("Initialise");
+        this.Fysisk_funktions_tal.textProperty().setValue("Initfrereialise");
+        this.testTexr.setText("test2");
         
     }
 
@@ -116,10 +124,17 @@ public class CaseInformationGUIController implements Initializable, IController 
         
         Map<String, String> info = GUIFacade.getInstance().getCaseInformation(caseID);
         
+        this.Fysisk_borger_oplysning.setText("gege");
+        this.Fysisk_borger_oplysning.appendText("gege");
+        this.Fysisk_oplysning_andre.textProperty().setValue("dede");
+        this.testTexr.setText("test1");
+        
         for (String sourceID : info.keySet()) {
             TextArea area = informationFields.get(sourceID);
             area.setText(info.get(sourceID));
-            break;
+            System.out.println(area.getText());
+
+
         }
     }
 

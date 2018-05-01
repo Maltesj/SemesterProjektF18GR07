@@ -57,13 +57,7 @@ public enum ConstantsEnum {
     SORROUNDINGS3("Sorroundings3"),
     SORROUNDINGS4("Sorroundings4"),
     TOTALASSESMENT("TotalAssesment"),
-    CASEINFOCONCLUSSION("CaseInfoConclussion"),
-    PROFFESSIONALASSESSMENT1("ProffesionalAssessment1"),
-    PROFFESSIONALASSESSMENT2("ProffesionalAssessment2"),
-    WORKPURPOSE("WorkPurpose"),
-    WORKGOAL("WorkGoal"),
-    PRIMARYWORK("PrimaryWork"),
-    ALTWORK("AltWork");
+    CASEINFOCONCLUSSION("CaseInfoConclussion");
     
     
     private String sourceID;

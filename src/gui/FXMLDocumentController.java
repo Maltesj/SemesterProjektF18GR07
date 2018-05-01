@@ -129,8 +129,6 @@ public class FXMLDocumentController implements Initializable {
             
             loader.setLocation(getClass().getResource("TestGUI.fxml"));
             
-//            Stage stage = new Stage();
-            
             try {
                 Parent root = loader.load();
                 IController controller = loader.getController();
@@ -141,8 +139,9 @@ public class FXMLDocumentController implements Initializable {
                 tab.setContent(root);
                 tab.setText("Assessment");
                 
-                this.topTab.getTabs().add(tab);
-                
+                this.topTab.getTabs().add(tab);        
+                GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
+
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }

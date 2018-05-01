@@ -5,9 +5,11 @@
 */
 package gui;
 
+import acquaintance.AssessmentEnum;
 import acquaintance.IController;
-import business.BusinessFacade;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 import javafx.event.ActionEvent;
@@ -38,6 +40,8 @@ public class TestGUIController implements Initializable, IController {
     private CheckMenuItem tableOfContentMenuItem;
     @FXML
     private GridPane BackgroundGrid;
+    
+    private HashMap<String, String> informationFields;
 
     /**
      * Initializes the controller class.
@@ -46,25 +50,29 @@ public class TestGUIController implements Initializable, IController {
     public void initialize(URL url, ResourceBundle rb) {
         dokumentScroller.setVvalue(0);
         checkText.setText("");
-        BusinessFacade.getInstance().startAssessment("DummyCase1", "blah");
+        
+        this.informationFields = new HashMap<>();
+        
+        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), "textAreaAcademicallyAssessment");
+        
     }
     
     @FXML
     private void checkEvent(ActionEvent event) {
-        Set<String> obligatoryFields = BusinessFacade.getInstance().checkAssessmentFields();
+        Set<String> obligatoryFields = GUIFacade.getInstance().checkAssessment();
         checkText.setText(obligatoryFields.toString());
     }
     
     @FXML
     private void afslutEvent(ActionEvent event) {
-        Set<String> obligatoryFields = BusinessFacade.getInstance().done();
+        Set<String> obligatoryFields = GUIFacade.getInstance().done();
         
         checkText.setText(obligatoryFields.toString());
     }
     
     @FXML
     private void SaveAction(ActionEvent event) {
-        BusinessFacade.getInstance().save();
+        GUIFacade.getInstance().save();
     }
 
     @FXML
@@ -72,8 +80,16 @@ public class TestGUIController implements Initializable, IController {
         TextArea area = (TextArea)(event.getSource());
         
         String textArea = area.getId();
+        String sourceID = null;
         
-        BusinessFacade.getInstance().write(textAreaAcademicallyAssessment.getText(), textArea);
+        // get the enum value corresponding to the FXID 
+        for (Map.Entry<String, String> entry : this.informationFields.entrySet()) {
+            if (entry.getValue().equals(textArea)) {
+                sourceID = entry.getKey();
+            }
+        }
+        
+        GUIFacade.getInstance().write(area.getText(), sourceID);
     }
 
     @FXML
