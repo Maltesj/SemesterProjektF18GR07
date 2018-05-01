@@ -90,6 +90,7 @@ public class CaseInformationGUIController implements Initializable, IController 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
 
     @FXML
