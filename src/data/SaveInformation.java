@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.Constants;
 import acquaintance.IInformation;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,7 +25,7 @@ public class SaveInformation {
     
     
      public void saveInformation(IInformation info, String caseID) {
-        try(ObjectOutputStream fileObjectOut = new ObjectOutputStream(new FileOutputStream("assets\\" + caseID +".heltSikkertIkkePorno" ))){
+        try(ObjectOutputStream fileObjectOut = new ObjectOutputStream(new FileOutputStream("assets\\" + caseID + Constants.fileType ))){
              
             
             fileObjectOut.writeObject(info);
