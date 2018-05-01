@@ -166,5 +166,5 @@ public class CaseInformationGUIController implements Initializable, IController 
     @FXML
     private void ShowFunktions(MouseEvent event) {
     }
-    
+  
 }

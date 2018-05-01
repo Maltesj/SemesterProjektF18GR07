@@ -3,5 +3,12 @@
  */
 
 .mainFxmlClass {
-
+fysisk_sagsbehandlers_bemaerk {
+        border-style: none;
+        border-color: Transparent;
+        background-color: Transparent;
+        overflow: auto;
+        outline: none;
+        border-radius: 0;
+      }
 }
