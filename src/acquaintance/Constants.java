@@ -17,5 +17,8 @@ public abstract class Constants {
     public static String fieldAcademicallyAssessment = "academically assessment";
     public static Set<String> fieldNames;
     
+    //save and load file type
+    public static String fileType = ".heltSikkertIkkePorno";
+    
     private Constants(){}
 }
