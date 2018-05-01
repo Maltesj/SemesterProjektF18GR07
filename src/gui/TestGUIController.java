@@ -41,7 +41,7 @@ public class TestGUIController implements Initializable, IController {
     @FXML
     private GridPane BackgroundGrid;
     
-    private HashMap<String, String> informationFields;
+    private HashMap<String, TextArea> informationFields;
 
     /**
      * Initializes the controller class.
@@ -53,7 +53,7 @@ public class TestGUIController implements Initializable, IController {
         
         this.informationFields = new HashMap<>();
         
-        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), "textAreaAcademicallyAssessment");
+        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), textAreaAcademicallyAssessment);
         
     }
     
@@ -83,8 +83,8 @@ public class TestGUIController implements Initializable, IController {
         String sourceID = null;
         
         // get the enum value corresponding to the FXID 
-        for (Map.Entry<String, String> entry : this.informationFields.entrySet()) {
-            if (entry.getValue().equals(textArea)) {
+        for (Map.Entry<String, TextArea> entry : this.informationFields.entrySet()) {
+            if (entry.getValue().equals(area)) {
                 sourceID = entry.getKey();
             }
         }
