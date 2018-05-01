@@ -86,21 +86,23 @@ public class FXMLDocumentController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             
             loader.setLocation(getClass().getResource("CaseInformationGUI.fxml"));
-            
-            IController controller = loader.getController();
-            controllers.add(controller);
-            
-            Stage stage = new Stage();
+
+//            Stage stage = new Stage();
             
             try {
                 Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
                 Scene scene = new Scene(root);
-                
+
                 Tab tab = new Tab();
                 tab.setContent(root);
                 tab.setText("Case Information");
                 
                 this.topTab.getTabs().add(tab);
+                
+                CaseInformationGUIController control = (CaseInformationGUIController)controller;
+                control.loadInformation(caseID);
                 
 //                stage.setScene(scene);
 //                stage.show();
@@ -127,13 +129,12 @@ public class FXMLDocumentController implements Initializable {
             
             loader.setLocation(getClass().getResource("TestGUI.fxml"));
             
-            IController controller = loader.getController();
-            controllers.add(controller);
-            
-            Stage stage = new Stage();
+//            Stage stage = new Stage();
             
             try {
                 Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
                 Scene scene = new Scene(root);
                 
                 Tab tab = new Tab();
@@ -141,9 +142,6 @@ public class FXMLDocumentController implements Initializable {
                 tab.setText("Assessment");
                 
                 this.topTab.getTabs().add(tab);
-                
-//                stage.setScene(scene);
-//                stage.show();
                 
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);

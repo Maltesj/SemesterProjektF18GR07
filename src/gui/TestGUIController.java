@@ -5,8 +5,7 @@
 */
 package gui;
 
-import acquaintance.Constants;
-import acquaintance.ConstantsEnum;
+import acquaintance.IController;
 import business.BusinessFacade;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +26,7 @@ import javafx.scene.text.Text;
  *
  * @author Kasper
  */
-public class TestGUIController implements Initializable {
+public class TestGUIController implements Initializable, IController {
     
     @FXML
     private ScrollPane dokumentScroller;

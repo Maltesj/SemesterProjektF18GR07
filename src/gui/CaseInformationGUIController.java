@@ -5,8 +5,11 @@
  */
 package gui;
 
+import acquaintance.ConstantsEnum;
 import acquaintance.IController;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -83,6 +86,8 @@ public class CaseInformationGUIController implements Initializable, IController 
     private Text fysiskfunktionFXID1;
     @FXML
     private Text fysiskfunktionFXID11;
+    
+    private Map<String, TextArea> informationFields;
 
     /**
      * Initializes the controller class.
@@ -90,8 +95,33 @@ public class CaseInformationGUIController implements Initializable, IController 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        informationFields = new HashMap<>();
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Socialt_oplysning_andre);
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
+        informationFields.put(ConstantsEnum.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
+        informationFields.put(ConstantsEnum.PSYCICPROBLEM2.toString(), pyskisk_oplysning_borger);
+        informationFields.put(ConstantsEnum.PSYCICPROBLEM3.toString(), psykisk_sagsbehandling_bemaerk);
+        informationFields.put(ConstantsEnum.PSYCICPROBLEM4.toString(), psykisk_funtkions_tekst);
+        informationFields.put(ConstantsEnum.SOCIALPROBLEM1.toString(), Socialt_oplysning_borger);
+        informationFields.put(ConstantsEnum.SOCIALPROBLEM2.toString(), Socialt_oplysning_andre);
+        informationFields.put(ConstantsEnum.SOCIALPROBLEM3.toString(), Socialt_behandlers_bemaerk);
+        informationFields.put(ConstantsEnum.SOCIALPROBLEM4.toString(), socialt_funktions_tekst);
+      
         
-    }    
+    }
+
+    void loadInformation(String caseID){
+        
+        Map<String, String> info = GUIFacade.getInstance().getCaseInformation(caseID);
+        
+        for (String sourceID : info.keySet()) {
+            TextArea area = informationFields.get(sourceID);
+            area.setText(info.get(sourceID));
+            break;
+        }
+    }
 
     @FXML
     private void showExample(MouseEvent event) {
