@@ -5,8 +5,11 @@
 */
 package business;
 
+import acquaintance.AssessmentEnum;
 import acquaintance.ConstantsEnum;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -15,17 +18,19 @@ import java.util.Set;
  */
 public class CheckList {
     
-    private Set<String> checkList;
+    Map<String, Set<String>> checklists;
     
     /**
      * Constructs a new, empty check list.
      */
     public CheckList() {
-        checkList = new HashSet<String>();
-        ConstantsEnum.values();
-        for (ConstantsEnum value : ConstantsEnum.values()) {
-            checkList.add(value.toString());
+        checklists = new HashMap<>();
+                
+        Set<String> checklist = new HashSet<String>();
+        for (AssessmentEnum value : AssessmentEnum.values()) {
+            checklist.add(value.toString());
         }
+        checklists.put("assessment", checklist);
     }
     
     /**
@@ -34,9 +39,12 @@ public class CheckList {
      * @param info - filled fields
      * @return missingElements - Required fields which hasn't been filled.
      */
-    public Set<String> checkCollection(Set<String> info){
+    public Set<String> checkCollection(Set<String> info, String phase){
+        
+        Set<String> checklist = checklists.get(phase);
+        
         Set<String> missingElements = new HashSet<String>();
-        for (String string : checkList) {
+        for (String string : checklist) {
             if(!info.contains(string)){
                 missingElements.add(string);
             }

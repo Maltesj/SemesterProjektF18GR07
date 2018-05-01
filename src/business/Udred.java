@@ -91,7 +91,7 @@ public class Udred {
             System.out.println(string);
         }
         System.out.println(filledAssessment);
-        Set<String> missingFields = checkList.checkCollection(filledAssessment);
+        Set<String> missingFields = checkList.checkCollection(filledAssessment, "assessment");
         save();
         
         return missingFields;
@@ -123,7 +123,7 @@ public class Udred {
         
         Set<String> filledFields = info.getFilledAssessmentFields();
         
-        Set<String> missingFields = this.checkList.checkCollection(filledFields);
+        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
         
         return missingFields;
     }

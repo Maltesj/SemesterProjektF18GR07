@@ -63,4 +63,17 @@ public class GUIFacade implements IGUIFacade {
     Map<String, String> getCaseInformation(String caseID){
         return this.businessFacade.getCaseInformation(caseID);
     }
+    
+    Set<String> done(){
+        return this.businessFacade.done();
+    }
+    
+    void write(String text, String sourceInfo){
+        this.businessFacade.write(text, sourceInfo);
+    }
+    
+    boolean save(){
+        return this.businessFacade.save();
+    }
+    
 }
