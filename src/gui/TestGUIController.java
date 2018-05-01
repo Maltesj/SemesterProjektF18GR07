@@ -73,7 +73,9 @@ public class TestGUIController implements Initializable, IController {
         
         String textArea = area.getId();
         
-        BusinessFacade.getInstance().write(textAreaAcademicallyAssessment.getText(), textArea);
+        // get the enum value corresponding to the FXID 
+        
+        BusinessFacade.getInstance().write(area.getText(), textArea);
     }
 
     @FXML
