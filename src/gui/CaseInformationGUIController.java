@@ -116,7 +116,7 @@ public class CaseInformationGUIController implements Initializable, IController 
         this.Fysisk_funktions_tal.setText("Initialise");
         this.Fysisk_funktions_tal.appendText("Initialise");
         this.Fysisk_funktions_tal.textProperty().setValue("Initfrereialise");
-        this.testTexr.setText("test2");
+        //this.testTexr.setText("test2");
         
     }
 
@@ -127,7 +127,7 @@ public class CaseInformationGUIController implements Initializable, IController 
         this.Fysisk_borger_oplysning.setText("gege");
         this.Fysisk_borger_oplysning.appendText("gege");
         this.Fysisk_oplysning_andre.textProperty().setValue("dede");
-        this.testTexr.setText("test1");
+        //this.testTexr.setText("test1");
         
         for (String sourceID : info.keySet()) {
             TextArea area = informationFields.get(sourceID);
