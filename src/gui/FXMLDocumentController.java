@@ -22,9 +22,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -97,7 +99,8 @@ public class FXMLDocumentController implements Initializable {
 
                 Tab tab = new Tab();
                 tab.setContent(root);
-                tab.setText("Case Information");
+                tab.setText("Sagsoplysning");
+                tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 
                 this.topTab.getTabs().add(tab);
                 
@@ -137,7 +140,8 @@ public class FXMLDocumentController implements Initializable {
                 
                 Tab tab = new Tab();
                 tab.setContent(root);
-                tab.setText("Assessment");
+                tab.setText("Sagsvurdering");
+                tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 
                 this.topTab.getTabs().add(tab);        
                 GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
@@ -150,5 +154,27 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("No such case exists");
             
         }
+    }
+
+    @FXML
+    private void mouseoverblah(MouseEvent event) {
+        if (this.chooseCase.getValue() == null) {
+            
+        Button b = (Button)event.getSource();
+        b.setStyle("-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;-fx-border-width: 3;");
+        
+        }
+        else {
+            Button b = (Button)event.getSource();
+            b.setStyle("-fx-background-color: #4688f4; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
+    
+        }
+        
+    }
+
+    @FXML
+    private void mouseoutblah(MouseEvent event) {
+        Button b = (Button)event.getSource();
+        b.setStyle("-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
     }
 }

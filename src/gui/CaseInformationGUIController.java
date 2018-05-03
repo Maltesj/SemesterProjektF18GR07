@@ -83,8 +83,6 @@ public class CaseInformationGUIController implements Initializable, IController 
     @FXML
     private TextArea socialt_funktions_tekst;
     @FXML
-    private Text fysiskfunktionFXID1;
-    @FXML
     private Text fysiskfunktionFXID11;
     
     private Map<String, TextArea> informationFields;
@@ -92,7 +90,9 @@ public class CaseInformationGUIController implements Initializable, IController 
     private Text SocialtproblemFXID;
     private TextArea testText;
     @FXML
-    private TextArea testTexr;
+    private Text socialFunktionFXID1;
+    @FXML
+    private Text SocialtFXID1;
 
     /**
      * Initializes the controller class.
@@ -102,7 +102,7 @@ public class CaseInformationGUIController implements Initializable, IController 
         // TODO
         informationFields = new HashMap<>();
         informationFields.put(ConstantsEnum.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Socialt_oplysning_andre);
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Fysisk_oplysning_andre);
         informationFields.put(ConstantsEnum.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
         informationFields.put(ConstantsEnum.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
         informationFields.put(ConstantsEnum.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
@@ -124,9 +124,9 @@ public class CaseInformationGUIController implements Initializable, IController 
         
         Map<String, String> info = GUIFacade.getInstance().getCaseInformation(caseID);
         
-        this.Fysisk_borger_oplysning.setText("gege");
-        this.Fysisk_borger_oplysning.appendText("gege");
-        this.Fysisk_oplysning_andre.textProperty().setValue("dede");
+//        this.Fysisk_borger_oplysning.setText("gege");
+//        this.Fysisk_borger_oplysning.appendText("gege");
+//        this.Fysisk_oplysning_andre.textProperty().setValue("dede");
         //this.testTexr.setText("test1");
         
         for (String sourceID : info.keySet()) {
@@ -180,6 +180,18 @@ public class CaseInformationGUIController implements Initializable, IController 
 
     @FXML
     private void ShowFunktions(MouseEvent event) {
+        ScrollpaneIndholdfortegnelse.setVvalue(1);
+    }
+
+    @FXML
+    private void HideExampleSocial(MouseEvent event) {
+        socialFunktionFXID1.setVisible(false);
+    }
+    
+
+    @FXML
+    private void showExampleSocial(MouseEvent event) {
+           socialFunktionFXID1.setVisible(true);
     }
   
 }

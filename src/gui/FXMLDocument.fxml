@@ -2,35 +2,58 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:id="topTab" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
+<TabPane fx:id="topTab" style="-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
    <tabs>
-      <Tab closable="false" text="Main menu">
+      <Tab closable="false" text="Startside">
          <content>
-            <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #e4f0d4;">
+            <AnchorPane prefHeight="651.0" prefWidth="1024.0" style="-fx-background-color: #e4f0d4;">
                <children>
-                  <ImageView fitHeight="757.0" fitWidth="1015.0" layoutX="10.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                  <Rectangle fx:id="rectstart" arcHeight="50" arcWidth="50" fill="#9ae2fc" height="516.0" layoutX="36.0" layoutY="56.0" nodeOrientation="RIGHT_TO_LEFT" stroke="WHITE" strokeType="INSIDE" width="201.0">
+                     <effect>
+                        <InnerShadow blurType="ONE_PASS_BOX" height="47.45" radius="21.7425" width="41.52" />
+                     </effect></Rectangle>
+                  <ImageView fitHeight="492.0" fitWidth="681.0" layoutX="256.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@sensum.png" />
                      </image>
                   </ImageView>
-                  <ComboBox fx:id="chooseCase" layoutX="446.0" layoutY="40.0" onAction="#onaction" prefWidth="150.0" promptText="Case IDs" style="-fx-border-color: black; -fx-background-color: 77c6e5;" />
-                  <Button layoutX="44.0" layoutY="94.0" mnemonicParsing="false" onAction="#startAssesment" prefHeight="42.0" prefWidth="170.0" style="-fx-background-color: #a0d3e5; -fx-border-color: #ff8f33; -fx-background-radius: 7; -fx-border-radius: 5; -fx-border-width: 3;" text="Start sagsvurdering">
+                  <ComboBox fx:id="chooseCase" accessibleRole="CHECK_MENU_ITEM" layoutX="49.0" layoutY="105.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#onaction" prefHeight="41.0" prefWidth="177.0" promptText="Sags ID" style="-fx-background-color: #89dd52; -fx-background-radius: 5; -fx-border-radius: 5; -fx-font: 100px Calibri; -fx-font-size: 18.0;">
+                     <effect>
+                        <InnerShadow color="#ff8f33" height="28.92" radius="7.4725" width="2.97" />
+                     </effect></ComboBox>
+                  <Button fx:id="StartAss" layoutX="47.0" layoutY="287.0" mnemonicParsing="false" onAction="#startAssesment" prefHeight="39.0" prefWidth="180.0" style="-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5; -fx-border-width: 1;" text="Start sagsvurdering" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="18.0" />
-                     </font></Button>
-                  <Button layoutX="44.0" layoutY="153.0" mnemonicParsing="false" onAction="#showCaseInformationtEventHandler" prefHeight="42.0" prefWidth="170.0" style="-fx-background-color: #a0d3e5; -fx-border-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" text="Vis sagsoplysning">
+                     </font>
+                     <effect>
+                        <InnerShadow blurType="ONE_PASS_BOX" choke="0.02" color="#ff8f33" height="26.19" radius="8.3325" width="9.14" />
+                     </effect></Button>
+                  <Button fx:id="ShowInfoButton" layoutX="47.0" layoutY="233.0" mnemonicParsing="false" onAction="#showCaseInformationtEventHandler" onMouseEntered="#mouseoverblah" onMouseExited="#mouseoutblah" prefHeight="39.0" prefWidth="180.0" style="-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;" text="Vis sagsoplysning" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="18.0" />
-                     </font></Button>
-                  <ListView layoutX="22.0" layoutY="293.0" prefHeight="187.0" prefWidth="110.0" style="-fx-background-color: 77c6e5;" />
+                     </font>
+                     <effect>
+                        <InnerShadow blurType="ONE_PASS_BOX" choke="0.43" color="#ff8f33" height="15.76" radius="6.404999999999999" width="11.86" />
+                     </effect></Button>
+                  <Button layoutX="874.0" layoutY="516.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="107.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5; -fx-border-width: 1;" text="Hjælp">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="869.0" layoutY="383.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="117.0" style="-fx-background-color: #a0d3e5; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5; -fx-border-width: 1;" text="Indstillinger">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </content>
