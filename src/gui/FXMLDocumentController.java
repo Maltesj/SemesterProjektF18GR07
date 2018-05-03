@@ -158,14 +158,23 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void mouseoverblah(MouseEvent event) {
+        if (this.chooseCase.getValue() == null) {
+            
         Button b = (Button)event.getSource();
         b.setStyle("-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;-fx-border-width: 3;");
+        
+        }
+        else {
+            Button b = (Button)event.getSource();
+            b.setStyle("-fx-background-color: #4688f4; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
+    
+        }
         
     }
 
     @FXML
     private void mouseoutblah(MouseEvent event) {
         Button b = (Button)event.getSource();
-        b.setStyle("-fx-background-color: #4688f4; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
+        b.setStyle("-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
     }
 }
