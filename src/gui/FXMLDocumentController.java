@@ -159,7 +159,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void mouseoverblah(MouseEvent event) {
         Button b = (Button)event.getSource();
-        b.setStyle("-fx-background-color: red; -fx-border-color: ; -fx-background-radius: 7; -fx-border-radius: 5;-fx-border-width: 3;");
+        b.setStyle("-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;-fx-border-width: 3;");
         
     }
 
