@@ -102,7 +102,7 @@ public class CaseInformationGUIController implements Initializable, IController 
         // TODO
         informationFields = new HashMap<>();
         informationFields.put(ConstantsEnum.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Socialt_oplysning_andre);
+        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Fysisk_oplysning_andre);
         informationFields.put(ConstantsEnum.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
         informationFields.put(ConstantsEnum.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
         informationFields.put(ConstantsEnum.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
