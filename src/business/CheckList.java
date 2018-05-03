@@ -36,7 +36,8 @@ public class CheckList {
     /**
      * Checks if the specified element contains all the required elements for an assessment.
      *
-     * @param info - filled fields
+     * @param info - filled fields in a particular phase
+     * @param phase - The phase to be checked
      * @return missingElements - Required fields which hasn't been filled.
      */
     public Set<String> checkCollection(Set<String> info, String phase){
@@ -49,7 +50,7 @@ public class CheckList {
                 missingElements.add(string);
             }
         }
- //       if(missingElements.isEmpty())
+
         return missingElements;
     }
 }
