@@ -46,10 +46,10 @@ public class Udred {
      * @return Returns true if there was case information in the database
      */
     boolean startAssessment(String caseID, String caseWorkerID) {
+        this.currentCaseID = caseID;
+        this.currentCaseWorkerID = caseWorkerID;
+        
         if (!this.cases.containsKey(caseID)) {
-            this.currentCaseID = caseID;
-            this.currentCaseWorkerID = caseWorkerID;
-            
             BusinessFacade business = BusinessFacade.getInstance();
             IDataFacade data = business.getDataFacade();
             
@@ -64,7 +64,6 @@ public class Udred {
             return true;
         }
         else {
-            this.currentCaseWorkerID = caseWorkerID;
             return false;
         }
     }
