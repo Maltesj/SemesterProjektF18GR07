@@ -46,21 +46,27 @@ public class Udred {
      * @return Returns true if there was case information in the database
      */
     boolean startAssessment(String caseID, String caseWorkerID) {
-        this.currentCaseID = caseID;
-        this.currentCaseWorkerID = caseWorkerID;
-        this.cases = new HashMap<>();
-        
-        BusinessFacade business = BusinessFacade.getInstance();
-        IDataFacade data = business.getDataFacade();
-
-        CaseInformation Cinfo = (CaseInformation) data.getCaseInfo(this.currentCaseID);
-        
-        Information info = new Information(caseID, Cinfo);
-        cases.put(caseID, info);
-        if (info == null) {
+        if (!this.cases.containsKey(caseID)) {
+            this.currentCaseID = caseID;
+            this.currentCaseWorkerID = caseWorkerID;
+            
+            BusinessFacade business = BusinessFacade.getInstance();
+            IDataFacade data = business.getDataFacade();
+            
+            CaseInformation Cinfo = (CaseInformation) data.getCaseInfo(this.currentCaseID);
+            
+            Information info = new Information(caseID, Cinfo);
+            cases.put(caseID, info);
+            
+            if (info == null) {
+                return false;
+            }
+            return true;
+        }
+        else {
+            this.currentCaseWorkerID = caseWorkerID;
             return false;
         }
-        return true;
     }
     
     /**
