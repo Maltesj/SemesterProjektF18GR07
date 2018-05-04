@@ -34,14 +34,11 @@
                <children>
                   <Rectangle fx:id="rect1" arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="59.0" layoutX="-1.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="808.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="86.0" layoutY="817.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
-                  <Rectangle arcWidth="5.0" fill="#e4f0d4" height="79.0" layoutX="272.0" layoutY="59.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="536.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="77.0" layoutY="59.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="78.0" layoutY="136.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="91.0" layoutY="214.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="81.0" layoutY="136.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="87.0" layoutY="218.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="62.0" layoutY="305.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="86.0" layoutY="432.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5f0d5" height="77.0" layoutX="271.0" layoutY="136.0" stroke="WHITE" strokeLineCap="BUTT" width="536.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5f0d5" height="91.0" layoutX="272.0" layoutY="214.0" stroke="WHITE" strokeLineCap="BUTT" width="536.0" />
                   <Text fill="WHITE" layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fysisk funktionsnedsættelse" wrappingWidth="339.13671875">
                      <font>
                         <Font name="System Bold" size="22.0" />
@@ -87,10 +84,8 @@
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="272.0" layoutY="305.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="534.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="272.0" layoutY="305.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="175.0" />
                   <Rectangle fx:id="test" arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="65.0" layoutX="-1.0" layoutY="367.0" stroke="WHITE" strokeType="INSIDE" width="808.0" />
-                  <Text fx:id="psyksikfunktionsFXID" fill="#ebe7e7" layoutX="15.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Psykisk funktionsnedsættelse" wrappingWidth="346.13671875">
+                  <Text fx:id="psyksikfunktionsFXID" fill="#ebe7e7" layoutX="15.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Psykisk funktionsnedsættelse" wrappingWidth="346.13671875">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -106,7 +101,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="pysiskeksFXID" fill="#ebe7e7" layoutX="108.0" layoutY="413.0" onMouseEntered="#showExamplePsy" onMouseExited="#HideExamplePsy" strokeType="OUTSIDE" strokeWidth="0.0" text="Se eksempel" wrappingWidth="92.974609375">
+                  <Text fx:id="pysiskeksFXID" fill="#ebe7e7" layoutX="106.0" layoutY="416.0" onMouseEntered="#showExamplePsy" onMouseExited="#HideExamplePsy" strokeType="OUTSIDE" strokeWidth="0.0" text="Se eksempel" wrappingWidth="92.974609375">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -121,7 +116,7 @@
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="80.0" layoutX="-1.0" layoutY="518.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="82.0" layoutX="-1.0" layoutY="518.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
                   <Text fill="#fcfcfc" layoutX="15.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oplysninger fra andre" wrappingWidth="207.353515625">
                      <font>
                         <Font size="16.0" />
@@ -132,7 +127,7 @@
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="91.0" layoutX="-1.0" layoutY="598.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="88.0" layoutX="-1.0" layoutY="601.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
                   <Text fill="#fcfcfc" layoutX="15.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sagsbehandlers bemærkninger" wrappingWidth="253.353515625">
                      <font>
                         <Font size="16.0" />
@@ -143,16 +138,12 @@
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="83.0" layoutX="271.0" layoutY="435.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="538.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="82.0" layoutX="271.0" layoutY="515.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="540.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="91.0" layoutX="271.0" layoutY="598.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="537.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="62.0" layoutX="-12.0" layoutY="689.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="283.0" />
                   <Text fill="#fcfcfc" layoutX="15.0" layoutY="728.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funktionsniveau" wrappingWidth="207.353515625">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="689.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="537.0" />
                   <Rectangle fx:id="psykisk_funktions_tal" arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="689.0" stroke="WHITE" strokeLineCap="BUTT" strokeWidth="2.0" width="174.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="67.0" layoutX="-1.0" layoutY="751.0" stroke="WHITE" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="2.0" width="808.0" />
                   <Text fill="#fcfcfc" layoutX="15.0" layoutY="777.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Socialt problem" wrappingWidth="346.13671875">
@@ -160,7 +151,7 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Text fx:id="SocialProblemFXID1" fill="#fcfcfc" layoutX="47.0" layoutY="801.0" onMouseEntered="#showExampleSocial" onMouseExited="#HideExampleSocial" strokeType="OUTSIDE" strokeWidth="0.0" text="Se eksempel" wrappingWidth="92.974609375">
+                  <Text fx:id="SocialProblemFXID1" fill="#fcfcfc" layoutX="106.0" layoutY="801.0" onMouseEntered="#showExampleSocial" onMouseExited="#HideExampleSocial" strokeType="OUTSIDE" strokeWidth="0.0" text="Se eksempel" wrappingWidth="92.974609375">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -189,8 +180,7 @@
                   </Text>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="81.0" layoutX="272.0" layoutY="903.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="537.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="91.0" layoutX="-1.0" layoutY="983.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="272.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="91.0" layoutX="271.0" layoutY="983.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="536.0" />
-                  <Text fill="WHITE" layoutX="15.0" layoutY="1005.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sagsbehandlers bemærkninger" wrappingWidth="253.353515625">
+                  <Text fill="WHITE" layoutX="15.0" layoutY="1015.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sagsbehandlers bemærkninger" wrappingWidth="253.353515625">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -200,34 +190,32 @@
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="62.0" layoutX="-2.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="283.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#80ab4c" height="62.0" layoutX="-2.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="274.0" />
                   <Text fill="WHITE" layoutX="15.0" layoutY="1099.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funktionsniveau" wrappingWidth="207.353515625">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="537.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4f0d4" height="62.0" layoutX="270.0" layoutY="1073.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="174.0" />
-                  <TextArea fx:id="Fysisk_oplysning_andre" editable="false" layoutX="272.0" layoutY="135.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="fysisk_sagsbehandlers_bemaerk" editable="false" layoutX="272.0" layoutY="219.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="psyisk_borger_oplysning" editable="false" layoutX="272.0" layoutY="437.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="pyskisk_oplysning_borger" editable="false" layoutX="272.0" layoutY="519.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="psykisk_sagsbehandling_bemaerk" editable="false" layoutX="268.0" layoutY="604.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="Fysisk_oplysning_andre" editable="false" layoutX="275.0" layoutY="138.0" maxHeight="1024.0" opacity="1" prefHeight="78.0" prefWidth="531.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="fysisk_sagsbehandlers_bemaerk" editable="false" layoutX="275.0" layoutY="219.0" maxHeight="1024.0" opacity="1" prefHeight="85.0" prefWidth="529.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="psyisk_borger_oplysning" editable="false" layoutX="274.0" layoutY="436.0" maxHeight="1024.0" opacity="1" prefHeight="77.0" prefWidth="532.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="pyskisk_oplysning_borger" editable="false" layoutX="272.0" layoutY="519.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="533.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="psykisk_sagsbehandling_bemaerk" editable="false" layoutX="273.0" layoutY="604.0" maxHeight="1024.0" opacity="1" prefHeight="81.0" prefWidth="530.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea layoutX="274.0" layoutY="821.0" maxHeight="1024.0" opacity="0.0" prefHeight="80.0" prefWidth="534.0" wrapText="true" />
                   <TextArea fx:id="Socialt_behandlers_bemaerk" layoutX="274.0" layoutY="988.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="Socialt_oplysning_andre" layoutX="274.0" layoutY="904.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <TextArea fx:id="Socialt_oplysning_borger" layoutX="272.0" layoutY="820.0" maxHeight="1024.0" opacity="1" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="socialt_funktions_tal" layoutX="278.0" layoutY="1077.0" maxHeight="1024.0" opacity="1" prefHeight="47.0" prefWidth="162.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="Fysisk_funktions_tal" editable="false" layoutX="276.0" layoutY="309.0" maxHeight="1024.0" opacity="1" prefHeight="54.0" prefWidth="167.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="Fysisk_funktions_tekst" editable="false" layoutX="452.0" layoutY="309.0" maxHeight="1024.0" opacity="1" prefHeight="54.0" prefWidth="350.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="psykisk_funtkions_tekst" editable="false" layoutX="449.0" layoutY="692.0" maxHeight="1024.0" opacity="1.0" prefHeight="54.0" prefWidth="353.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
-                  <TextArea fx:id="socialt_funktions_tekst" layoutX="445.0" layoutY="1077.0" maxHeight="1024.0" opacity="1.0" prefHeight="45.0" prefWidth="356.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="socialt_funktions_tal" layoutX="274.0" layoutY="1073.0" maxHeight="1024.0" opacity="1" prefHeight="59.0" prefWidth="166.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="Fysisk_funktions_tal" editable="false" layoutX="273.0" layoutY="306.0" maxHeight="1024.0" opacity="1" prefHeight="59.0" prefWidth="171.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="Fysisk_funktions_tekst" editable="false" layoutX="449.0" layoutY="307.0" maxHeight="1024.0" opacity="1" prefHeight="56.0" prefWidth="355.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="psykisk_funtkions_tekst" editable="false" layoutX="446.0" layoutY="690.0" maxHeight="1024.0" opacity="1.0" prefHeight="60.0" prefWidth="358.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="socialt_funktions_tekst" layoutX="445.0" layoutY="1073.0" maxHeight="1024.0" opacity="1.0" prefHeight="60.0" prefWidth="364.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <Text fx:id="SocialtproblemFXID" layoutX="312.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sindslidelse som angst, depression, forandret virkelighedsopfattelse, spiseforstyrrelse, personlighedsforstyrelse" visible="false" wrappingWidth="428.13671875">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Text>
-                  <TextArea fx:id="Fysisk_borger_oplysning" editable="false" layoutX="274.0" layoutY="58.0" maxHeight="1024.0" prefHeight="80.0" prefWidth="534.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
+                  <TextArea fx:id="Fysisk_borger_oplysning" editable="false" layoutX="274.0" layoutY="60.0" maxHeight="1024.0" prefHeight="73.0" prefWidth="531.0" style="-fx-control-inner-background:#e4f0d4" wrapText="true" />
                   <Text fx:id="socialFunktionFXID1" layoutX="295.0" layoutY="773.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjemløshed, indadreagerende adfærd, kriminalitet, misbrug, omsorgssvigt, overgreb, prostitution, seksuelt krænkendeadfærd, selvskadende adfærd, selvmordstanker og – forsøg, Social isolation og udadreagerende adfærd. " visible="false" wrappingWidth="428.13671875">
                      <font>
                         <Font size="13.0" />
@@ -265,7 +253,7 @@
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Text>
-                  <Text fx:id="fysiskfunktionFXID" layoutX="4.0" layoutY="226.0" onMouseClicked="#ShowFunktions" strokeType="OUTSIDE" strokeWidth="0.0" text="- Fysisk funktionsnedsættelse" wrappingWidth="191.93408203125">
+                  <Text fx:id="fysiskfunktionFXID" layoutX="5.0" layoutY="226.0" onMouseClicked="#ShowFunktions" strokeType="OUTSIDE" strokeWidth="0.0" text="- Fysisk funktionsnedsættelse" wrappingWidth="191.93408203125">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
@@ -275,7 +263,7 @@
                         <Image url="@sensum.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="SocialtFXID1" layoutX="4.0" layoutY="278.0" onMouseClicked="#ShowFunktions" strokeType="OUTSIDE" strokeWidth="0.0" text="- Socialt problem" wrappingWidth="191.93408203125">
+                  <Text fx:id="SocialtFXID1" layoutX="5.0" layoutY="278.0" onMouseClicked="#ShowFunktions" strokeType="OUTSIDE" strokeWidth="0.0" text="- Socialt problem" wrappingWidth="191.93408203125">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
