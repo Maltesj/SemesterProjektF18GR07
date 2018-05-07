@@ -58,16 +58,7 @@ public class FXMLDocumentController implements Initializable {
         Set<String> caseIDs = GUIFacade.getInstance().getCaseIDS();
         listen.addAll(caseIDs);
         
-        
-        
-        
-        
-        
         chooseCase.setItems(listen);
-        
-        
-        
-        
         
     }
     

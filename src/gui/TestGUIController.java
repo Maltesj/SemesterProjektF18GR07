@@ -66,8 +66,8 @@ public class TestGUIController implements Initializable, IController {
     @FXML
     private void afslutEvent(ActionEvent event) {
         Set<String> obligatoryFields = GUIFacade.getInstance().done();
-        
         checkText.setText(obligatoryFields.toString());
+        
     }
     
     @FXML
