@@ -16,11 +16,11 @@ import java.util.Set;
 public class TestStarterMain {
     public static void main(String[] args) {
         Information info = new Information("den seje case", new CaseInformation());
-        info.write("jfhsdo", Constants.fieldAcademicallyAssessment);
-        info.write("jfhsdo", "sourceInfo1");
-        info.write("jfhsdo", "sourceInfo3");
-        info.write("jfhsdo", "sourceInfo2");
-        /*
+//        info.write("jfhsdo", Constants.fieldAcademicallyAssessment);
+//        info.write("jfhsdo", "sourceInfo1");
+//        info.write("jfhsdo", "sourceInfo3");
+//        info.write("jfhsdo", "sourceInfo2");
+//        /*
         Set<String> testField = new HashSet<String>();
         testField.add(acquaintance.Constants.fieldAcademicallyAssessment);
         
