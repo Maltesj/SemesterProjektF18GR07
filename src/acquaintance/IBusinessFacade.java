@@ -22,7 +22,7 @@ public interface IBusinessFacade {
     public Map<String, String> getCaseInformation(String caseID);
     public Set<String> getCaseIDs();
     public Set<String> checkFields();
-    public Map<String,String> startActionPlan();
+    public Map<String,String> startActionPlan(String caseWorkerID, String caseID);
     public Set<String> continueActionPlan();
     public void discardPhase();
     public boolean savePhase();
