@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.IActionplan;
 import acquaintance.IDataFacade;
 import acquaintance.IWork;
 import java.util.HashMap;
@@ -112,7 +113,7 @@ public class Udred {
      */
     void write(String text, String sourceInfo) {
         Information info = cases.get(currentCaseID); //Hard coded case as input
-        info.write(text, sourceInfo);
+        this.state.write(text, sourceInfo, info);
     }
     
     /**
@@ -149,8 +150,17 @@ public class Udred {
         return actionplan.getInformation();
     }
     
-    Set<String> continueActionPlan(){
-        return this.continueActionPlan();
+    Map<String, String> continueActionPlan(){
+        
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getDataFacade().getActionPlan();
+        
+        Map<String, String> fieldInfo = actionplan.getInformation();
+        
+        Information info = this.cases.get(this.currentCaseID);
+        
+        info.setActionplanInformation(actionplan);
+        
+        return fieldInfo;
     }
     
     void discardPhase(){

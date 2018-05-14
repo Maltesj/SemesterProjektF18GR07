@@ -140,7 +140,7 @@ public class BusinessFacade implements IBusinessFacade {
     }
 
     @Override
-    public Set<String> continueActionPlan() {
+    public Map<String, String> continueActionPlan() {
         return this.udred.continueActionPlan();
     }
 

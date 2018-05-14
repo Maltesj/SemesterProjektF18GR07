@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
 import acquaintance.IInformation;
@@ -62,6 +63,11 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public boolean savePhase(IInformation info, String phase, String caseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IActionplan getActionPlan() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

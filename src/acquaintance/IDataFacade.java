@@ -19,4 +19,5 @@ public interface IDataFacade {
     public IWork getWork();
     public boolean discard(String phase, String caseID);
     public boolean savePhase(IInformation info, String phase, String caseID);
+    public IActionplan getActionPlan();
 }

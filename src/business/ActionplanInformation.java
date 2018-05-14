@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.IActionplan;
 import acquaintance.IWork;
 import java.io.File;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import java.util.Set;
  *
  * @author michael og malte
  */
-public class ActionplanInformation implements Serializable {
+public class ActionplanInformation implements Serializable, IActionplan {
     private HashMap<String, String> textInformation;
     
     ActionplanInformation(IWork work){
