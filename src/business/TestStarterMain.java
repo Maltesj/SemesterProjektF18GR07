@@ -21,23 +21,23 @@ public class TestStarterMain {
 //        info.write("jfhsdo", "sourceInfo3");
 //        info.write("jfhsdo", "sourceInfo2");
 //        /*
-        Set<String> testField = new HashSet<String>();
-        testField.add(acquaintance.Constants.fieldAcademicallyAssessment);
-        
-        Set<String> testField1 = new HashSet<String>();
-        
-        CheckList checkList = new CheckList();
-        System.out.println(checkList.checkCollection(testField));
-        for (String string : checkList.checkCollection(testField)) {
-            System.out.println(string);
-        }
-        
-        for (String string : checkList.checkCollection(testField1)) {
-            System.out.println("Missing: " + string + "\n");
-        }*/
-        
-        
-        
-        System.out.println(info.getFilledAssessmentFields());
-    }
+//        Set<String> testField = new HashSet<String>();
+//        testField.add(acquaintance.Constants.fieldAcademicallyAssessment);
+//        
+//        Set<String> testField1 = new HashSet<String>();
+//        
+//        CheckList checkList = new CheckList();
+//        System.out.println(checkList.checkCollection(testField));
+//        for (String string : checkList.checkCollection(testField)) {
+//            System.out.println(string);
+//        }
+//        
+//        for (String string : checkList.checkCollection(testField1)) {
+//            System.out.println("Missing: " + string + "\n");
+//        }*/
+//        
+//        
+//        
+//        System.out.println(info.getFilledAssessmentFields());
+//    }
 }
