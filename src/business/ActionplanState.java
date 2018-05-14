@@ -44,7 +44,7 @@ return true;
     public void discard(Information information) {
         information.setActionplanInformation(null);
         String caseID = information.getCaseID();
-//        BusinessFacade.getInstance().getDataFacade().discard("ActionplanInformation",caseID );
+        BusinessFacade.getInstance().getDataFacade().discard("ActionplanInformation",caseID );
     }
 
    
