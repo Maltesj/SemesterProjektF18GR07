@@ -14,17 +14,15 @@ import java.util.Set;
  */
 public class AssessmentState implements IUdredState{
     private CheckList checkList;
-    private BusinessFacade business;
-    private IDataFacade data;
 
-    public AssessmentState(CheckList checkList, BusinessFacade business, IDataFacade data) {
+
+    public AssessmentState() {
         this.checkList = new CheckList();
-        this.business = BusinessFacade.getInstance();
     }
     
     @Override
     public boolean savePhase(Information info) {
-        business.getDataFacade().save(info, info.getCaseID());
+        BusinessFacade.getInstance().getDataFacade().save(info, info.getCaseID());
         
         if (info.getCaseID() == null) {
             return false;
@@ -52,7 +50,7 @@ public class AssessmentState implements IUdredState{
     public void discard(Information info) {
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        business.getDataFacade().discard("assessment", caseID);
+        BusinessFacade.getInstance().getDataFacade().discard("assessment", caseID);
     }
     
 }
