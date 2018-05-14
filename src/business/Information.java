@@ -74,21 +74,6 @@ public class Information implements Serializable, IInformation{
         return caseID;
     }
 
-    /** Method for writing to assessment information
-     *
-     * @param text is the value part of the hashmap
-     * @param sourceInfo is the key of the hashmap
-     */
-    void write(String text, String sourceInfo){
-        assessmentInformation.write(text, sourceInfo);
-    }
-
-    /** Method to get keyset for filled fields from assessment information
-     *
-     * @return the keyset from hashmap in assessment information
-     */
-    Set<String> getFilledAssessmentFields(){
-        return assessmentInformation.getFilledFields();
-    }
+  
     
 }
