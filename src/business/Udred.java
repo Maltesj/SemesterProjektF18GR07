@@ -33,6 +33,8 @@ public class Udred {
      */
     private CheckList checkList;
     
+    private IUdredState state;
+    
     Udred(){
         this.checkList = new CheckList();
         this.cases = new HashMap<>();
@@ -124,13 +126,16 @@ public class Udred {
     }
     
     Set<String> checkFields(){
-        Information info = this.cases.get(this.currentCaseID);
         
-        Set<String> filledFields = info.getFilledAssessmentFields();
-        
-        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
-        
-        return missingFields;
+        return this.state.checkFields();
+//        
+//        Information info = this.cases.get(this.currentCaseID);
+//        
+//        Set<String> filledFields = info.getFilledAssessmentFields();
+//        
+//        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
+//        
+//        return missingFields;
     }
     
     Map<String,String> startActionPlan(String caseWorkerID, String caseID){
