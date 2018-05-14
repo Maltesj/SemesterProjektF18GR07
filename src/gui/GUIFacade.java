@@ -57,7 +57,7 @@ public class GUIFacade implements IGUIFacade {
     }
     
     Set<String> checkAssessment(){
-        return this.businessFacade.checkAssessmentFields();
+        return this.businessFacade.checkFields();
     }
     
     Map<String, String> getCaseInformation(String caseID){

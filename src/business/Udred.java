@@ -33,6 +33,8 @@ public class Udred {
      */
     private CheckList checkList;
     
+    private IUdredState state;
+    
     Udred(){
         this.checkList = new CheckList();
         this.cases = new HashMap<>();
@@ -118,19 +120,46 @@ public class Udred {
      */
     Map<String, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
-        Map<String, String> caseinfo = info.getCaseInformation();
+        Map<String, String> caseinfo = info.getCaseInformation().getInformation();
         
         return caseinfo;
     }
     
-    Set<String> checkAssessmentFields(){
-        Information info = this.cases.get(this.currentCaseID);
+    Set<String> checkFields(){
         
-        Set<String> filledFields = info.getFilledAssessmentFields();
-        
-        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
-        
-        return missingFields;
+        return this.state.checkFields(this.cases.get(this.currentCaseID));
+//        
+//        Information info = this.cases.get(this.currentCaseID);
+//        
+//        Set<String> filledFields = info.getFilledAssessmentFields();
+//        
+//        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
+//        
+//        return missingFields;
     }
+    
+    Map<String,String> startActionPlan(String caseWorkerID, String caseID){
+        return null;
+    }
+    
+    Set<String> continueActionPlan(){
+        return this.continueActionPlan();
+    }
+    
+    void discardPhase(){
+        Information info = this.cases.get(this.currentCaseID);
+        this.state.discard(info);
+    }
+    
+    boolean savePhase(){
+        Information info = this.cases.get(this.currentCaseID);
+        this.state.savePhase(info);
+        if(this.currentCaseID == null){
+            return false;
+        }
+        return true;
+    }
+    
+    
     
 }
