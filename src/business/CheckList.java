@@ -46,17 +46,9 @@ public class CheckList {
         
         Set<String> missingElements = new HashSet<String>();
         
-//        missingElements.addAll(checklist);
-//        missingElements.removeAll(info);
-//        
-//        return missingElements;
+        missingElements.addAll(checklist);
+        missingElements.removeAll(info);
         
-        for (String string : checklist) {
-            if(!info.contains(string)){
-                missingElements.add(string);
-            }
-        }
-
         return missingElements;
     }
 }
