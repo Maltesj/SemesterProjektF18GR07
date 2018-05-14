@@ -16,52 +16,37 @@ public class ActionplanState implements IUdredState {
 
     @Override
     public boolean savePhase(Information information) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      information.getActionplanInformation();
+//      BusinessFacade.getInstance().getDataFacade().save(information, "changeThisWhenReady");
+return true;
+      
     }
 
     @Override
     public void write(String text, String sourceInfo, Information information) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    information.getActionplanInformation().write(text, sourceInfo);
     }
 
     @Override
     public Set<String> checkFields(Information information) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CheckList cL = new CheckList();
+        return cL.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
     }
 
     @Override
     public Set<String> done(Information information) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
+                savePhase(information);
+                return checkFields(information);
     }
 
     @Override
     public void discard(Information information) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        information.setActionplanInformation(null);
+        String caseID = information.getCaseID();
+//        BusinessFacade.getInstance().getDataFacade().discard("ActionplanInformation",caseID );
     }
 
-    @Override
-    public boolean savePhase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void write(String text, String sourceInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Set<String> checkFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Set<String> done() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void discard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }
