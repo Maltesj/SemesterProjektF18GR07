@@ -24,10 +24,7 @@ public class AssessmentState implements IUdredState{
     
     @Override
     public boolean savePhase(Information info) {
-        this.data = business.getDataFacade();
-        this.data.save(info, info.getCaseID());
-        
-        
+        business.getDataFacade().save(info, info.getCaseID());
         
         if (info.getCaseID() == null) {
             return false;
@@ -37,38 +34,25 @@ public class AssessmentState implements IUdredState{
 
     @Override
     public void write(String text, String sourceInfo, Information info) {
-        
-        info.write(text, sourceInfo);
+        info.getAssessmentInformation().write(text, sourceInfo);
     }
 
     @Override
     public Set<String> checkFields(Information info) {
-        Set<String> filledFields = info.getFilledAssessmentFields();
-        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
-        
-        return missingFields;
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
     }
 
     @Override
     public Set<String> done(Information info) {
-        Set<String> filledAssessment = info.getFilledAssessmentFields();
-        //sout for testing. temp
-        for (String string : filledAssessment) {
-            System.out.println(string);
-        }
-        System.out.println(filledAssessment);
-        Set<String> missingFields = this.checkList.checkCollection(filledAssessment, "assessment");
         this.savePhase(info);
-        
-        return missingFields;
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
     }
 
     @Override
     public void discard(Information info) {
-        this.data = business.getDataFacade();
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        //data.discard("assessment", caseID);
+        business.getDataFacade().discard("assessment", caseID);
     }
     
 }
