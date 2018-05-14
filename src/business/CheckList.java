@@ -45,12 +45,10 @@ public class CheckList {
         Set<String> checklist = checklists.get(phase);
         
         Set<String> missingElements = new HashSet<String>();
-        for (String string : checklist) {
-            if(!info.contains(string)){
-                missingElements.add(string);
-            }
-        }
-
+        
+        missingElements.addAll(checklist);
+        missingElements.removeAll(info);
+        
         return missingElements;
     }
 }
