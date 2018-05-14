@@ -13,6 +13,10 @@ import java.util.Set;
  */
 public class ActionplanState implements IUdredState {
     
+    CheckList cL;
+    ActionplanState(){
+    cL = new CheckList();
+}
 
     @Override
     public boolean savePhase(Information information) {
@@ -29,7 +33,7 @@ return true;
 
     @Override
     public Set<String> checkFields(Information information) {
-        CheckList cL = new CheckList();
+        
         return cL.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
     }
 
