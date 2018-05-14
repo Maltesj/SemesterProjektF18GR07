@@ -65,4 +65,9 @@ public class Information implements Serializable, IInformation{
     HashMap<String, String> getCaseInformation(){
         return caseInformation.getInformation() ;
     }
+
+    public void setAssessmentInformation(AssessmentInformation assessmentInformation) {
+        this.assessmentInformation = assessmentInformation;
+    }
+    
 }
