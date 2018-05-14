@@ -18,4 +18,5 @@ public interface IDataFacade {
     public ICaseInformation getCaseInfo(String caseID);     
     public void save(Information info, String caseID);
     public Set<String> getCaseIDs();
+    public IWork getWork();
 }
