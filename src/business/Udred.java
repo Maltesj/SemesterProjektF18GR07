@@ -94,16 +94,7 @@ public class Udred {
      */
     Set<String> done() {
         Information info = cases.get(currentCaseID);
-        Set<String> filledAssessment = info.getFilledAssessmentFields();
-        //sout for testing. temp
-        for (String string : filledAssessment) {
-            System.out.println(string);
-        }
-        System.out.println(filledAssessment);
-        Set<String> missingFields = checkList.checkCollection(filledAssessment, "assessment");
-        save();
-        
-        return missingFields;
+        return this.state.done(info);
     }
     
     /**
