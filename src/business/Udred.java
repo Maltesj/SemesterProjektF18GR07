@@ -143,11 +143,12 @@ public class Udred {
     }
     
     Set<String> continueActionPlan(){
-        
+        return this.continueActionPlan();
     }
     
     void discardPhase(){
-        
+        Information info = this.cases.get(this);
+        this.state.discard();
     }
     
     boolean savePhase(){

@@ -18,6 +18,6 @@ public interface IUdredState {
     void write(String text, String sourceInfo);
     Set<String> checkFields();
     Set<String> done();
-    void discard();
+    void discard(Information infoHolder);
     
 }
