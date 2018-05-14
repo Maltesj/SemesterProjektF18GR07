@@ -147,12 +147,13 @@ public class Udred {
     }
     
     void discardPhase(){
-        Information info = this.cases.get(this);
-        this.state.discard();
+        Information info = this.cases.get(this.currentCaseID);
+        this.state.discard(info);
     }
     
     boolean savePhase(){
-        
+        Information info = this.cases.get(this.currentCaseID);
+        this.state.savePhase(info);
     }
     
     

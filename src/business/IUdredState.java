@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public interface IUdredState {
     
-    boolean savePhase();
+    boolean savePhase(Information infoHolder);
     void write(String text, String sourceInfo);
     Set<String> checkFields();
     Set<String> done();
