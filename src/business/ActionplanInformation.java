@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.IWork;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.Set;
 public class ActionplanInformation implements Serializable {
     private HashMap<String, String> textInformation;
     
-    ActionplanInformation(){
+    ActionplanInformation(IWork work){
         textInformation = new HashMap<>();
     }
     

@@ -7,6 +7,7 @@ package data;
 
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
+import acquaintance.IWork;
 import business.Information;
 import java.util.Set;
 import java.util.TreeSet;
@@ -49,5 +50,12 @@ public class DataFacade implements IDataFacade{
     public Set<String> getCaseIDs() {
         return caseInfoLoader.getCaseIDs();
     }
+
+    @Override
+    public IWork getWork() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 
 }

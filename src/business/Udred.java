@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.IDataFacade;
+import acquaintance.IWork;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -139,7 +140,13 @@ public class Udred {
     }
     
     Map<String,String> startActionPlan(String caseWorkerID, String caseID){
-        return null;
+        IWork work = BusinessFacade.getInstance().getDataFacade().getWork();
+        Information info = this.cases.get(caseID);
+        ActionplanInformation actionplan = new ActionplanInformation(work);
+        
+        info.setActionplanInformation(actionplan);
+        
+        return actionplan.getInformation();
     }
     
     Set<String> continueActionPlan(){
@@ -153,13 +160,6 @@ public class Udred {
     
     boolean savePhase(){
         Information info = this.cases.get(this.currentCaseID);
-        this.state.savePhase(info);
-        if(this.currentCaseID == null){
-            return false;
-        }
-        return true;
+        return this.state.savePhase(info);
     }
-    
-    
-    
 }
