@@ -123,7 +123,7 @@ public class Udred {
         return caseinfo;
     }
     
-    Set<String> checkAssessmentFields(){
+    Set<String> checkFields(){
         Information info = this.cases.get(this.currentCaseID);
         
         Set<String> filledFields = info.getFilledAssessmentFields();
@@ -132,5 +132,23 @@ public class Udred {
         
         return missingFields;
     }
+    
+    Map<String,String> startActionPlan(String caseWorkerID, String caseID){
+        
+    }
+    
+    Set<String> continueActionPlan(){
+        
+    }
+    
+    void discardPhase(){
+        
+    }
+    
+    boolean savePhase(){
+        
+    }
+    
+    
     
 }
