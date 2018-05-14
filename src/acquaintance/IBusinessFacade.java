@@ -21,5 +21,9 @@ public interface IBusinessFacade {
     public void write(String text, String sourceInfo);
     public Map<String, String> getCaseInformation(String caseID);
     public Set<String> getCaseIDs();
-    public Set<String> checkAssessmentFields();
+    public Set<String> checkFields();
+    public Map<String,String> startActionPlan();
+    public Set<String> continueActionPlan();
+    public void discardPhase();
+    public boolean savePhase();
 }
