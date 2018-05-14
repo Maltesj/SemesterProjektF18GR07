@@ -19,4 +19,5 @@ public interface IDataFacade {
     public void save(Information info, String caseID);
     public Set<String> getCaseIDs();
     public IWork getWork();
+    public boolean discard(String phase, String caseID);
 }
