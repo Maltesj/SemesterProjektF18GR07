@@ -14,10 +14,10 @@ import java.util.Set;
  */
 public interface IUdredState {
     
-    boolean savePhase();
-    void write(String text, String sourceInfo);
-    Set<String> checkFields();
-    Set<String> done();
-    void discard();
+    boolean savePhase(Information information);
+    void write(String text, String sourceInfo, Information information);
+    Set<String> checkFields(Information information);
+    Set<String> done(Information information);
+    void discard(Information information);
     
 }
