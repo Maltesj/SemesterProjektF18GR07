@@ -7,10 +7,9 @@ package data;
 
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
+import acquaintance.IInformation;
 import acquaintance.IWork;
-import business.Information;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
@@ -42,7 +41,7 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public void save(Information info, String caseID) {
+    public void save(IInformation info, String caseID) {
         si.saveInformation(info, caseID);
     }
 
@@ -58,6 +57,11 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public boolean discard(String phase, String caseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean savePhase(IInformation info, String phase, String caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

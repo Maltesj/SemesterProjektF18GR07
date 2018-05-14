@@ -5,8 +5,6 @@
  */
 package acquaintance;
 
-import business.Information;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -16,8 +14,9 @@ import java.util.Set;
 public interface IDataFacade {
     
     public ICaseInformation getCaseInfo(String caseID);     
-    public void save(Information info, String caseID);
+    public void save(IInformation info, String caseID);
     public Set<String> getCaseIDs();
     public IWork getWork();
     public boolean discard(String phase, String caseID);
+    public boolean savePhase(IInformation info, String phase, String caseID);
 }

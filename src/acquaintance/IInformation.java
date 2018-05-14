@@ -10,5 +10,6 @@ package acquaintance;
  * @author malte
  */
 public interface IInformation {
+     
     
 }
