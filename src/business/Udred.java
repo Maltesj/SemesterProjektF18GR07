@@ -163,4 +163,17 @@ public class Udred {
         Information info = this.cases.get(this.currentCaseID);
         return this.state.savePhase(info);
     }
+    
+    void setState(String phase){
+        
+        switch(phase){
+            case "Actionplan":
+                this.state = new ActionplanState();
+                break;
+            case "Assessment":
+                this.state = new AssessmentState();
+                break;
+        }
+        
+    }
 }

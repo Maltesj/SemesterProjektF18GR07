@@ -27,6 +27,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +35,7 @@ import javafx.stage.Stage;
  *
  * @author malte
  */
-public class FXMLDocumentController implements Initializable {
+public class StartScreenController implements Initializable {
     
     @FXML
     private ComboBox<String> chooseCase;
@@ -44,6 +45,18 @@ public class FXMLDocumentController implements Initializable {
     private List<IController> controllers;
     @FXML
     private TabPane topTab;
+    @FXML
+    private Rectangle rectstart;
+    @FXML
+    private Button StartAss;
+    @FXML
+    private Button ShowInfoButton;
+    @FXML
+    private Button helpfxid;
+    @FXML
+    private Button indstillingerfxid;
+    @FXML
+    private Button startActionPlanButton;
     
     /**
      * Initializes the controller class.
@@ -92,6 +105,9 @@ public class FXMLDocumentController implements Initializable {
                 tab.setContent(root);
                 tab.setText("Sagsoplysning");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
+                tab.setOnSelectionChanged(e -> {
+                    
+                });
                 
                 this.topTab.getTabs().add(tab);
                 
@@ -102,7 +118,7 @@ public class FXMLDocumentController implements Initializable {
 //                stage.show();
                 
             } catch (IOException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else {
@@ -114,14 +130,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void startAssesment(ActionEvent event) {
         
-        
         String caseID = this.chooseCase.getValue();
         ObservableList<String> caseIDs = this.chooseCase.getItems();
         
         if (caseIDs.contains(caseID)) {
             FXMLLoader loader = new FXMLLoader();
             
-            loader.setLocation(getClass().getResource("TestGUI.fxml"));
+            loader.setLocation(getClass().getResource("CaseAssessmentGUI.fxml"));
             
             try {
                 Parent root = loader.load();
@@ -133,12 +148,15 @@ public class FXMLDocumentController implements Initializable {
                 tab.setContent(root);
                 tab.setText("Sagsvurdering");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
+                tab.setOnSelectionChanged(e -> {
+                    GUIFacade.getInstance().getBusinessFacade().setState("Assessment");
+                });
                 
                 this.topTab.getTabs().add(tab);        
                 GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
 
             } catch (IOException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else {
@@ -167,5 +185,44 @@ public class FXMLDocumentController implements Initializable {
     private void mouseoutblah(MouseEvent event) {
         Button b = (Button)event.getSource();
         b.setStyle("-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;");
+    }
+    
+    @FXML
+    private void startActionplanEventHandler(ActionEvent event){
+        
+        
+        String caseID = this.chooseCase.getValue();
+        ObservableList<String> caseIDs = this.chooseCase.getItems();
+        
+        if (caseIDs.contains(caseID)) {
+            FXMLLoader loader = new FXMLLoader();
+            
+            loader.setLocation(getClass().getResource("CaseActionplan.fxml"));
+            
+            try {
+                Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
+                Scene scene = new Scene(root);
+                
+                Tab tab = new Tab();
+                tab.setContent(root);
+                tab.setText("Handleplan");
+                tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
+                tab.setOnSelectionChanged(e -> {
+                    GUIFacade.getInstance().getBusinessFacade().setState("Actionplan");
+                });
+                
+                this.topTab.getTabs().add(tab);        
+                GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
+
+            } catch (IOException ex) {
+                Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            System.out.println("No such case exists");
+            
+        }
     }
 }

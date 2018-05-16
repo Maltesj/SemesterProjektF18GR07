@@ -18,7 +18,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
@@ -28,7 +27,7 @@ import javafx.scene.text.Text;
  *
  * @author Kasper
  */
-public class TestGUIController implements Initializable, IController {
+public class CaseAssessmentGUIController implements Initializable, IController {
     
     @FXML
     private ScrollPane dokumentScroller;

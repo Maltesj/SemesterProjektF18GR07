@@ -26,4 +26,5 @@ public interface IBusinessFacade {
     public Map<String, String> continueActionPlan();
     public void discardPhase();
     public boolean savePhase();
+    public void setState(String phase);
 }

@@ -154,4 +154,9 @@ public class BusinessFacade implements IBusinessFacade {
         return this.udred.savePhase();
     }
     
+    @Override
+    public void setState(String phase){
+        this.udred.setState(phase);
+    }
+    
 }

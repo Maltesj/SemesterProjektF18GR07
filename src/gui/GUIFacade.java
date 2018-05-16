@@ -76,4 +76,8 @@ public class GUIFacade implements IGUIFacade {
         return this.businessFacade.save();
     }
     
+    IBusinessFacade getBusinessFacade(){
+        return this.businessFacade;
+    }
+    
 }
