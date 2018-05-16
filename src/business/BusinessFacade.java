@@ -129,9 +129,34 @@ public class BusinessFacade implements IBusinessFacade {
     }
 
     @Override
-    public Set<String> checkAssessmentFields() {
-        return this.udred.checkAssessmentFields();
+    public Set<String> checkFields() {
+        return this.udred.checkFields();
         
+    }
+
+    @Override
+    public Map<String, String> startActionPlan(String caseWorkerID, String caseID) {
+        return this.udred.startActionPlan(caseWorkerID, caseID);
+    }
+
+    @Override
+    public Map<String, String> continueActionPlan() {
+        return this.udred.continueActionPlan();
+    }
+
+    @Override
+    public void discardPhase() {
+        this.udred.discardPhase();
+    }
+
+    @Override
+    public boolean savePhase() {
+        return this.udred.savePhase();
+    }
+    
+    @Override
+    public void setState(String phase){
+        this.udred.setState(phase);
     }
     
 }

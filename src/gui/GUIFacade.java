@@ -57,7 +57,7 @@ public class GUIFacade implements IGUIFacade {
     }
     
     Set<String> checkAssessment(){
-        return this.businessFacade.checkAssessmentFields();
+        return this.businessFacade.checkFields();
     }
     
     Map<String, String> getCaseInformation(String caseID){
@@ -74,6 +74,10 @@ public class GUIFacade implements IGUIFacade {
     
     boolean save(){
         return this.businessFacade.save();
+    }
+    
+    IBusinessFacade getBusinessFacade(){
+        return this.businessFacade;
     }
     
 }

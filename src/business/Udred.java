@@ -5,7 +5,9 @@
 */
 package business;
 
+import acquaintance.IActionplan;
 import acquaintance.IDataFacade;
+import acquaintance.IWork;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -32,6 +34,8 @@ public class Udred {
      * A CheckList object
      */
     private CheckList checkList;
+    
+    private IUdredState state;
     
     Udred(){
         this.checkList = new CheckList();
@@ -90,16 +94,7 @@ public class Udred {
      */
     Set<String> done() {
         Information info = cases.get(currentCaseID);
-        Set<String> filledAssessment = info.getFilledAssessmentFields();
-        //sout for testing. temp
-        for (String string : filledAssessment) {
-            System.out.println(string);
-        }
-        System.out.println(filledAssessment);
-        Set<String> missingFields = checkList.checkCollection(filledAssessment, "assessment");
-        save();
-        
-        return missingFields;
+        return this.state.done(info);
     }
     
     /**
@@ -109,7 +104,7 @@ public class Udred {
      */
     void write(String text, String sourceInfo) {
         Information info = cases.get(currentCaseID); //Hard coded case as input
-        info.write(text, sourceInfo);
+        this.state.write(text, sourceInfo, info);
     }
     
     /**
@@ -118,19 +113,67 @@ public class Udred {
      */
     Map<String, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
-        Map<String, String> caseinfo = info.getCaseInformation();
+        Map<String, String> caseinfo = info.getCaseInformation().getInformation();
         
         return caseinfo;
     }
     
-    Set<String> checkAssessmentFields(){
-        Information info = this.cases.get(this.currentCaseID);
+    Set<String> checkFields(){
         
-        Set<String> filledFields = info.getFilledAssessmentFields();
-        
-        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
-        
-        return missingFields;
+        return this.state.checkFields(this.cases.get(this.currentCaseID));
+//        
+//        Information info = this.cases.get(this.currentCaseID);
+//        
+//        Set<String> filledFields = info.getFilledAssessmentFields();
+//        
+//        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
+//        
+//        return missingFields;
     }
     
+    Map<String,String> startActionPlan(String caseWorkerID, String caseID){
+        IWork work = BusinessFacade.getInstance().getDataFacade().getWork();
+        Information info = this.cases.get(caseID);
+        ActionplanInformation actionplan = new ActionplanInformation(work);
+        
+        info.setActionplanInformation(actionplan);
+        
+        return actionplan.getInformation();
+    }
+    
+    Map<String, String> continueActionPlan(){
+        
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getDataFacade().getActionPlan();
+        
+        Map<String, String> fieldInfo = actionplan.getInformation();
+        
+        Information info = this.cases.get(this.currentCaseID);
+        
+        info.setActionplanInformation(actionplan);
+        
+        return fieldInfo;
+    }
+    
+    void discardPhase(){
+        Information info = this.cases.get(this.currentCaseID);
+        this.state.discard(info);
+    }
+    
+    boolean savePhase(){
+        Information info = this.cases.get(this.currentCaseID);
+        return this.state.savePhase(info);
+    }
+    
+    void setState(String phase){
+        
+        switch(phase){
+            case "Actionplan":
+                this.state = new ActionplanState();
+                break;
+            case "Assessment":
+                this.state = new AssessmentState();
+                break;
+        }
+        
+    }
 }

@@ -7,9 +7,8 @@ package acquaintance;
 
 /**
  *
- * @author malte
+ * @author HCHB
  */
-public interface IInformation {
-     
+public interface IWork {
     
 }

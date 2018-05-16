@@ -18,6 +18,7 @@ public class Information implements Serializable, IInformation{
     private String caseID;
     private AssessmentInformation assessmentInformation;
     private CaseInformation caseInformation;
+    private ActionplanInformation actionplanInformation;
 
     /** Constructor for information
      *
@@ -33,36 +34,46 @@ public class Information implements Serializable, IInformation{
         System.out.println(assessmentInformation);
     }
 
+    public Information(String caseID, CaseInformation caseInformation, ActionplanInformation actionplanInformation) {
+        this(caseID, caseInformation);
+        
+        
+        
+    }
+
+    AssessmentInformation getAssessmentInformation() {
+        return assessmentInformation;
+    }
+
+    void setAssessmentInformation(AssessmentInformation assessmentInformation) {
+        this.assessmentInformation = assessmentInformation;
+    }
+
+    void setCaseInformation(CaseInformation caseInformation) {
+        this.caseInformation = caseInformation;
+    }
+
+    CaseInformation getCaseInformation(){
+        return caseInformation;
+    }
+    
+    void setActionplanInformation(ActionplanInformation actionplanInformation) {
+        this.actionplanInformation = actionplanInformation;
+    }
+
+    ActionplanInformation getActionplanInformation() {
+        return actionplanInformation;
+    }
+    
+
     /** Method to get case ID
      *
      * @return the case ID as a String
      */
-    public String getCaseID(){
+    String getCaseID(){
         return caseID;
     }
 
-    /** Method for writing to assessment information
-     *
-     * @param text is the value part of the hashmap
-     * @param sourceInfo is the key of the hashmap
-     */
-    void write(String text, String sourceInfo){
-        assessmentInformation.write(text, sourceInfo);
-    }
-
-    /** Method to get keyset for filled fields from assessment information
-     *
-     * @return the keyset from hashmap in assessment information
-     */
-    Set<String> getFilledAssessmentFields(){
-        return assessmentInformation.getFilledFields();
-    }
-
-    /** Method for getting the case information in the hashmap
-     *
-     * @return hashmap from case information
-     */
-    HashMap<String, String> getCaseInformation(){
-        return caseInformation.getInformation() ;
-    }
+  
+    
 }

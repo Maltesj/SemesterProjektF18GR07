@@ -5,11 +5,12 @@
  */
 package data;
 
+import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
-import business.Information;
+import acquaintance.IInformation;
+import acquaintance.IWork;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
@@ -41,7 +42,7 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public void save(Information info, String caseID) {
+    public void save(IInformation info, String caseID) {
         si.saveInformation(info, caseID);
     }
 
@@ -49,5 +50,27 @@ public class DataFacade implements IDataFacade{
     public Set<String> getCaseIDs() {
         return caseInfoLoader.getCaseIDs();
     }
+
+    @Override
+    public IWork getWork() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean discard(String phase, String caseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean savePhase(IInformation info, String phase, String caseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IActionplan getActionPlan() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 
 }
