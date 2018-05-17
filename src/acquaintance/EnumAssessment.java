@@ -12,11 +12,11 @@ package acquaintance;
 public enum EnumAssessment implements Checklistable {
     
     PROFFESSIONALASSESSMENT1("ProffesionalAssessment1", true),
-    PROFFESSIONALASSESSMENT2("ProffesionalAssessment2", true),
-    WORKPURPOSE("WorkPurpose", true),
-    WORKGOAL("WorkGoal", true),
-    PRIMARYWORK("PrimaryWork", true),
-    ALTWORK("AltWork", true);
+    PROFFESSIONALASSESSMENT2("ProffesionalAssessment2", false),
+    WORKPURPOSE("WorkPurpose", false),
+    WORKGOAL("WorkGoal", false),
+    PRIMARYWORK("PrimaryWork", false),
+    ALTWORK("AltWork", false);
     
     private String sourceID;
     private boolean obligatory;

@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.IBusinessFacade;
 import acquaintance.ICaseInformation;
@@ -151,7 +152,7 @@ public class BusinessFacade implements IBusinessFacade {
     }
     
     @Override
-    public void setState(String phase){
+    public void setState(EnumPhases phase){
         this.udred.setState(phase);
     }
     

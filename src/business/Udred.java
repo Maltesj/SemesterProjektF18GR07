@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.IDataFacade;
 import acquaintance.IWork;
@@ -160,14 +161,16 @@ public class Udred {
         return this.state.savePhase(info);
     }
     
-    void setState(String phase){
+    void setState(EnumPhases phase){
         
         switch(phase){
-            case "Actionplan":
+            case ACTIONPLAN:
                 this.state = new ActionplanState();
                 break;
-            case "Assessment":
+            case ASSESSMENT:
                 this.state = new AssessmentState();
+                break;
+            case INFORMATION:
                 break;
         }
         

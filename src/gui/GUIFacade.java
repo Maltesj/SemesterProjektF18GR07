@@ -6,6 +6,7 @@
 package gui;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
 import java.util.Map;
@@ -76,7 +77,7 @@ public class GUIFacade implements IGUIFacade {
         return this.businessFacade.save();
     }
     
-    void setState(String phase){
+    void setState(EnumPhases phase){
         this.businessFacade.setState(phase);
     }
     

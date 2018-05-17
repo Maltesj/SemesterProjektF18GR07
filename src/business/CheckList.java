@@ -6,8 +6,10 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumActionplan;
 import acquaintance.EnumAssessment;
 import acquaintance.EnumCaseInformation;
+import acquaintance.EnumPhases;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,7 +21,7 @@ import java.util.Set;
  */
 public class CheckList {
     
-    Map<String, Set<Checklistable>> checklists;
+    Map<EnumPhases, Set<Checklistable>> checklists;
     
     /**
      * Constructs a new, empty check list.
@@ -29,9 +31,27 @@ public class CheckList {
                 
         Set<Checklistable> checklist = new HashSet<>();
         for (EnumAssessment value : EnumAssessment.values()) {
-            checklist.add(value);
+            if (value.isObligatory()) {
+                checklist.add(value);
+            }
         }
-        checklists.put("assessment", checklist);
+        checklists.put(EnumPhases.ASSESSMENT, checklist);
+        
+        checklist = new HashSet<>();
+        for (EnumActionplan value : EnumActionplan.values()) {
+            if (value.isObligatory()) {
+                checklist.add(value);
+            }
+        }
+        checklists.put(EnumPhases.ACTIONPLAN, checklist);
+        
+        checklist = new HashSet<>();
+        for (EnumCaseInformation value : EnumCaseInformation.values()) {
+            if (value.isObligatory()) {
+                checklist.add(value);
+            }
+        }
+        checklists.put(EnumPhases.INFORMATION, checklist);
     }
     
     /**
@@ -41,7 +61,7 @@ public class CheckList {
      * @param phase - The phase to be checked
      * @return missingElements - Required fields which hasn't been filled.
      */
-    public Set<Checklistable> checkCollection(Set<Checklistable> info, String phase){
+    public Set<Checklistable> checkCollection(Set<Checklistable> info, EnumPhases phase){
         
         Set<Checklistable> checklist = checklists.get(phase);
         

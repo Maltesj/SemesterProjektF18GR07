@@ -26,5 +26,5 @@ public interface IBusinessFacade {
     public Map<Checklistable, String> continueActionPlan();
     public void discardPhase();
     public boolean savePhase();
-    public void setState(String phase);
+    public void setState(EnumPhases phase);
 }

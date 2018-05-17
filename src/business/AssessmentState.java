@@ -6,7 +6,7 @@
 package business;
 
 import acquaintance.Checklistable;
-import acquaintance.IDataFacade;
+import acquaintance.EnumPhases;
 import java.util.Set;
 
 /**
@@ -23,7 +23,7 @@ public class AssessmentState implements IUdredState{
     
     @Override
     public boolean savePhase(Information info) {
-        BusinessFacade.getInstance().savePhase(info, "assessment", info.getCaseID());
+        BusinessFacade.getInstance().savePhase(info, "assessment", info.getCaseID()); // temp
         
         if (info.getCaseID() == null) {
             return false;
@@ -38,13 +38,13 @@ public class AssessmentState implements IUdredState{
 
     @Override
     public Set<Checklistable> checkFields(Information info) {
-        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), EnumPhases.ASSESSMENT);
     }
 
     @Override
     public Set<Checklistable> done(Information info) {
         this.savePhase(info);
-        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), EnumPhases.ASSESSMENT);
     }
 
     @Override

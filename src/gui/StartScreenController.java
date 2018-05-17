@@ -5,6 +5,7 @@
 */
 package gui;
 
+import acquaintance.EnumPhases;
 import acquaintance.IController;
 import java.io.IOException;
 import java.net.URL;
@@ -149,7 +150,7 @@ public class StartScreenController implements Initializable {
                 tab.setText("Sagsvurdering");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 tab.setOnSelectionChanged(e -> {
-                    GUIFacade.getInstance().setState("Assessment");
+                    GUIFacade.getInstance().setState(EnumPhases.ASSESSMENT);
                 });
                 
                 this.topTab.getTabs().add(tab);        
@@ -210,7 +211,7 @@ public class StartScreenController implements Initializable {
                 tab.setText("Handleplan");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 tab.setOnSelectionChanged(e -> {
-                    GUIFacade.getInstance().setState("Actionplan");
+                    GUIFacade.getInstance().setState(EnumPhases.ACTIONPLAN);
                 });
                 
                 this.topTab.getTabs().add(tab);        

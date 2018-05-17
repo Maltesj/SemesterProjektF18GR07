@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import java.util.Set;
 
 /**
@@ -38,13 +39,13 @@ public class ActionplanState implements IUdredState {
     
     @Override
     public Set<Checklistable> checkFields(Information information) {
-        return checkList.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
+        return checkList.checkCollection(information.getActionplanInformation().getFilledFields(), EnumPhases.ACTIONPLAN);
     }
     
     @Override
     public Set<Checklistable> done(Information information) {
         savePhase(information);
-        return checkFields(information);
+        return this.checkFields(information);
     }
     
     @Override
