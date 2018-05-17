@@ -54,10 +54,7 @@ public class Udred {
         this.currentCaseWorkerID = caseWorkerID;
         
         if (!this.cases.containsKey(caseID)) {
-            BusinessFacade business = BusinessFacade.getInstance();
-            IDataFacade data = business.getDataFacade();
-            
-            CaseInformation Cinfo = (CaseInformation) data.getCaseInfo(this.currentCaseID);
+            CaseInformation Cinfo = (CaseInformation) BusinessFacade.getInstance().getCaseInfo(this.currentCaseID);
             
             Information info = new Information(caseID, Cinfo);
             cases.put(caseID, info);
@@ -77,10 +74,8 @@ public class Udred {
      * @return Returns true if the current case wasn't null
      */
     boolean save() {
-        BusinessFacade business = BusinessFacade.getInstance();
-        IDataFacade data = business.getDataFacade();
         Information info = cases.get(currentCaseID);
-        data.save(info, currentCaseID);
+        BusinessFacade.getInstance().save(info, currentCaseID);
         
         if (currentCaseID == null) {
             return false;
@@ -132,7 +127,7 @@ public class Udred {
     }
     
     Map<String,String> startActionPlan(String caseWorkerID, String caseID){
-        IWork work = BusinessFacade.getInstance().getDataFacade().getWork();
+        IWork work = BusinessFacade.getInstance().getWork();
         Information info = this.cases.get(caseID);
         ActionplanInformation actionplan = new ActionplanInformation(work);
         
@@ -143,7 +138,7 @@ public class Udred {
     
     Map<String, String> continueActionPlan(){
         
-        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getDataFacade().getActionPlan();
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
         
         Map<String, String> fieldInfo = actionplan.getInformation();
         

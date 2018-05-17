@@ -29,24 +29,24 @@ public class CaseActionplanController implements Initializable, IController {
 
     @FXML
     private void startActionplanEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().getBusinessFacade().startActionPlan("caseWorkerID", "caseID");
+        GUIFacade.getInstance().startActionPlan("caseWorkerID", "caseID");
         
     }
 
     @FXML
     private void continueActionplanEventHandler(ActionEvent event) {
         
-        GUIFacade.getInstance().getBusinessFacade().continueActionPlan();
+        GUIFacade.getInstance().continueActionPlan();
     }
 
     @FXML
     private void discardPhaseEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().getBusinessFacade().discardPhase();
+        GUIFacade.getInstance().discardPhase();
     }
 
     @FXML
     private void savePhaseEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().getBusinessFacade().savePhase();
+        GUIFacade.getInstance().savePhase();
     }
 
 

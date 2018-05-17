@@ -9,7 +9,6 @@ import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
@@ -76,8 +75,24 @@ public class GUIFacade implements IGUIFacade {
         return this.businessFacade.save();
     }
     
-    IBusinessFacade getBusinessFacade(){
-        return this.businessFacade;
+    void setState(String phase){
+        this.businessFacade.setState(phase);
+    }
+    
+    boolean savePhase(){
+        return this.businessFacade.savePhase();
+    }
+    
+    void discardPhase(){
+        this.businessFacade.discardPhase();
+    }
+    
+    Map<String, String> continueActionPlan(){
+        return this.businessFacade.continueActionPlan();
+    }
+    
+    Map<String, String> startActionPlan(String caseWorkerID, String caseID){
+        return this.businessFacade.startActionPlan(caseWorkerID, caseID);
     }
     
 }

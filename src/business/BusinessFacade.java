@@ -5,8 +5,11 @@
 */
 package business;
 
+import acquaintance.IActionplan;
 import acquaintance.IBusinessFacade;
+import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
+import acquaintance.IWork;
 import java.util.Map;
 import java.util.Set;
 
@@ -157,6 +160,30 @@ public class BusinessFacade implements IBusinessFacade {
     @Override
     public void setState(String phase){
         this.udred.setState(phase);
+    }
+    
+    boolean savePhase(Information info, String phase, String caseID){
+        return this.dataFacade.savePhase(info, phase, caseID);
+    }
+    
+    boolean discard(String phase, String cseID){
+        return this.dataFacade.discard(phase, cseID);
+    }
+    
+    IActionplan getActionPlan(){
+        return this.dataFacade.getActionPlan();
+    }
+    
+    IWork getWork(){
+        return this.dataFacade.getWork();
+    }
+    
+    void save(Information info, String caseID){
+        this.dataFacade.save(info, caseID);
+    }
+    
+    ICaseInformation getCaseInfo(String caseID){
+        return this.dataFacade.getCaseInfo(caseID);
     }
     
 }

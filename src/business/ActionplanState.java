@@ -20,8 +20,13 @@ public class ActionplanState implements IUdredState {
     
     @Override
     public boolean savePhase(Information information) {
-        information.getActionplanInformation();
-        BusinessFacade.getInstance().getDataFacade().save(information, "changeThisWhenReady");
+//        information.getActionplanInformation();
+        String caseID = information.getCaseID();
+        BusinessFacade.getInstance().savePhase(information, "changeThisWhenReady", caseID); //temp
+        
+        if (information.getCaseID() == null) {
+            return false;
+        }
         return true;
     }
     
@@ -46,7 +51,7 @@ public class ActionplanState implements IUdredState {
     public void discard(Information information) {
         information.setActionplanInformation(null);
         String caseID = information.getCaseID();
-        BusinessFacade.getInstance().getDataFacade().discard("ActionplanInformation",caseID );
+        BusinessFacade.getInstance().discard("ActionplanInformation",caseID ); // temp, 
     }
     
     

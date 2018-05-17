@@ -22,7 +22,7 @@ public class AssessmentState implements IUdredState{
     
     @Override
     public boolean savePhase(Information info) {
-        BusinessFacade.getInstance().getDataFacade().save(info, info.getCaseID());
+        BusinessFacade.getInstance().savePhase(info, "assessment", info.getCaseID());
         
         if (info.getCaseID() == null) {
             return false;
@@ -50,7 +50,7 @@ public class AssessmentState implements IUdredState{
     public void discard(Information info) {
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        BusinessFacade.getInstance().getDataFacade().discard("assessment", caseID);
+        BusinessFacade.getInstance().discard("assessment", caseID); //temp
     }
     
 }

@@ -149,7 +149,7 @@ public class StartScreenController implements Initializable {
                 tab.setText("Sagsvurdering");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 tab.setOnSelectionChanged(e -> {
-                    GUIFacade.getInstance().getBusinessFacade().setState("Assessment");
+                    GUIFacade.getInstance().setState("Assessment");
                 });
                 
                 this.topTab.getTabs().add(tab);        
@@ -210,7 +210,7 @@ public class StartScreenController implements Initializable {
                 tab.setText("Handleplan");
                 tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
                 tab.setOnSelectionChanged(e -> {
-                    GUIFacade.getInstance().getBusinessFacade().setState("Actionplan");
+                    GUIFacade.getInstance().setState("Actionplan");
                 });
                 
                 this.topTab.getTabs().add(tab);        
