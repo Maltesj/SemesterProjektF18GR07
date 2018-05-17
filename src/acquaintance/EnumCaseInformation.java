@@ -9,7 +9,7 @@ package acquaintance;
  *
  * @author malte
  */
-public enum EnumCaseInformation {
+public enum EnumCaseInformation implements Checklistable {
     
     
     PHYSICPROBLEM1("Fysisk_borger_oplysning", true), 

@@ -5,6 +5,7 @@
 */
 package gui;
 
+import acquaintance.Checklistable;
 import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
 import java.util.Map;
@@ -55,19 +56,19 @@ public class GUIFacade implements IGUIFacade {
         guiStarter.main(args);
     }
     
-    Set<String> checkAssessment(){
+    Set<Checklistable> checkAssessment(){
         return this.businessFacade.checkFields();
     }
     
-    Map<String, String> getCaseInformation(String caseID){
+    Map<Checklistable, String> getCaseInformation(String caseID){
         return this.businessFacade.getCaseInformation(caseID);
     }
     
-    Set<String> done(){
+    Set<Checklistable> done(){
         return this.businessFacade.done();
     }
     
-    void write(String text, String sourceInfo){
+    void write(String text, Checklistable sourceInfo){
         this.businessFacade.write(text, sourceInfo);
     }
     
@@ -87,11 +88,11 @@ public class GUIFacade implements IGUIFacade {
         this.businessFacade.discardPhase();
     }
     
-    Map<String, String> continueActionPlan(){
+    Map<Checklistable, String> continueActionPlan(){
         return this.businessFacade.continueActionPlan();
     }
     
-    Map<String, String> startActionPlan(String caseWorkerID, String caseID){
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
         return this.businessFacade.startActionPlan(caseWorkerID, caseID);
     }
     

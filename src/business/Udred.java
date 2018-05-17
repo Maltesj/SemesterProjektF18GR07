@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.IActionplan;
 import acquaintance.IDataFacade;
 import acquaintance.IWork;
@@ -87,7 +88,7 @@ public class Udred {
      * The method goes through the assessmentsfields and returns the missing fields after saving the case
      * @return Returns a set with the missing obligatory fields
      */
-    Set<String> done() {
+    Set<Checklistable> done() {
         Information info = cases.get(currentCaseID);
         return this.state.done(info);
     }
@@ -97,7 +98,7 @@ public class Udred {
      * @param text
      * @param sourceInfo
      */
-    void write(String text, String sourceInfo) {
+    void write(String text, Checklistable sourceInfo) {
         Information info = cases.get(currentCaseID); //Hard coded case as input
         this.state.write(text, sourceInfo, info);
     }
@@ -106,14 +107,14 @@ public class Udred {
      * The method returns the case information
      * @return Returns a map with information and its source
      */
-    Map<String, String> getCaseInformation() {
+    Map<Checklistable, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
-        Map<String, String> caseinfo = info.getCaseInformation().getInformation();
+        Map<Checklistable, String> caseinfo = info.getCaseInformation().getInformation();
         
         return caseinfo;
     }
     
-    Set<String> checkFields(){
+    Set<Checklistable> checkFields(){
         
         return this.state.checkFields(this.cases.get(this.currentCaseID));
 //        
@@ -126,7 +127,7 @@ public class Udred {
 //        return missingFields;
     }
     
-    Map<String,String> startActionPlan(String caseWorkerID, String caseID){
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
         IWork work = BusinessFacade.getInstance().getWork();
         Information info = this.cases.get(caseID);
         ActionplanInformation actionplan = new ActionplanInformation(work);
@@ -136,11 +137,11 @@ public class Udred {
         return actionplan.getInformation();
     }
     
-    Map<String, String> continueActionPlan(){
+    Map<Checklistable, String> continueActionPlan(){
         
         ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
         
-        Map<String, String> fieldInfo = actionplan.getInformation();
+        Map<Checklistable, String> fieldInfo = actionplan.getInformation();
         
         Information info = this.cases.get(this.currentCaseID);
         

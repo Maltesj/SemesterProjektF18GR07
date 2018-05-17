@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.EnumAssessment;
 import acquaintance.EnumCaseInformation;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import java.util.Set;
  */
 public class CheckList {
     
-    Map<String, Set<String>> checklists;
+    Map<String, Set<Checklistable>> checklists;
     
     /**
      * Constructs a new, empty check list.
@@ -26,9 +27,9 @@ public class CheckList {
     public CheckList() {
         checklists = new HashMap<>();
                 
-        Set<String> checklist = new HashSet<String>();
+        Set<Checklistable> checklist = new HashSet<>();
         for (EnumAssessment value : EnumAssessment.values()) {
-            checklist.add(value.toString());
+            checklist.add(value);
         }
         checklists.put("assessment", checklist);
     }
@@ -40,11 +41,11 @@ public class CheckList {
      * @param phase - The phase to be checked
      * @return missingElements - Required fields which hasn't been filled.
      */
-    public Set<String> checkCollection(Set<String> info, String phase){
+    public Set<Checklistable> checkCollection(Set<Checklistable> info, String phase){
         
-        Set<String> checklist = checklists.get(phase);
+        Set<Checklistable> checklist = checklists.get(phase);
         
-        Set<String> missingElements = new HashSet<String>();
+        Set<Checklistable> missingElements = new HashSet<>();
         
         missingElements.addAll(checklist);
         missingElements.removeAll(info);

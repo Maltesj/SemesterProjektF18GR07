@@ -9,7 +9,7 @@ package acquaintance;
  *
  * @author Kasper
  */
-public enum EnumAssessment {
+public enum EnumAssessment implements Checklistable {
     
     PROFFESSIONALASSESSMENT1("ProffesionalAssessment1", true),
     PROFFESSIONALASSESSMENT2("ProffesionalAssessment2", true),

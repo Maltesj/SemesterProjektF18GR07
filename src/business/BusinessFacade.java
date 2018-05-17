@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.IActionplan;
 import acquaintance.IBusinessFacade;
 import acquaintance.ICaseInformation;
@@ -87,8 +88,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return The set of obligatory fields that aren't filled
      */
     @Override
-    public Set<String> done() {
-        Set<String> returnValue = this.udred.done();
+    public Set<Checklistable> done() {
+        Set<Checklistable> returnValue = this.udred.done();
         return returnValue;
     }
     
@@ -98,7 +99,7 @@ public class BusinessFacade implements IBusinessFacade {
      * @param sourceInfo A string describing the source of the text
      */
     @Override
-    public void write(String text, String sourceInfo) {
+    public void write(String text, Checklistable sourceInfo) {
         this.udred.write(text, sourceInfo);
     }
     
@@ -108,8 +109,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return 
      */
     @Override
-    public Map<String, String> getCaseInformation(String CaseID) {
-        Map<String, String> returnValue = this.udred.getCaseInformation();
+    public Map<Checklistable, String> getCaseInformation(String CaseID) {
+        Map<Checklistable, String> returnValue = this.udred.getCaseInformation();
         return returnValue;
     }
     
@@ -124,18 +125,18 @@ public class BusinessFacade implements IBusinessFacade {
     }
 
     @Override
-    public Set<String> checkFields() {
+    public Set<Checklistable> checkFields() {
         return this.udred.checkFields();
         
     }
 
     @Override
-    public Map<String, String> startActionPlan(String caseWorkerID, String caseID) {
+    public Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID) {
         return this.udred.startActionPlan(caseWorkerID, caseID);
     }
 
     @Override
-    public Map<String, String> continueActionPlan() {
+    public Map<Checklistable, String> continueActionPlan() {
         return this.udred.continueActionPlan();
     }
 

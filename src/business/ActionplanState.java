@@ -5,6 +5,7 @@
 */
 package business;
 
+import acquaintance.Checklistable;
 import java.util.Set;
 
 /**
@@ -13,9 +14,9 @@ import java.util.Set;
  */
 public class ActionplanState implements IUdredState {
     
-    CheckList cL;
+    CheckList checkList;
     ActionplanState(){
-        cL = new CheckList();
+        checkList = new CheckList();
     }
     
     @Override
@@ -31,18 +32,17 @@ public class ActionplanState implements IUdredState {
     }
     
     @Override
-    public void write(String text, String sourceInfo, Information information) {
+    public void write(String text, Checklistable sourceInfo, Information information) {
         information.getActionplanInformation().write(text, sourceInfo);
     }
     
     @Override
-    public Set<String> checkFields(Information information) {
-        
-        return cL.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
+    public Set<Checklistable> checkFields(Information information) {
+        return checkList.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
     }
     
     @Override
-    public Set<String> done(Information information) {
+    public Set<Checklistable> done(Information information) {
         savePhase(information);
         return checkFields(information);
     }

@@ -5,6 +5,7 @@
  */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.IDataFacade;
 import java.util.Set;
 
@@ -31,17 +32,17 @@ public class AssessmentState implements IUdredState{
     }
 
     @Override
-    public void write(String text, String sourceInfo, Information info) {
+    public void write(String text, Checklistable sourceInfo, Information info) {
         info.getAssessmentInformation().write(text, sourceInfo);
     }
 
     @Override
-    public Set<String> checkFields(Information info) {
+    public Set<Checklistable> checkFields(Information info) {
         return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
     }
 
     @Override
-    public Set<String> done(Information info) {
+    public Set<Checklistable> done(Information info) {
         this.savePhase(info);
         return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
     }

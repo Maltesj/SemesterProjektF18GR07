@@ -5,12 +5,9 @@
 */
 package business;
 
-import java.io.File;
+import acquaintance.Checklistable;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /** Class for storage of assessment information
@@ -18,7 +15,7 @@ import java.util.Set;
  * @author michael og malte
  */
 public class AssessmentInformation implements Serializable {
-    private HashMap<String, String> textInformation;
+    private HashMap<Checklistable, String> textInformation;
     
     public AssessmentInformation(){
         textInformation = new HashMap<>();
@@ -28,7 +25,7 @@ public class AssessmentInformation implements Serializable {
      *
      * @return the keyset from hashmap
      */
-    public Set<String> getFilledFields(){
+    public Set<Checklistable> getFilledFields(){
         return textInformation.keySet();
     }
     
@@ -37,7 +34,7 @@ public class AssessmentInformation implements Serializable {
      * @param text is the value
      * @param sourceInfo is the key
      */
-    public void write(String text, String sourceInfo){
+    public void write(String text, Checklistable sourceInfo){
         textInformation.put(sourceInfo, text);
         if (text.equals("")||text.equals(null)){
             textInformation.remove(sourceInfo);

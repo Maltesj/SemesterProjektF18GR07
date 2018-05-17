@@ -9,7 +9,7 @@ package acquaintance;
  *
  * @author HCHB
  */
-public enum EnumActionplan {
+public enum EnumActionplan implements Checklistable {
 
     RANDOMFIELD1("RandomField1", true),
     RANDOMFIELD2("RandomField2", true);
@@ -22,6 +22,12 @@ public enum EnumActionplan {
         this.obligatory = obligatory;
     }
     
+    @Override
+    public String toString(){
+        return this.sourceID;
+    }
+    
+    @Override
     public boolean isObligatory(){
         return this.obligatory;
     }
