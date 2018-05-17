@@ -64,7 +64,7 @@ public class DataFacade implements IDataFacade{
     @Override
     public boolean savePhase(IInformation info, String phase, String caseID) {
         this.save(info, caseID);  
-        return true;
+        return true; // temp
     }
 
     @Override
