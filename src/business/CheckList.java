@@ -5,8 +5,8 @@
 */
 package business;
 
-import acquaintance.AssessmentEnum;
-import acquaintance.ConstantsEnum;
+import acquaintance.EnumAssessment;
+import acquaintance.EnumCaseInformation;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class CheckList {
         checklists = new HashMap<>();
                 
         Set<String> checklist = new HashSet<String>();
-        for (AssessmentEnum value : AssessmentEnum.values()) {
+        for (EnumAssessment value : EnumAssessment.values()) {
             checklist.add(value.toString());
         }
         checklists.put("assessment", checklist);

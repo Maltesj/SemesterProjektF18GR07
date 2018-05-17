@@ -61,14 +61,6 @@ public class BusinessFacade implements IBusinessFacade {
     }
     
     /**
-     * Returns the IDataFacade in this object
-     * @return The IDataFacade in this object
-     */
-    IDataFacade getDataFacade(){
-        return this.dataFacade;
-    }
-    
-    /**
      * Initializes an assessment of a case and loads the case information
      * @param caseID ID of a case
      * @param caseWorkerID ID of a case worker
@@ -166,8 +158,8 @@ public class BusinessFacade implements IBusinessFacade {
         return this.dataFacade.savePhase(info, phase, caseID);
     }
     
-    boolean discard(String phase, String cseID){
-        return this.dataFacade.discard(phase, cseID);
+    boolean discard(String phase, String caseID){
+        return this.dataFacade.discard(phase, caseID);
     }
     
     IActionplan getActionPlan(){

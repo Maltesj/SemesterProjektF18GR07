@@ -5,7 +5,7 @@
 */
 package gui;
 
-import acquaintance.AssessmentEnum;
+import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -52,7 +52,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         
         this.informationFields = new HashMap<>();
         
-        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), textAreaAcademicallyAssessment);
+        this.informationFields.put(EnumAssessment.PROFFESSIONALASSESSMENT1.toString(), textAreaAcademicallyAssessment);
         
     }
     

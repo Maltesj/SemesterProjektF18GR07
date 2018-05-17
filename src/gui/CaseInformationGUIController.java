@@ -5,7 +5,7 @@
  */
 package gui;
 
-import acquaintance.ConstantsEnum;
+import acquaintance.EnumCaseInformation;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -101,23 +101,21 @@ public class CaseInformationGUIController implements Initializable, IController 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         informationFields = new HashMap<>();
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Fysisk_oplysning_andre);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM2.toString(), pyskisk_oplysning_borger);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM3.toString(), psykisk_sagsbehandling_bemaerk);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM4.toString(), psykisk_funtkions_tekst);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM1.toString(), Socialt_oplysning_borger);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM2.toString(), Socialt_oplysning_andre);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM3.toString(), Socialt_behandlers_bemaerk);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM4.toString(), socialt_funktions_tekst);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM2.toString(), Fysisk_oplysning_andre);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM2.toString(), pyskisk_oplysning_borger);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM3.toString(), psykisk_sagsbehandling_bemaerk);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM4.toString(), psykisk_funtkions_tekst);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM1.toString(), Socialt_oplysning_borger);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM2.toString(), Socialt_oplysning_andre);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM3.toString(), Socialt_behandlers_bemaerk);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM4.toString(), socialt_funktions_tekst);
         this.Fysisk_funktions_tal.setText("Initialise");
         this.Fysisk_funktions_tal.appendText("Initialise");
-        this.Fysisk_funktions_tal.textProperty().setValue("Initfrereialise");
-        //this.testTexr.setText("test2");
-        
+        this.Fysisk_funktions_tal.textProperty().setValue("Initfrereialise");        
     }
 
     void loadInformation(String caseID){
