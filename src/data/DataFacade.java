@@ -63,7 +63,8 @@ public class DataFacade implements IDataFacade{
 
     @Override
     public boolean savePhase(IInformation info, String phase, String caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.save(info, caseID);  
+        return true;
     }
 
     @Override

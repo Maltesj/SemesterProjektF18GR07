@@ -23,7 +23,7 @@ public enum EnumAssessment {
     
     EnumAssessment(String sourceID, boolean obligatory)
     {
-        sourceID = sourceID;
+        this.sourceID = sourceID;
         this.obligatory = obligatory;
     }
     
