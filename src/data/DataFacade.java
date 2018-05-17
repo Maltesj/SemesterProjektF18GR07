@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
@@ -57,12 +58,12 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public boolean discard(String phase, String caseID) {
+    public boolean discard(EnumPhases phase, String caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean savePhase(IInformation info, String phase, String caseID) {
+    public boolean savePhase(IInformation info, EnumPhases phase, String caseID) {
         this.save(info, caseID);  
         return true; // temp
     }

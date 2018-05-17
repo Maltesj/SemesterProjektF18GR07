@@ -24,7 +24,7 @@ public class ActionplanState implements IUdredState {
     public boolean savePhase(Information information) {
 //        information.getActionplanInformation();
         String caseID = information.getCaseID();
-        BusinessFacade.getInstance().savePhase(information, "changeThisWhenReady", caseID); //temp
+        BusinessFacade.getInstance().savePhase(information, EnumPhases.ACTIONPLAN, caseID); //temp
         
         if (information.getCaseID() == null) {
             return false;
@@ -52,7 +52,7 @@ public class ActionplanState implements IUdredState {
     public void discard(Information information) {
         information.setActionplanInformation(null);
         String caseID = information.getCaseID();
-        BusinessFacade.getInstance().discard("ActionplanInformation",caseID ); // temp, 
+        BusinessFacade.getInstance().discard(EnumPhases.ACTIONPLAN,caseID ); // temp, 
     }
     
     

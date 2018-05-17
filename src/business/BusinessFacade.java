@@ -156,11 +156,11 @@ public class BusinessFacade implements IBusinessFacade {
         this.udred.setState(phase);
     }
     
-    boolean savePhase(Information info, String phase, String caseID){
+    boolean savePhase(Information info, EnumPhases phase, String caseID){
         return this.dataFacade.savePhase(info, phase, caseID);
     }
     
-    boolean discard(String phase, String caseID){
+    boolean discard(EnumPhases phase, String caseID){
         return this.dataFacade.discard(phase, caseID);
     }
     

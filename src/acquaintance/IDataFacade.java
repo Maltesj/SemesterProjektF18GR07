@@ -17,7 +17,7 @@ public interface IDataFacade {
     public void save(IInformation info, String caseID);
     public Set<String> getCaseIDs();
     public IWork getWork();
-    public boolean discard(String phase, String caseID);
-    public boolean savePhase(IInformation info, String phase, String caseID);
+    public boolean discard(EnumPhases phase, String caseID);
+    public boolean savePhase(IInformation info, EnumPhases phase, String caseID);
     public IActionplan getActionPlan();
 }

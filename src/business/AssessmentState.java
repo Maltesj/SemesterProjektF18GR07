@@ -23,7 +23,7 @@ public class AssessmentState implements IUdredState{
     
     @Override
     public boolean savePhase(Information info) {
-        BusinessFacade.getInstance().savePhase(info, "assessment", info.getCaseID()); // temp
+        BusinessFacade.getInstance().savePhase(info, EnumPhases.ASSESSMENT, info.getCaseID()); // temp
         
         if (info.getCaseID() == null) {
             return false;
@@ -51,7 +51,7 @@ public class AssessmentState implements IUdredState{
     public void discard(Information info) {
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        BusinessFacade.getInstance().discard("assessment", caseID); //temp
+        BusinessFacade.getInstance().discard(EnumPhases.ASSESSMENT, caseID); //temp
     }
     
 }
