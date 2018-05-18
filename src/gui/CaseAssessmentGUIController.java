@@ -9,6 +9,7 @@ import acquaintance.Checklistable;
 import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -61,6 +62,8 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     private void checkEvent(ActionEvent event) {
         Set<Checklistable> obligatoryFields = GUIFacade.getInstance().checkAssessment();
         checkText.setText(obligatoryFields.toString());
+        
+        this.updateIfFieldsIsFilled(obligatoryFields);
     }
     
     @FXML
@@ -68,6 +71,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         Set<Checklistable> obligatoryFields = GUIFacade.getInstance().done();
         checkText.setText(obligatoryFields.toString());
         
+        this.updateIfFieldsIsFilled(obligatoryFields);
     }
     
     @FXML
@@ -96,6 +100,19 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     private void tableOfContentMenuItemAction(ActionEvent event) {
         if(tableOfContentMenuItem.isSelected()){
             
+        }
+    }
+    
+    private void updateIfFieldsIsFilled(Set<Checklistable> obligatoryFields){
+        Collection<TextArea> filledFields = this.informationFields.values();
+        
+        for (Checklistable obligatoryField : obligatoryFields) {
+            this.informationFields.get(obligatoryField).setStyle("-fx-border-color: red;-fx-border-width: 3");
+            filledFields.remove(obligatoryField);
+        }
+        
+        for (TextArea filledField : filledFields) {
+            filledField.setStyle("-fx-control-inner-background:  #e4f0d4 ;"); 
         }
     }
     
