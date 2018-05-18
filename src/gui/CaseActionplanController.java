@@ -11,6 +11,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -18,6 +21,11 @@ import javafx.fxml.Initializable;
  * @author HCHB
  */
 public class CaseActionplanController implements Initializable, IController {
+
+    @FXML
+    private GridPane BackgroundGrid;
+    @FXML
+    private ScrollPane dokumentScroller;
 
     /**
      * Initializes the controller class.
@@ -48,6 +56,11 @@ public class CaseActionplanController implements Initializable, IController {
     private void savePhaseEventHandler(ActionEvent event) {
         GUIFacade.getInstance().getBusinessFacade().savePhase();
     }
+
+
+    
+
+   
 
 
 
