@@ -5,6 +5,7 @@
  */
 package business;
 
+import acquaintance.Checklistable;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author HCHB
+ * @author Simon
  */
 public class ActionplanStateTest {
     
@@ -60,7 +61,7 @@ public class ActionplanStateTest {
     public void testWrite() {
         System.out.println("write");
         String text = "";
-        String sourceInfo = "";
+        Checklistable sourceInfo = null;
         Information information = null;
         ActionplanState instance = new ActionplanState();
         instance.write(text, sourceInfo, information);
@@ -76,8 +77,8 @@ public class ActionplanStateTest {
         System.out.println("checkFields");
         Information information = null;
         ActionplanState instance = new ActionplanState();
-        Set<String> expResult = null;
-        Set<String> result = instance.checkFields(information);
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.checkFields(information);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -91,8 +92,8 @@ public class ActionplanStateTest {
         System.out.println("done");
         Information information = null;
         ActionplanState instance = new ActionplanState();
-        Set<String> expResult = null;
-        Set<String> result = instance.done(information);
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.done(information);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
