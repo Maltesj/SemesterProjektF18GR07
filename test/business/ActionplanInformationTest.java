@@ -5,6 +5,7 @@
  */
 package business;
 
+import acquaintance.Checklistable;
 import java.util.HashMap;
 import java.util.Set;
 import org.junit.After;
@@ -16,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author HCHB
+ * @author Simon
  */
 public class ActionplanInformationTest {
     
@@ -46,8 +47,8 @@ public class ActionplanInformationTest {
     public void testGetFilledFields() {
         System.out.println("getFilledFields");
         ActionplanInformation instance = null;
-        Set<String> expResult = null;
-        Set<String> result = instance.getFilledFields();
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.getFilledFields();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -60,7 +61,7 @@ public class ActionplanInformationTest {
     public void testWrite() {
         System.out.println("write");
         String text = "";
-        String sourceInfo = "";
+        Checklistable sourceInfo = null;
         ActionplanInformation instance = null;
         instance.write(text, sourceInfo);
         // TODO review the generated test code and remove the default call to fail.
@@ -74,8 +75,8 @@ public class ActionplanInformationTest {
     public void testGetInformation() {
         System.out.println("getInformation");
         ActionplanInformation instance = null;
-        HashMap<String, String> expResult = null;
-        HashMap<String, String> result = instance.getInformation();
+        HashMap<Checklistable, String> expResult = null;
+        HashMap<Checklistable, String> result = instance.getInformation();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
