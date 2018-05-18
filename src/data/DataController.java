@@ -5,75 +5,20 @@
  */
 package data;
 
-import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
-import acquaintance.IDataFacade;
-import acquaintance.IInformation;
 import acquaintance.IWork;
 import acquaintance.IAssessment;
-import java.util.Set;
 
 /**
  *
- * @author HCHB
+ * @author Simon
  */
-public class DataFacade implements IDataFacade{
+public class DataController {
     
-    private static DataFacade instance;
-    private CaseInfoLoader caseInfoLoader;
-    private SaveInformation si;
-    
-    public static DataFacade getInstance(){
-        if (instance == null) {
-            instance = new DataFacade();
-        }
-        
-        return instance;
-    }
-    
-    private DataFacade(){
-        caseInfoLoader = new CaseInfoLoader();
-        si = new SaveInformation();
+    DataController(){
         
     }
-
-    @Override
-    public ICaseInformation getCaseInfo(String caseID) {
-        return caseInfoLoader.getCaseInfo(caseID);
-    }
-
-    @Override
-    public void save(IInformation info, String caseID) {
-        si.saveInformation(info, caseID);
-    }
-
-    @Override
-    public Set<String> getCaseIDs() {
-        return caseInfoLoader.getCaseIDs();
-    }
-
-    @Override
-    public IWork getWork() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean discard(EnumPhases phase, String caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean savePhase(IInformation info, EnumPhases phase, String caseID) {
-        this.save(info, caseID);  
-        return true; // temp
-    }
-
-    @Override
-    public IActionplan getActionPlan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan){
         
     }
@@ -138,5 +83,4 @@ public class DataFacade implements IDataFacade{
     }
     
     
-
 }
