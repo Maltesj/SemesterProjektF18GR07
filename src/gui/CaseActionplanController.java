@@ -11,7 +11,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -26,6 +28,26 @@ public class CaseActionplanController implements Initializable, IController {
     private GridPane BackgroundGrid;
     @FXML
     private ScrollPane dokumentScroller;
+    @FXML
+    private CheckBox guardianshipCheckBox;
+    @FXML
+    private CheckBox guardianship2CheckBox;
+    @FXML
+    private CheckBox curatorshipCheckBox;
+    @FXML
+    private CheckBox guardianship3CheckBox;
+    @FXML
+    private TextArea nameArea;
+    @FXML
+    private TextArea cprArea;
+    @FXML
+    private TextArea adressArea;
+    @FXML
+    private TextArea telephonenumber_area;
+    @FXML
+    private TextArea mail_area;
+    @FXML
+    private TextArea closetsNextOfKinArea;
 
     /**
      * Initializes the controller class.
