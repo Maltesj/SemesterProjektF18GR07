@@ -5,8 +5,13 @@
 */
 package business;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
+import acquaintance.IActionplan;
 import acquaintance.IBusinessFacade;
+import acquaintance.ICaseInformation;
 import acquaintance.IDataFacade;
+import acquaintance.IWork;
 import java.util.Map;
 import java.util.Set;
 
@@ -58,14 +63,6 @@ public class BusinessFacade implements IBusinessFacade {
     }
     
     /**
-     * Returns the IDataFacade in this object
-     * @return The IDataFacade in this object
-     */
-    IDataFacade getDataFacade(){
-        return this.dataFacade;
-    }
-    
-    /**
      * Initializes an assessment of a case and loads the case information
      * @param caseID ID of a case
      * @param caseWorkerID ID of a case worker
@@ -92,8 +89,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return The set of obligatory fields that aren't filled
      */
     @Override
-    public Set<String> done() {
-        Set<String> returnValue = this.udred.done();
+    public Set<Checklistable> done() {
+        Set<Checklistable> returnValue = this.udred.done();
         return returnValue;
     }
     
@@ -103,7 +100,7 @@ public class BusinessFacade implements IBusinessFacade {
      * @param sourceInfo A string describing the source of the text
      */
     @Override
-    public void write(String text, String sourceInfo) {
+    public void write(String text, Checklistable sourceInfo) {
         this.udred.write(text, sourceInfo);
     }
     
@@ -113,8 +110,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return 
      */
     @Override
-    public Map<String, String> getCaseInformation(String CaseID) {
-        Map<String, String> returnValue = this.udred.getCaseInformation();
+    public Map<Checklistable, String> getCaseInformation(String CaseID) {
+        Map<Checklistable, String> returnValue = this.udred.getCaseInformation();
         return returnValue;
     }
     
@@ -129,18 +126,18 @@ public class BusinessFacade implements IBusinessFacade {
     }
 
     @Override
-    public Set<String> checkFields() {
+    public Set<Checklistable> checkFields() {
         return this.udred.checkFields();
         
     }
 
     @Override
-    public Map<String, String> startActionPlan(String caseWorkerID, String caseID) {
+    public Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID) {
         return this.udred.startActionPlan(caseWorkerID, caseID);
     }
 
     @Override
-    public Map<String, String> continueActionPlan() {
+    public Map<Checklistable, String> continueActionPlan() {
         return this.udred.continueActionPlan();
     }
 
@@ -155,8 +152,32 @@ public class BusinessFacade implements IBusinessFacade {
     }
     
     @Override
-    public void setState(String phase){
+    public void setState(EnumPhases phase){
         this.udred.setState(phase);
+    }
+    
+    boolean savePhase(Information info, EnumPhases phase, String caseID){
+        return this.dataFacade.savePhase(info, phase, caseID);
+    }
+    
+    boolean discard(EnumPhases phase, String caseID){
+        return this.dataFacade.discard(phase, caseID);
+    }
+    
+    IActionplan getActionPlan(){
+        return this.dataFacade.getActionPlan();
+    }
+    
+    IWork getWork(){
+        return this.dataFacade.getWork();
+    }
+    
+    void save(Information info, String caseID){
+        this.dataFacade.save(info, caseID);
+    }
+    
+    ICaseInformation getCaseInfo(String caseID){
+        return this.dataFacade.getCaseInfo(caseID);
     }
     
 }

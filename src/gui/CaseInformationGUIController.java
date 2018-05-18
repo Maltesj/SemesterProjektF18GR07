@@ -5,7 +5,8 @@
  */
 package gui;
 
-import acquaintance.ConstantsEnum;
+import acquaintance.Checklistable;
+import acquaintance.EnumCaseInformation;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -85,7 +86,7 @@ public class CaseInformationGUIController implements Initializable, IController 
     @FXML
     private Text fysiskfunktionFXID11;
     
-    private Map<String, TextArea> informationFields;
+    private Map<Checklistable, TextArea> informationFields;
     @FXML
     private Text SocialtproblemFXID;
     private TextArea testText;
@@ -101,40 +102,27 @@ public class CaseInformationGUIController implements Initializable, IController 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         informationFields = new HashMap<>();
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM1.toString(), Fysisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM2.toString(), Fysisk_oplysning_andre);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM3.toString(), fysisk_sagsbehandlers_bemaerk);
-        informationFields.put(ConstantsEnum.PHYSICPROBLEM4.toString(), Fysisk_funktions_tal);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM1.toString(), psyisk_borger_oplysning);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM2.toString(), pyskisk_oplysning_borger);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM3.toString(), psykisk_sagsbehandling_bemaerk);
-        informationFields.put(ConstantsEnum.PSYCICPROBLEM4.toString(), psykisk_funtkions_tekst);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM1.toString(), Socialt_oplysning_borger);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM2.toString(), Socialt_oplysning_andre);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM3.toString(), Socialt_behandlers_bemaerk);
-        informationFields.put(ConstantsEnum.SOCIALPROBLEM4.toString(), socialt_funktions_tekst);
-        this.Fysisk_funktions_tal.setText("Initialise");
-        this.Fysisk_funktions_tal.appendText("Initialise");
-        this.Fysisk_funktions_tal.textProperty().setValue("Initfrereialise");
-        //this.testTexr.setText("test2");
-        
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM1, Fysisk_borger_oplysning);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM2, Fysisk_oplysning_andre);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM3, fysisk_sagsbehandlers_bemaerk);
+        informationFields.put(EnumCaseInformation.PHYSICPROBLEM4, Fysisk_funktions_tal);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM1, psyisk_borger_oplysning);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM2, pyskisk_oplysning_borger);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM3, psykisk_sagsbehandling_bemaerk);
+        informationFields.put(EnumCaseInformation.PSYCICPROBLEM4, psykisk_funtkions_tekst);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM1, Socialt_oplysning_borger);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM2, Socialt_oplysning_andre);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM3, Socialt_behandlers_bemaerk);
+        informationFields.put(EnumCaseInformation.SOCIALPROBLEM4, socialt_funktions_tekst);
     }
 
     void loadInformation(String caseID){
         
-        Map<String, String> info = GUIFacade.getInstance().getCaseInformation(caseID);
-        
-//        this.Fysisk_borger_oplysning.setText("gege");
-//        this.Fysisk_borger_oplysning.appendText("gege");
-//        this.Fysisk_oplysning_andre.textProperty().setValue("dede");
-        //this.testTexr.setText("test1");
-        
-        for (String sourceID : info.keySet()) {
+        Map<Checklistable, String> info = GUIFacade.getInstance().getCaseInformation(caseID);
+
+        for (Checklistable sourceID : info.keySet()) {
             TextArea area = informationFields.get(sourceID);
             area.setText(info.get(sourceID));
-          //  System.out.println(area.getText());
-
-
         }
     }
 

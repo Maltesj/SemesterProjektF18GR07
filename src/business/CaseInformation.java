@@ -6,6 +6,8 @@
 */
 package business;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumCaseInformation;
 import acquaintance.ICaseInformation;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -15,7 +17,7 @@ import java.util.HashMap;
  * @author michael
  */
 public class CaseInformation implements Serializable, ICaseInformation {
-    private HashMap<String, String> textInformation;
+    private HashMap<Checklistable, String> textInformation;
     
     public CaseInformation(){
         
@@ -25,7 +27,7 @@ public class CaseInformation implements Serializable, ICaseInformation {
      *
      * @param textInformation
      */
-    public CaseInformation(HashMap<String, String> textInformation){
+    public CaseInformation(HashMap<Checklistable, String> textInformation){
         this.textInformation = textInformation;
     }
 
@@ -33,7 +35,7 @@ public class CaseInformation implements Serializable, ICaseInformation {
      *
      * @return
      */
-    HashMap<String, String> getInformation(){
-        return textInformation;
+    HashMap<Checklistable, String> getInformation(){
+        return this.textInformation;
     }    
 }

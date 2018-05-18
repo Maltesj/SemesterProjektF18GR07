@@ -5,6 +5,8 @@
 */
 package business;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import java.util.Set;
 
 /**
@@ -13,40 +15,44 @@ import java.util.Set;
  */
 public class ActionplanState implements IUdredState {
     
-    CheckList cL;
+    CheckList checkList;
     ActionplanState(){
-        cL = new CheckList();
+        checkList = new CheckList();
     }
     
     @Override
     public boolean savePhase(Information information) {
-        information.getActionplanInformation();
-        BusinessFacade.getInstance().getDataFacade().save(information, "changeThisWhenReady");
+//        information.getActionplanInformation();
+        String caseID = information.getCaseID();
+        BusinessFacade.getInstance().savePhase(information, EnumPhases.ACTIONPLAN, caseID); //temp
+        
+        if (information.getCaseID() == null) {
+            return false;
+        }
         return true;
     }
     
     @Override
-    public void write(String text, String sourceInfo, Information information) {
+    public void write(String text, Checklistable sourceInfo, Information information) {
         information.getActionplanInformation().write(text, sourceInfo);
     }
     
     @Override
-    public Set<String> checkFields(Information information) {
-        
-        return cL.checkCollection(information.getActionplanInformation().getFilledFields(), "ActionplanInformation");
+    public Set<Checklistable> checkFields(Information information) {
+        return checkList.checkCollection(information.getActionplanInformation().getFilledFields(), EnumPhases.ACTIONPLAN);
     }
     
     @Override
-    public Set<String> done(Information information) {
+    public Set<Checklistable> done(Information information) {
         savePhase(information);
-        return checkFields(information);
+        return this.checkFields(information);
     }
     
     @Override
     public void discard(Information information) {
         information.setActionplanInformation(null);
         String caseID = information.getCaseID();
-        BusinessFacade.getInstance().getDataFacade().discard("ActionplanInformation",caseID );
+        BusinessFacade.getInstance().discard(EnumPhases.ACTIONPLAN,caseID ); // temp, 
     }
     
     

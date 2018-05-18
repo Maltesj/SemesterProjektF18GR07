@@ -5,7 +5,8 @@
 */
 package gui;
 
-import acquaintance.AssessmentEnum;
+import acquaintance.Checklistable;
+import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     @FXML
     private GridPane BackgroundGrid;
     
-    private HashMap<String, TextArea> informationFields;
+    private HashMap<EnumAssessment, TextArea> informationFields;
 
     /**
      * Initializes the controller class.
@@ -52,19 +53,19 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         
         this.informationFields = new HashMap<>();
         
-        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), textAreaAcademicallyAssessment);
+        this.informationFields.put(EnumAssessment.PROFFESSIONALASSESSMENT1, textAreaAcademicallyAssessment);
         
     }
     
     @FXML
     private void checkEvent(ActionEvent event) {
-        Set<String> obligatoryFields = GUIFacade.getInstance().checkAssessment();
+        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().checkAssessment();
         checkText.setText(obligatoryFields.toString());
     }
     
     @FXML
     private void afslutEvent(ActionEvent event) {
-        Set<String> obligatoryFields = GUIFacade.getInstance().done();
+        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().done();
         checkText.setText(obligatoryFields.toString());
         
     }
@@ -79,10 +80,10 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         TextArea area = (TextArea)(event.getSource());
         
         String textArea = area.getId();
-        String sourceID = null;
+        EnumAssessment sourceID = null;
         
         // get the enum value corresponding to the FXID 
-        for (Map.Entry<String, TextArea> entry : this.informationFields.entrySet()) {
+        for (Map.Entry<EnumAssessment, TextArea> entry : this.informationFields.entrySet()) {
             if (entry.getValue().equals(area)) {
                 sourceID = entry.getKey();
             }

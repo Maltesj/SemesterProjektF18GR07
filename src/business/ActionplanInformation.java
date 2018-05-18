@@ -5,14 +5,11 @@
 */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.IActionplan;
 import acquaintance.IWork;
-import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /** Class for storage of assessment information
@@ -20,7 +17,7 @@ import java.util.Set;
  * @author michael og malte
  */
 public class ActionplanInformation implements Serializable, IActionplan {
-    private HashMap<String, String> textInformation;
+    private HashMap<Checklistable, String> textInformation;
     
     ActionplanInformation(IWork work){
         textInformation = new HashMap<>();
@@ -30,7 +27,7 @@ public class ActionplanInformation implements Serializable, IActionplan {
      *
      * @return the keyset from hashmap
      */
-     Set<String> getFilledFields(){
+     Set<Checklistable> getFilledFields(){
         return textInformation.keySet();
     }
     
@@ -39,17 +36,17 @@ public class ActionplanInformation implements Serializable, IActionplan {
      * @param text is the value
      * @param sourceInfo is the key
      */
-     void write(String text, String sourceInfo){
-        textInformation.put(sourceInfo, text);
+     void write(String text, Checklistable sourceInfo){
+        this.textInformation.put(sourceInfo, text);
         if (text.equals("")||text.equals(null)){
-            textInformation.remove(sourceInfo);
+            this.textInformation.remove(sourceInfo);
         }
     }
      /** Method for getting the hashmap
      *
      * @return
      */
-    HashMap<String, String> getInformation(){
-        return textInformation;
+    HashMap<Checklistable, String> getInformation(){
+        return this.textInformation;
     }   
 }

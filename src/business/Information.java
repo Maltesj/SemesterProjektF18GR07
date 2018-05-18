@@ -36,9 +36,6 @@ public class Information implements Serializable, IInformation{
 
     public Information(String caseID, CaseInformation caseInformation, ActionplanInformation actionplanInformation) {
         this(caseID, caseInformation);
-        
-        
-        
     }
 
     AssessmentInformation getAssessmentInformation() {

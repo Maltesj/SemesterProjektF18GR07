@@ -5,7 +5,8 @@
  */
 package business;
 
-import acquaintance.IDataFacade;
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import java.util.Set;
 
 /**
@@ -22,7 +23,7 @@ public class AssessmentState implements IUdredState{
     
     @Override
     public boolean savePhase(Information info) {
-        BusinessFacade.getInstance().getDataFacade().save(info, info.getCaseID());
+        BusinessFacade.getInstance().savePhase(info, EnumPhases.ASSESSMENT, info.getCaseID()); // temp
         
         if (info.getCaseID() == null) {
             return false;
@@ -31,26 +32,26 @@ public class AssessmentState implements IUdredState{
     }
 
     @Override
-    public void write(String text, String sourceInfo, Information info) {
+    public void write(String text, Checklistable sourceInfo, Information info) {
         info.getAssessmentInformation().write(text, sourceInfo);
     }
 
     @Override
-    public Set<String> checkFields(Information info) {
-        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
+    public Set<Checklistable> checkFields(Information info) {
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), EnumPhases.ASSESSMENT);
     }
 
     @Override
-    public Set<String> done(Information info) {
+    public Set<Checklistable> done(Information info) {
         this.savePhase(info);
-        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), "assessment");
+        return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), EnumPhases.ASSESSMENT);
     }
 
     @Override
     public void discard(Information info) {
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        BusinessFacade.getInstance().getDataFacade().discard("assessment", caseID);
+        BusinessFacade.getInstance().discard(EnumPhases.ASSESSMENT, caseID); //temp
     }
     
 }
