@@ -6,7 +6,6 @@
 package business;
 
 import acquaintance.Checklistable;
-import java.util.HashMap;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author Simon
  */
-public class ActionplanInformationTest {
+public class AssessmentInformationTest {
     
-    public ActionplanInformationTest() {
+    public AssessmentInformationTest() {
     }
     
     @BeforeClass
@@ -41,12 +40,12 @@ public class ActionplanInformationTest {
     }
 
     /**
-     * Test of getFilledFields method, of class ActionplanInformation.
+     * Test of getFilledFields method, of class AssessmentInformation.
      */
     @Test
     public void testGetFilledFields() {
         System.out.println("getFilledFields");
-        ActionplanInformation instance = null;
+        AssessmentInformation instance = new AssessmentInformation();
         Set<Checklistable> expResult = null;
         Set<Checklistable> result = instance.getFilledFields();
         assertEquals(expResult, result);
@@ -55,29 +54,15 @@ public class ActionplanInformationTest {
     }
 
     /**
-     * Test of write method, of class ActionplanInformation.
+     * Test of write method, of class AssessmentInformation.
      */
     @Test
     public void testWrite() {
         System.out.println("write");
         String text = "";
         Checklistable sourceInfo = null;
-        ActionplanInformation instance = null;
+        AssessmentInformation instance = new AssessmentInformation();
         instance.write(text, sourceInfo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getInformation method, of class ActionplanInformation.
-     */
-    @Test
-    public void testGetInformation() {
-        System.out.println("getInformation");
-        ActionplanInformation instance = null;
-        HashMap<Checklistable, String> expResult = null;
-        HashMap<Checklistable, String> result = instance.getInformation();
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

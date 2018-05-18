@@ -5,6 +5,9 @@
  */
 package business;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,11 +17,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author HCHB
+ * @author Simon
  */
-public class TestStarterMainTest {
+public class CheckListTest {
     
-    public TestStarterMainTest() {
+    public CheckListTest() {
     }
     
     @BeforeClass
@@ -38,13 +41,17 @@ public class TestStarterMainTest {
     }
 
     /**
-     * Test of main method, of class TestStarterMain.
+     * Test of checkCollection method, of class CheckList.
      */
     @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        TestStarterMain.main(args);
+    public void testCheckCollection() {
+        System.out.println("checkCollection");
+        Set<Checklistable> info = null;
+        EnumPhases phase = null;
+        CheckList instance = new CheckList();
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.checkCollection(info, phase);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
