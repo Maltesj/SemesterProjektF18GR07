@@ -107,12 +107,12 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         Collection<TextArea> filledFields = this.informationFields.values();
         
         for (Checklistable obligatoryField : obligatoryFields) {
-            this.informationFields.get(obligatoryField).setStyle("-fx-border-color: red;");
+            this.informationFields.get(obligatoryField).setStyle("-fx-border-color: red;-fx-border-width: 3");
             filledFields.remove(obligatoryField);
         }
         
         for (TextArea filledField : filledFields) {
-//            filledField.setStyle("no idea what it is"); // temp
+            filledField.setStyle("-fx-control-inner-background:  #e4f0d4 ;"); 
         }
     }
     
