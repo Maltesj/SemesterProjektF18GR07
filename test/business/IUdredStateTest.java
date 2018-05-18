@@ -5,6 +5,7 @@
  */
 package business;
 
+import acquaintance.Checklistable;
 import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author HCHB
+ * @author Simon
  */
 public class IUdredStateTest {
     
@@ -60,7 +61,7 @@ public class IUdredStateTest {
     public void testWrite() {
         System.out.println("write");
         String text = "";
-        String sourceInfo = "";
+        Checklistable sourceInfo = null;
         Information information = null;
         IUdredState instance = new IUdredStateImpl();
         instance.write(text, sourceInfo, information);
@@ -76,8 +77,8 @@ public class IUdredStateTest {
         System.out.println("checkFields");
         Information information = null;
         IUdredState instance = new IUdredStateImpl();
-        Set<String> expResult = null;
-        Set<String> result = instance.checkFields(information);
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.checkFields(information);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -91,8 +92,8 @@ public class IUdredStateTest {
         System.out.println("done");
         Information information = null;
         IUdredState instance = new IUdredStateImpl();
-        Set<String> expResult = null;
-        Set<String> result = instance.done(information);
+        Set<Checklistable> expResult = null;
+        Set<Checklistable> result = instance.done(information);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -117,14 +118,14 @@ public class IUdredStateTest {
             return false;
         }
 
-        public void write(String text, String sourceInfo, Information information) {
+        public void write(String text, Checklistable sourceInfo, Information information) {
         }
 
-        public Set<String> checkFields(Information information) {
+        public Set<Checklistable> checkFields(Information information) {
             return null;
         }
 
-        public Set<String> done(Information information) {
+        public Set<Checklistable> done(Information information) {
             return null;
         }
 
