@@ -5,6 +5,8 @@
 */
 package business;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.IDataFacade;
 import acquaintance.IWork;
@@ -54,10 +56,7 @@ public class Udred {
         this.currentCaseWorkerID = caseWorkerID;
         
         if (!this.cases.containsKey(caseID)) {
-            BusinessFacade business = BusinessFacade.getInstance();
-            IDataFacade data = business.getDataFacade();
-            
-            CaseInformation Cinfo = (CaseInformation) data.getCaseInfo(this.currentCaseID);
+            CaseInformation Cinfo = (CaseInformation) BusinessFacade.getInstance().getCaseInfo(this.currentCaseID);
             
             Information info = new Information(caseID, Cinfo);
             cases.put(caseID, info);
@@ -77,10 +76,8 @@ public class Udred {
      * @return Returns true if the current case wasn't null
      */
     boolean save() {
-        BusinessFacade business = BusinessFacade.getInstance();
-        IDataFacade data = business.getDataFacade();
         Information info = cases.get(currentCaseID);
-        data.save(info, currentCaseID);
+        BusinessFacade.getInstance().save(info, currentCaseID);
         
         if (currentCaseID == null) {
             return false;
@@ -92,7 +89,7 @@ public class Udred {
      * The method goes through the assessmentsfields and returns the missing fields after saving the case
      * @return Returns a set with the missing obligatory fields
      */
-    Set<String> done() {
+    Set<Checklistable> done() {
         Information info = cases.get(currentCaseID);
         return this.state.done(info);
     }
@@ -102,7 +99,7 @@ public class Udred {
      * @param text
      * @param sourceInfo
      */
-    void write(String text, String sourceInfo) {
+    void write(String text, Checklistable sourceInfo) {
         Information info = cases.get(currentCaseID); //Hard coded case as input
         this.state.write(text, sourceInfo, info);
     }
@@ -111,14 +108,14 @@ public class Udred {
      * The method returns the case information
      * @return Returns a map with information and its source
      */
-    Map<String, String> getCaseInformation() {
+    Map<Checklistable, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
-        Map<String, String> caseinfo = info.getCaseInformation().getInformation();
+        Map<Checklistable, String> caseinfo = info.getCaseInformation().getInformation();
         
         return caseinfo;
     }
     
-    Set<String> checkFields(){
+    Set<Checklistable> checkFields(){
         
         return this.state.checkFields(this.cases.get(this.currentCaseID));
 //        
@@ -131,8 +128,8 @@ public class Udred {
 //        return missingFields;
     }
     
-    Map<String,String> startActionPlan(String caseWorkerID, String caseID){
-        IWork work = BusinessFacade.getInstance().getDataFacade().getWork();
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
+        IWork work = BusinessFacade.getInstance().getWork();
         Information info = this.cases.get(caseID);
         ActionplanInformation actionplan = new ActionplanInformation(work);
         
@@ -141,11 +138,11 @@ public class Udred {
         return actionplan.getInformation();
     }
     
-    Map<String, String> continueActionPlan(){
+    Map<Checklistable, String> continueActionPlan(){
         
-        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getDataFacade().getActionPlan();
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
         
-        Map<String, String> fieldInfo = actionplan.getInformation();
+        Map<Checklistable, String> fieldInfo = actionplan.getInformation();
         
         Information info = this.cases.get(this.currentCaseID);
         
@@ -162,5 +159,20 @@ public class Udred {
     boolean savePhase(){
         Information info = this.cases.get(this.currentCaseID);
         return this.state.savePhase(info);
+    }
+    
+    void setState(EnumPhases phase){
+        
+        switch(phase){
+            case ACTIONPLAN:
+                this.state = new ActionplanState();
+                break;
+            case ASSESSMENT:
+                this.state = new AssessmentState();
+                break;
+            case INFORMATION:
+                break;
+        }
+        
     }
 }

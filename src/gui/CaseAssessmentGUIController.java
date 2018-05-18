@@ -5,7 +5,8 @@
 */
 package gui;
 
-import acquaintance.AssessmentEnum;
+import acquaintance.Checklistable;
+import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
@@ -28,7 +28,7 @@ import javafx.scene.text.Text;
  *
  * @author Kasper
  */
-public class TestGUIController implements Initializable, IController {
+public class CaseAssessmentGUIController implements Initializable, IController {
     
     @FXML
     private ScrollPane dokumentScroller;
@@ -41,7 +41,7 @@ public class TestGUIController implements Initializable, IController {
     @FXML
     private GridPane BackgroundGrid;
     
-    private HashMap<String, TextArea> informationFields;
+    private HashMap<EnumAssessment, TextArea> informationFields;
 
     /**
      * Initializes the controller class.
@@ -53,19 +53,19 @@ public class TestGUIController implements Initializable, IController {
         
         this.informationFields = new HashMap<>();
         
-        this.informationFields.put(AssessmentEnum.PROFFESSIONALASSESSMENT1.toString(), textAreaAcademicallyAssessment);
+        this.informationFields.put(EnumAssessment.PROFFESSIONALASSESSMENT1, textAreaAcademicallyAssessment);
         
     }
     
     @FXML
     private void checkEvent(ActionEvent event) {
-        Set<String> obligatoryFields = GUIFacade.getInstance().checkAssessment();
+        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().checkAssessment();
         checkText.setText(obligatoryFields.toString());
     }
     
     @FXML
     private void afslutEvent(ActionEvent event) {
-        Set<String> obligatoryFields = GUIFacade.getInstance().done();
+        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().done();
         checkText.setText(obligatoryFields.toString());
         
     }
@@ -80,10 +80,10 @@ public class TestGUIController implements Initializable, IController {
         TextArea area = (TextArea)(event.getSource());
         
         String textArea = area.getId();
-        String sourceID = null;
+        EnumAssessment sourceID = null;
         
         // get the enum value corresponding to the FXID 
-        for (Map.Entry<String, TextArea> entry : this.informationFields.entrySet()) {
+        for (Map.Entry<EnumAssessment, TextArea> entry : this.informationFields.entrySet()) {
             if (entry.getValue().equals(area)) {
                 sourceID = entry.getKey();
             }

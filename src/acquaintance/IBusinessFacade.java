@@ -17,13 +17,14 @@ public interface IBusinessFacade {
     public void injectDataFacade(IDataFacade dataFacade);
     public boolean startAssessment(String caseID , String caseWorkerID);
     public boolean save();
-    public Set<String> done();
-    public void write(String text, String sourceInfo);
-    public Map<String, String> getCaseInformation(String caseID);
+    public Set<Checklistable> done();
+    public void write(String text, Checklistable sourceInfo);
+    public Map<Checklistable, String> getCaseInformation(String caseID);
     public Set<String> getCaseIDs();
-    public Set<String> checkFields();
-    public Map<String,String> startActionPlan(String caseWorkerID, String caseID);
-    public Map<String, String> continueActionPlan();
+    public Set<Checklistable> checkFields();
+    public Map<Checklistable,String> startActionPlan(String caseWorkerID, String caseID);
+    public Map<Checklistable, String> continueActionPlan();
     public void discardPhase();
     public boolean savePhase();
+    public void setState(EnumPhases phase);
 }

@@ -5,11 +5,12 @@
 */
 package gui;
 
+import acquaintance.Checklistable;
+import acquaintance.EnumPhases;
 import acquaintance.IBusinessFacade;
 import acquaintance.IGUIFacade;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  *
@@ -56,24 +57,44 @@ public class GUIFacade implements IGUIFacade {
         guiStarter.main(args);
     }
     
-    Set<String> checkAssessment(){
+    Set<Checklistable> checkAssessment(){
         return this.businessFacade.checkFields();
     }
     
-    Map<String, String> getCaseInformation(String caseID){
+    Map<Checklistable, String> getCaseInformation(String caseID){
         return this.businessFacade.getCaseInformation(caseID);
     }
     
-    Set<String> done(){
+    Set<Checklistable> done(){
         return this.businessFacade.done();
     }
     
-    void write(String text, String sourceInfo){
+    void write(String text, Checklistable sourceInfo){
         this.businessFacade.write(text, sourceInfo);
     }
     
     boolean save(){
         return this.businessFacade.save();
+    }
+    
+    void setState(EnumPhases phase){
+        this.businessFacade.setState(phase);
+    }
+    
+    boolean savePhase(){
+        return this.businessFacade.savePhase();
+    }
+    
+    void discardPhase(){
+        this.businessFacade.discardPhase();
+    }
+    
+    Map<Checklistable, String> continueActionPlan(){
+        return this.businessFacade.continueActionPlan();
+    }
+    
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
+        return this.businessFacade.startActionPlan(caseWorkerID, caseID);
     }
     
 }
