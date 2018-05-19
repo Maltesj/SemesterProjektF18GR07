@@ -67,7 +67,15 @@
                         <InnerShadow blurType="ONE_PASS_BOX" choke="0.43" color="#ff8f33" height="15.76" radius="6.404999999999999" width="11.86" />
                      </effect>
                   </Button>
-                  <Button fx:id="startActionPlanButton" layoutX="37.0" layoutY="343.0" mnemonicParsing="false" onAction="#startActionplanEventHandler" text="Start Handleplan" />
+                  <Button fx:id="startActionPlanButton" layoutX="30.0" layoutY="343.0" mnemonicParsing="false" onAction="#startActionplanEventHandler" onMouseEntered="#mouseoverblah" onMouseExited="#mouseoutblah" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;" text="Start Handleplan" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font></Button>
+                  <Button layoutX="30.0" layoutY="392.0" mnemonicParsing="false" onAction="#startActionplanEventHandler" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #89dd52; -fx-border-color: black; -fx-background-radius: 7; -fx-border-radius: 5;" text="Fortsæt Handleplan" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </content>
