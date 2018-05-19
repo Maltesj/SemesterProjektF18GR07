@@ -66,8 +66,6 @@ public class CaseActionplanController implements Initializable, IController {
     @FXML
     private TextArea dateArea;
     @FXML
-    private TextArea effortgoalArea;
-    @FXML
     private TextArea goal1Area;
     @FXML
     private TextArea goal2Area;
@@ -90,6 +88,8 @@ public class CaseActionplanController implements Initializable, IController {
 
     
     private Map<EnumActionplan, TextArea> informationFields;
+    @FXML
+    private TextArea effortPurposeArea;
     /**
      * Initializes the controller class.
      */
@@ -105,14 +105,23 @@ public class CaseActionplanController implements Initializable, IController {
         informationFields.put(EnumActionplan.MAIL, mail_area);
         informationFields.put(EnumActionplan.TELEPHONENUMBER, telephonenumber_area);
         
-        
-        
-        
+        informationFields.put(EnumActionplan.EFFORTPURPOSE, effortPurposeArea);
+        informationFields.put(EnumActionplan.EFFORTOFFER1, goal1Area);
+        informationFields.put(EnumActionplan.EFFORTOFFER2, goal2Area);
+        informationFields.put(EnumActionplan.EFFORTSERVICE1, serviceArea);
+
+  
+//dateArea;
+//closetsNextOfKinArea
+//offerArea;
+//
+//FollowupDate1;
+//FollowupDate2;
+//goal3Area;FollowupDate3;
     }
 
-    @FXML
     private void startActionplanEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().startActionPlan("caseWorkerID", "caseID");
+        GUIFacade.getInstance().startActionPlan("caseWorkerID", "DummyCase1");
         
     }
 
@@ -153,16 +162,17 @@ public class CaseActionplanController implements Initializable, IController {
         
     }
     
-
-
-    
     void loadInformation(String caseID, Map<Checklistable, String> information){
         
         for (Map.Entry<Checklistable, String> entry : information.entrySet()) {
             Checklistable sourceID = entry.getKey();
             TextArea area = informationFields.get(sourceID);
-            area.setText(entry.getValue());
+            if (area != null) {
+                area.setText(entry.getValue());
+            }
         }
+        
+//        System.out.println(this.effortPurposeArea.getText());
     }
    
 }

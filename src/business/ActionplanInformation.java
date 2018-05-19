@@ -34,9 +34,6 @@ public class ActionplanInformation implements Serializable, IActionplan {
                 }
             }
         }
-        
-        
-        
     }
     
     /** Method to get keyset for filled fields
@@ -58,6 +55,7 @@ public class ActionplanInformation implements Serializable, IActionplan {
             this.textInformation.remove(sourceInfo);
         }
     }
+     
      /** Method for getting the hashmap
      *
      * @return

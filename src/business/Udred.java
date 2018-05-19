@@ -116,14 +116,6 @@ public class Udred {
     Set<Checklistable> checkFields(){
         
         return this.state.checkFields(this.cases.get(this.currentCaseID));
-//        
-//        Information info = this.cases.get(this.currentCaseID);
-//        
-//        Set<String> filledFields = info.getFilledAssessmentFields();
-//        
-//        Set<String> missingFields = this.checkList.checkCollection(filledFields, "assessment");
-//        
-//        return missingFields;
     }
     
     Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
