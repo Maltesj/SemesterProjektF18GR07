@@ -5,6 +5,7 @@
  */
 package data;
 import acquaintance.ICaseInformation;
+import acquaintance.IWork;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,10 +29,25 @@ public class CaseInfoLoader {
     }
     
     ICaseInformation getCaseInfo(String caseID) {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("assets\\" + caseID + ".dummy")))
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("assets\\" + caseID + ".info")))
         {
             ICaseInformation caseInfo = (ICaseInformation) in.readObject();
             return caseInfo;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    IWork getWork(String caseID) {
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("assets\\" + caseID + ".effort")))
+        {
+            IWork work = (IWork) in.readObject();
+            return work;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

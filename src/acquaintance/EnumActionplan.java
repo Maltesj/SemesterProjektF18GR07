@@ -11,8 +11,12 @@ package acquaintance;
  */
 public enum EnumActionplan implements Checklistable {
 
-    RANDOMFIELD1("RandomField1", true),
-    RANDOMFIELD2("RandomField2", true);
+    NAME("name", true),
+    CPR("cpr", true),
+    ADDRESS("address", true),
+    TELEPHONENUMBER("telephone number", true),
+    EFFORTPURPOSE("EffortPurpose", true),
+    MAIL("mail", true);
     
     private String sourceID;
     private boolean obligatory;

@@ -7,8 +7,6 @@ package business;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumPhases;
-import acquaintance.IActionplan;
-import acquaintance.IDataFacade;
 import acquaintance.IWork;
 import java.util.HashMap;
 import java.util.Map;
@@ -110,9 +108,9 @@ public class Udred {
      */
     Map<Checklistable, String> getCaseInformation() {
         Information info = cases.get(currentCaseID);
-        Map<Checklistable, String> caseinfo = info.getCaseInformation().getInformation();
+        Map<Checklistable, String> caseInfo = info.getCaseInformation().getInformation();
         
-        return caseinfo;
+        return caseInfo;
     }
     
     Set<Checklistable> checkFields(){
@@ -129,7 +127,7 @@ public class Udred {
     }
     
     Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
-        IWork work = BusinessFacade.getInstance().getWork();
+        IWork work = BusinessFacade.getInstance().getWork(caseID);
         Information info = this.cases.get(caseID);
         ActionplanInformation actionplan = new ActionplanInformation(work);
         
@@ -139,14 +137,12 @@ public class Udred {
     }
     
     Map<Checklistable, String> continueActionPlan(){
-        
-        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
-        
-        Map<Checklistable, String> fieldInfo = actionplan.getInformation();
-        
         Information info = this.cases.get(this.currentCaseID);
         
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
         info.setActionplanInformation(actionplan);
+        
+        Map<Checklistable, String> fieldInfo = actionplan.getInformation();
         
         return fieldInfo;
     }

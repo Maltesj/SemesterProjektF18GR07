@@ -168,8 +168,8 @@ public class BusinessFacade implements IBusinessFacade {
         return this.dataFacade.getActionPlan();
     }
     
-    IWork getWork(){
-        return this.dataFacade.getWork();
+    IWork getWork(String caseID){
+        return this.dataFacade.getWork(caseID);
     }
     
     void save(Information info, String caseID){

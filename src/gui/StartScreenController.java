@@ -5,12 +5,14 @@
 */
 package gui;
 
+import acquaintance.Checklistable;
 import acquaintance.EnumPhases;
 import acquaintance.IController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
@@ -115,9 +117,6 @@ public class StartScreenController implements Initializable {
                 CaseInformationGUIController control = (CaseInformationGUIController)controller;
                 control.loadInformation(caseID);
                 
-//                stage.setScene(scene);
-//                stage.show();
-                
             } catch (IOException ex) {
                 Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -215,8 +214,10 @@ public class StartScreenController implements Initializable {
                 });
                 
                 this.topTab.getTabs().add(tab);        
-                GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
-
+                Map<Checklistable, String> information = GUIFacade.getInstance().startActionPlan(caseWorkerID, caseID);
+                CaseActionplanController control = (CaseActionplanController)controller;
+                control.loadInformation(caseID, information);
+                
             } catch (IOException ex) {
                 Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
             }

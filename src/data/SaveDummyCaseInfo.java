@@ -76,13 +76,13 @@ public class SaveDummyCaseInfo {
     
     public void saveGame() {
         try{
-            OutputStream outStream = new FileOutputStream("assets\\DummyCase1.dummy");
+            OutputStream outStream = new FileOutputStream("assets\\DummyCase1.info");
             ObjectOutputStream fileObjectOut = new ObjectOutputStream(outStream);
             fileObjectOut.writeObject(dummy1);
             fileObjectOut.close();
             outStream.close();
 
-            OutputStream outStream2 = new FileOutputStream("assets\\DummyCase2.dummy");
+            OutputStream outStream2 = new FileOutputStream("assets\\DummyCase2.info");
             ObjectOutputStream fileObjectOut2 = new ObjectOutputStream(outStream2);
             fileObjectOut2.writeObject(dummy2);
             fileObjectOut2.close();

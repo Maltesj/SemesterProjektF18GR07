@@ -6,10 +6,13 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.EnumActionplan;
+import acquaintance.EnumEffort;
 import acquaintance.IActionplan;
 import acquaintance.IWork;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /** Class for storage of assessment information
@@ -21,6 +24,19 @@ public class ActionplanInformation implements Serializable, IActionplan {
     
     ActionplanInformation(IWork work){
         textInformation = new HashMap<>();
+        EffortInformation businessWork = (EffortInformation)work;
+        Map<Checklistable, String> workInfo = businessWork.getTextInformation();
+        
+        for (EnumActionplan action : EnumActionplan.values()) {
+            for (EnumEffort effort : EnumEffort.values()) {
+                if (action.toString().equals(effort.toString())) {
+                    textInformation.put(action, workInfo.get(effort));
+                }
+            }
+        }
+        
+        
+        
     }
     
     /** Method to get keyset for filled fields

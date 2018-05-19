@@ -53,8 +53,8 @@ public class DataFacade implements IDataFacade{
     }
 
     @Override
-    public IWork getWork() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IWork getWork(String caseID) {
+        return this.caseInfoLoader.getWork(caseID);
     }
 
     @Override

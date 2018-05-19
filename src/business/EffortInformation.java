@@ -5,7 +5,9 @@
  */
 package business;
 
+import acquaintance.Checklistable;
 import acquaintance.IEffortInformation;
+import acquaintance.IWork;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -13,18 +15,18 @@ import java.util.HashMap;
  *
  * @author Kasper
  */
-public class EffortInformation implements Serializable, IEffortInformation {
-    private HashMap<String, String> textInformation;
+public class EffortInformation implements Serializable, IEffortInformation, IWork {
+    private HashMap<Checklistable, String> textInformation;
 
     public EffortInformation() {
         
     }
 
-    public EffortInformation(HashMap<String, String> textInformation) {
+    public EffortInformation(HashMap<Checklistable, String> textInformation) {
         this.textInformation = textInformation;
     }
 
-    public HashMap<String, String> getTextInformation() {
+    public HashMap<Checklistable, String> getTextInformation() {
         return textInformation;
     }
     
