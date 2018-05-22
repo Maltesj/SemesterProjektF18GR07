@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package data;
+package generator;
 
 import acquaintance.Checklistable;
 import java.util.HashMap;
@@ -31,8 +31,6 @@ public class SaveDummyCaseInfo {
     
     public static void main(String[] args) {
         SaveDummyCaseInfo sm = new SaveDummyCaseInfo();
-        CaseInfoLoader cm = new CaseInfoLoader();
-        System.out.println(cm.getCaseIDs());
     }
     
     private SaveDummyCaseInfo()

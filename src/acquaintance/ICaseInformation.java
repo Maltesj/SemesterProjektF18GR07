@@ -5,10 +5,12 @@
  */
 package acquaintance;
 
+import java.sql.Blob;
+
 /**
  *
  * @author HCHB
  */
-public interface ICaseInformation {
+public interface ICaseInformation extends Blob {
     
 }

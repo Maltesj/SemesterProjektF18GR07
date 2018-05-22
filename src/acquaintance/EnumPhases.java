@@ -11,17 +11,26 @@ package acquaintance;
  */
 public enum EnumPhases {
     
-    ACTIONPLAN(".actionplan"),
-    ASSESSMENT(".assessment"),
-    INFORMATION(".information");
+    ACTIONPLAN(".actionplan", "actionplan"),
+    ASSESSMENT(".assessment", "assessment"),
+    WORK(".work", "work"),
+    INFORMATION(".information", "information");
     
     private String filetype;
+    private String phase;
     
-    private EnumPhases(String filetype){
+    private EnumPhases(String filetype, String phase){
         this.filetype = filetype;
+        this.phase = phase;
     }
     
     public String getFileType(){
         return this.filetype;
     }
+
+    public String getPhase() {
+        return phase;
+    }
+    
+    
 }

@@ -5,10 +5,12 @@
  */
 package acquaintance;
 
+import java.sql.Blob;
+
 /**
  *
  * @author Simon
  */
-public interface IAssessment {
+public interface IAssessment extends Blob {
     
 }

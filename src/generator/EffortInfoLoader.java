@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package generator;
 
 import acquaintance.IEffortInformation;
 import java.io.File;

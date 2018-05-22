@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package generator;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumEffort;
@@ -36,8 +36,6 @@ public class SaveDummyEffortInfo {
     public static void main(String[] args) {
         // TODO code application logic here
         new SaveDummyEffortInfo();
-        EffortInfoLoader EILoader = new EffortInfoLoader();
-        System.out.println(EILoader.getCaseIDs());
     }
 
     public SaveDummyEffortInfo() {

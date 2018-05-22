@@ -9,6 +9,9 @@ import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
 import acquaintance.IAssessment;
+import java.io.File;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -19,68 +22,123 @@ public class DataController {
     DataController(){
         
     }
-    void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan){
+    
+    void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(work, caseInfo, assessment, actionplan, caseID);
         
-    }
-    void saveDatabase(ICaseInformation caseInfo){
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();       
     }
-    void saveDatebase(IAssessment assessment){
+    
+    void saveDatabase(ICaseInformation caseInfo, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(caseInfo, caseID);
         
-    }
-    void saveDatebase(IActionplan actionplan){
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();
     }
-    void saveDatabase(IWork work){
+    
+    void saveDatebase(IAssessment assessment, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(assessment, caseID);
         
-    }
-    void saveLocal(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan){
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();
     }
-    void saveLocal(ICaseInformation caseInfo){
+    
+    void saveDatebase(IActionplan actionplan, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(actionplan, caseID);
         
-    }
-    void saveLocal(IWork work){
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();
     }
-    void saveLocal(IAssessment assessment){
+    
+    void saveDatabase(IWork work, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(work, caseID);
         
-    }
-    void saveLocal(IActionplan actionpan){
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();
     }
-    ICaseInformation loadCaseInformationDatabase(){
-        return null;
-        
+    
+    void saveLocal(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
+        FileIO localIO = new FileIO(caseID);
+        localIO.save(actionplan);
+        localIO.save(assessment);
+        localIO.save(caseInfo);
+        localIO.save(work);
     }
-    IAssessment loadAssessmentDatabase(){
-        return null;
-        
+    
+    void saveLocal(ICaseInformation caseInfo, String caseID){
+        FileIO localIO = new FileIO(caseID);
+        localIO.save(caseInfo);
     }
-    IActionplan loadActionplanDatabase(){
-        return null;
-        
+    
+    void saveLocal(IWork work, String caseID){
+        FileIO localIO = new FileIO(caseID);
+        localIO.save(work);
     }
-    IWork loadWorkDatabase(){
-        return null;
-        
+    
+    void saveLocal(IAssessment assessment, String caseID){
+        FileIO localIO = new FileIO(caseID);
+        localIO.save(assessment);
     }
-    ICaseInformation loadCaseInformationLocal(){
-        return null;
-        
+    
+    void saveLocal(IActionplan actionpan, String caseID){
+        FileIO localIO = new FileIO(caseID);
+        localIO.save(actionpan);
     }
-    IAssessment loadAssessmentLocal(){
-        return null;
-        
-    }
-    IActionplan loadActionplanLocal(){
-        return null;
-        
-    }
-    IWork loadWorkLocal(){
-        return null;
+    
+    ICaseInformation loadCaseInformationDatabase(String caseID){
+        return new LoadDatabase().loadCaseInformation();
         
     }
     
+    IAssessment loadAssessmentDatabase(String caseID){
+        return new LoadDatabase().loadAssessment();
+    }
     
+    IActionplan loadActionplanDatabase(String caseID){
+        return new LoadDatabase().loadActionplan();
+        
+    }
+    
+    IWork loadWorkDatabase(String caseID){
+        return new LoadDatabase().loadWork();
+        
+    }
+    
+    ICaseInformation loadCaseInformationLocal(String caseID){
+        return new FileIO(caseID).loadCaseInfo();
+    }
+    
+    IAssessment loadAssessmentLocal(String caseID){
+        return new FileIO(caseID).loadAssessment();        
+    }
+    
+    IActionplan loadActionplanLocal(String caseID){
+        return new FileIO(caseID).loadActionplan();        
+    }
+    
+    IWork loadWorkLocal(String caseID){
+        return new FileIO(caseID).loadWork();        
+    }
+    
+    Set<String> getCaseIDs(){
+        Set<String> caseIDs = new TreeSet<>();
+        
+        File file = new File("assets\\");
+        String[] files = file.list(); 
+        for (int i = 0; i < files.length; i++) {
+            int endIndex = files[i].indexOf('.');
+            if(endIndex != -1) {
+                caseIDs.add(files[i].substring(0, endIndex));
+            }
+        }
+     
+        return caseIDs;
+    }
+
 }

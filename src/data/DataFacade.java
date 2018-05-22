@@ -5,6 +5,8 @@
  */
 package data;
 
+import generator.SaveInformation;
+import generator.CaseInfoLoader;
 import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
@@ -21,8 +23,7 @@ import java.util.Set;
 public class DataFacade implements IDataFacade{
     
     private static DataFacade instance;
-    private CaseInfoLoader caseInfoLoader;
-    private SaveInformation si;
+    private DataController dataController;
     
     public static DataFacade getInstance(){
         if (instance == null) {
@@ -33,110 +34,112 @@ public class DataFacade implements IDataFacade{
     }
     
     private DataFacade(){
-        caseInfoLoader = new CaseInfoLoader();
-        si = new SaveInformation();
-        
+        this.dataController = new DataController();
     }
-
-    @Override
-    public ICaseInformation getCaseInfo(String caseID) {
-        return caseInfoLoader.getCaseInfo(caseID);
-    }
-
-    @Override
-    public void save(IInformation info, String caseID) {
-        si.saveInformation(info, caseID);
-    }
-
+    
     @Override
     public Set<String> getCaseIDs() {
-        return caseInfoLoader.getCaseIDs();
+        return this.dataController.getCaseIDs();
     }
 
-    @Override
-    public IWork getWork(String caseID) {
-        return this.caseInfoLoader.getWork(caseID);
-    }
-
-    @Override
+    @Override // temp
     public boolean discard(EnumPhases phase, String caseID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    @Override //temp
     public boolean savePhase(IInformation info, EnumPhases phase, String caseID) {
-        this.save(info, caseID);  
-        return true; // temp
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public IActionplan getActionPlan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
+        this.dataController.saveDatabase(work, caseInfo, assessment, actionplan, caseID);
+    }
+  
+    @Override
+    public void saveDatabase(ICaseInformation caseInfo, String caseID){
+        this.dataController.saveDatabase(caseInfo, caseID);
     }
     
-    void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan){
-        
-    }
-    void saveDatabase(ICaseInformation caseInfo){
-        
-    }
-    void saveDatebase(IAssessment assessment){
-        
-    }
-    void saveDatebase(IActionplan actionplan){
-        
-    }
-    void saveDatabase(IWork work){
-        
-    }
-    void saveLocal(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan){
-        
-    }
-    void saveLocal(ICaseInformation caseInfo){
-        
-    }
-    void saveLocal(IWork work){
-        
-    }
-    void saveLocal(IAssessment assessment){
-        
-    }
-    void saveLocal(IActionplan actionpan){
-        
-    }
-    ICaseInformation loadCaseInformationDatabase(){
-        return null;
-        
-    }
-    IAssessment loadAssessmentDatabase(){
-        return null;
-        
-    }
-    IActionplan loadActionplanDatabase(){
-        return null;
-        
-    }
-    IWork loadWorkDatabase(){
-        return null;
-        
-    }
-    ICaseInformation loadCaseInformationLocal(){
-        return null;
-        
-    }
-    IAssessment loadAssessmentLocal(){
-        return null;
-        
-    }
-    IActionplan loadActionplanLocal(){
-        return null;
-        
-    }
-    IWork loadWorkLocal(){
-        return null;
-        
+    @Override
+    public void saveDatebase(IAssessment assessment, String caseID){
+        this.dataController.saveDatebase(assessment, caseID);
     }
     
+    @Override
+    public void saveDatebase(IActionplan actionplan, String caseID){
+        this.dataController.saveDatebase(actionplan, caseID);
+    }
     
+    @Override
+    public void saveDatabase(IWork work, String caseID){
+        this.dataController.saveDatabase(work, caseID);
+    }
+    
+    @Override
+    public void saveLocal(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
+        this.dataController.saveLocal(work, caseInfo, assessment, actionplan, caseID);
+    }
+    
+    @Override
+    public void saveLocal(ICaseInformation caseInfo, String caseID){
+        this.dataController.saveLocal(caseInfo, caseID);
+    }
+    
+    @Override
+    public void saveLocal(IWork work, String caseID){
+        this.dataController.saveLocal(work, caseID);
+    }
+    
+    @Override
+    public void saveLocal(IAssessment assessment, String caseID){
+        this.dataController.saveLocal(assessment, caseID);
+    }
+    
+    @Override
+    public void saveLocal(IActionplan actionpan, String caseID){
+        this.dataController.saveLocal(actionpan, caseID);
+    }
+    
+    @Override
+    public ICaseInformation loadCaseInformationDatabase(String caseID){
+       return this.dataController.loadCaseInformationDatabase(caseID);
+    }
+    
+    @Override
+    public IAssessment loadAssessmentDatabase(String caseID){
+        return this.dataController.loadAssessmentDatabase(caseID);
+    }
+    
+    @Override
+    public IActionplan loadActionplanDatabase(String caseID){
+        return this.dataController.loadActionplanDatabase(caseID);
+    }
+    
+    @Override
+    public IWork loadWorkDatabase(String caseID){
+        return this.dataController.loadWorkDatabase(caseID);
+    }
+    
+    @Override
+    public ICaseInformation loadCaseInformationLocal(String caseID){
+        return this.dataController.loadCaseInformationLocal(caseID);
+    }
+    
+    @Override
+    public IAssessment loadAssessmentLocal(String caseID){
+        return this.dataController.loadAssessmentDatabase(caseID);
+    }
+    
+    @Override
+    public IActionplan loadActionplanLocal(String caseID){
+        return this.dataController.loadActionplanLocal(caseID);
+    }
+    
+    @Override
+    public IWork loadWorkLocal(String caseID){
+        return this.dataController.loadWorkLocal(caseID);
+    }
 
 }
