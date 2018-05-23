@@ -71,7 +71,7 @@ public class SaveDatabaseRun implements Runnable {
     public void run() {
 
         try {
-            Class.forName("assets/org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }

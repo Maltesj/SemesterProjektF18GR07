@@ -42,6 +42,21 @@ public class SQLDatabaseResetter {
     }
     
     private void clearDatabase() {
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e);
+        }
+
+        try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
+            Statement st = db.createStatement();
+            st.executeQuery("drop table cases");
+            
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }
         
         try {
             Class.forName("org.postgresql.Driver");
@@ -99,7 +114,8 @@ public class SQLDatabaseResetter {
         IEffortInformation effort1 = new SaveDummyEffortInfo().getDummy1();
         IEffortInformation effort2 = new SaveDummyEffortInfo().getDummy2();
         
-        try {
+        
+          try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
