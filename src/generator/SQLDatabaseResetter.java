@@ -38,7 +38,7 @@ public class SQLDatabaseResetter {
     private void clearDatabase() {
 
         try {
-            Class.forName("assets/org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }
@@ -95,7 +95,7 @@ public class SQLDatabaseResetter {
         
         
           try {
-            Class.forName("assets/org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }
