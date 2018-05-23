@@ -11,7 +11,7 @@ package data;
  */
 public enum EnumDatabaseAccount {
     
-    ACCOUNT1("ubxzgpxk","6IJ2F7x5pPUeKjRFvc4hy4CfcgpmqTrN","jdbc:postgresql://horton.elephantsql.com:5432/ubxzgpxk");
+    ACCOUNT1("ukwglswb","86RbpudM5gWs0TOqEpWyckJS8YPJ34W9","jdbc:postgresql://horton.elephantsql.com:5432/ukwglswb");
     
     public final String userName;
     public final String password;
