@@ -31,9 +31,10 @@ public class SaveDummyCaseInfo {
     
     public static void main(String[] args) {
         SaveDummyCaseInfo sm = new SaveDummyCaseInfo();
+        sm.saveGame();
     }
     
-    private SaveDummyCaseInfo()
+    SaveDummyCaseInfo()
     {
         System.out.println("hey listen");
         case1 = new HashMap<>();
@@ -41,7 +42,7 @@ public class SaveDummyCaseInfo {
         makeDummy();
         dummy1 = new CaseInformation(case1);
         dummy2 = new CaseInformation(case2);
-        saveGame();
+        
     }
     
     private void makeDummy()

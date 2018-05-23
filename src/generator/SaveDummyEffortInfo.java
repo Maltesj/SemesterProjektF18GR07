@@ -35,17 +35,18 @@ public class SaveDummyEffortInfo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new SaveDummyEffortInfo();
+        SaveDummyEffortInfo se = new SaveDummyEffortInfo();
+        se.saveEffort();
     }
 
-    public SaveDummyEffortInfo() {
+    SaveDummyEffortInfo() {
         System.out.println("hey listen");
         case1 = new HashMap<>();
         case2 = new HashMap<>();
         makeDummy();
         dummy1 = new EffortInformation(case1);
         dummy2 = new EffortInformation(case2);
-        saveEffort();
+        
     }
 
     private void makeDummy() {
