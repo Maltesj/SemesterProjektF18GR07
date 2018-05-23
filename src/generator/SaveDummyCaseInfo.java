@@ -44,6 +44,14 @@ public class SaveDummyCaseInfo {
         dummy2 = new CaseInformation(case2);
         
     }
+
+    public ICaseInformation getDummy1() {
+        return dummy1;
+    }
+
+    public ICaseInformation getDummy2() {
+        return dummy2;
+    }
     
     private void makeDummy()
     {

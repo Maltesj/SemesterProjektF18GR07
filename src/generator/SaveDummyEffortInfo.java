@@ -49,6 +49,15 @@ public class SaveDummyEffortInfo {
         
     }
 
+    public IEffortInformation getDummy1() {
+        return dummy1;
+    }
+
+    public IEffortInformation getDummy2() {
+        return dummy2;
+    }
+    
+
     private void makeDummy() {
         //Create case 2
         case1.put(EnumEffort.EFFORTPURPOSE, "Formålet med indsatsen er at støtte Jørgen til at blive stoffri, samt at han får stabile rammer angående sin økonomi og bolig.");
