@@ -118,13 +118,13 @@ public class SaveDummyEffortInfo {
     private void saveEffort() {
         try{
 
-            OutputStream outStream = new FileOutputStream("assets\\DummyCase1.effort");
+            OutputStream outStream = new FileOutputStream("assets\\DummyCase1.work");
             ObjectOutputStream fileObjectOut = new ObjectOutputStream(outStream);
             fileObjectOut.writeObject(dummy1);
             fileObjectOut.close();
             outStream.close();
 
-            OutputStream outStream2 = new FileOutputStream("assets\\DummyCase2.effort");
+            OutputStream outStream2 = new FileOutputStream("assets\\DummyCase2.work");
             ObjectOutputStream fileObjectOut2 = new ObjectOutputStream(outStream2);
             fileObjectOut2.writeObject(dummy2);
             fileObjectOut2.close();
