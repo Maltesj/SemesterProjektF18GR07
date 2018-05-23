@@ -129,15 +129,21 @@ public class DataController {
     Set<String> getCaseIDs(){
         Set<String> caseIDs = new TreeSet<>();
         
-        File file = new File("assets\\");
-        String[] files = file.list(); 
-        for (int i = 0; i < files.length; i++) {
-            int endIndex = files[i].indexOf('.');
-            if(endIndex != -1) {
-                caseIDs.add(files[i].substring(0, endIndex));
+        try{
+            LoadDatabase loadDatabase = new LoadDatabase();
+            caseIDs = loadDatabase.getCaseIDs();
+        }
+        catch (Exception ex) {
+            File file = new File("assets\\");
+            String[] files = file.list();
+            for (int i = 0; i < files.length; i++) {
+                int endIndex = files[i].indexOf('.');
+                if(endIndex != -1) {
+                    caseIDs.add(files[i].substring(0, endIndex));
+                }
             }
         }
-     
+        
         return caseIDs;
     }
 
