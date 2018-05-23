@@ -5,12 +5,13 @@
  */
 package acquaintance;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
 /**
  *
  * @author HCHB
  */
-public interface IActionplan extends Blob {
+public interface IActionplan extends Serializable {
     
 }

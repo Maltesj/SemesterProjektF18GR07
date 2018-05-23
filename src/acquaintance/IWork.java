@@ -5,12 +5,13 @@
  */
 package acquaintance;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
 /**
  *
  * @author HCHB
  */
-public interface IWork extends Blob {
+public interface IWork extends Serializable{
     
 }

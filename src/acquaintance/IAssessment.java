@@ -5,12 +5,13 @@
  */
 package acquaintance;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
 /**
  *
  * @author Simon
  */
-public interface IAssessment extends Blob {
+public interface IAssessment extends Serializable{
     
 }

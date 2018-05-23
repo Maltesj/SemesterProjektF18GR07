@@ -9,6 +9,9 @@ import acquaintance.IActionplan;
 import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,85 +24,78 @@ import java.util.Map;
  * @author Simon
  */
 public class SaveDatabaseRun implements Runnable {
-    
+
     private String caseID;
-    private Map<String, Blob> blobMaaap;
-    
-    SaveDatabaseRun(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
-        this.caseID = caseID;
-        
-        this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put(caseID, work);
-        this.blobMaaap.put(caseID, caseInfo);
-        this.blobMaaap.put(caseID, assessment);
-        this.blobMaaap.put(caseID, actionplan);
-        
-    }
-    
-    SaveDatabaseRun(ICaseInformation caseInfo, String caseID){
+    private Map<String, Serializable> blobMaaap;
+
+    SaveDatabaseRun(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put(caseID, caseInfo);
+        this.blobMaaap.put("work", work);
+        this.blobMaaap.put("caseInfo", caseInfo);
+        this.blobMaaap.put("assessment", assessment);
+        this.blobMaaap.put("actionplan", actionplan);
+
     }
-    
-    SaveDatabaseRun(IAssessment assessment, String caseID){
+
+    SaveDatabaseRun(ICaseInformation caseInfo, String caseID) {
         this.caseID = caseID;
-        
+
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put(caseID, assessment);
+        this.blobMaaap.put("caseInfo", caseInfo);
     }
-    
-    SaveDatabaseRun(IActionplan actionplan, String caseID){
+
+    SaveDatabaseRun(IAssessment assessment, String caseID) {
         this.caseID = caseID;
-        
+
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put(caseID, actionplan);
+        this.blobMaaap.put("assessment", assessment);
     }
-    
-    SaveDatabaseRun(IWork work, String caseID){
+
+    SaveDatabaseRun(IActionplan actionplan, String caseID) {
         this.caseID = caseID;
-        
+
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put(caseID, work);
+        this.blobMaaap.put("actionplan", actionplan);
     }
-    
+
+    SaveDatabaseRun(IWork work, String caseID) {
+        this.caseID = caseID;
+
+        this.blobMaaap = new HashMap<>();
+        this.blobMaaap.put("work", work);
+    }
+
     @Override
-    public void run(){
+    public void run() {
+
         try {
             Class.forName("assets/org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }
-        
-//        try (Connection db = DriverManager.getConnection(DatabaseEnum.ACCOUNT1.url,DatabaseEnum.ACCOUNT1.userName,DatabaseEnum.ACCOUNT1.password);
-//                Statement st = db.createStatement();
-//                ResultSet rs = st.executeQuery(command);) {
-//            for (String type : types) {
-//                switch (type){
-//                    case "int":
-//                        rs.getInt(4);
-//                        break;
-//                }
-//            }
-//            
-//            
-//            return rs;
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            return null;
-//        }
-//        
-//        
-//        try (Connection db = DriverManager.getConnection(DatabaseEnum.ACCOUNT1.url,DatabaseEnum.ACCOUNT1.userName,DatabaseEnum.ACCOUNT1.password);
-//                Statement st = db.createStatement();
-//                ) {
-//            
-//            int rs = st.executeUpdate(command);
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
+
+        try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
+            for (Map.Entry<String, Serializable> entry : this.blobMaaap.entrySet()) {
+                Blob blob = db.createBlob();
+                ByteArrayOutputStream d = new ByteArrayOutputStream();
+                ObjectOutputStream bs = new ObjectOutputStream(d);
+                bs.writeObject(entry.getValue());
+                bs.flush();
+                blob.setBytes(0, d.toByteArray());
+
+                PreparedStatement prepared = db.prepareStatement("Update Cases Set Last_changed = getDate(), " + entry.getKey() + "= ? where caseID = ?");
+                prepared.setBlob(1, blob);
+                prepared.setString(2, caseID);
+                prepared.execute();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }
+
     }
-    
-    
+
 }
