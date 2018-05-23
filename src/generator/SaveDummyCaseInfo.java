@@ -26,8 +26,8 @@ public class SaveDummyCaseInfo {
     private HashMap<Checklistable, String> case1;
     private HashMap<Checklistable, String> case2;
     
-    ICaseInformation dummy1;
-    ICaseInformation dummy2;
+    private ICaseInformation dummy1;
+    private ICaseInformation dummy2;
     
     public static void main(String[] args) {
         SaveDummyCaseInfo sm = new SaveDummyCaseInfo();

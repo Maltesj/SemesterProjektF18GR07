@@ -28,8 +28,8 @@ public class SaveDummyEffortInfo {
     private HashMap<Checklistable, String> case1;
     private HashMap<Checklistable, String> case2;
     
-    IEffortInformation dummy1;
-    IEffortInformation dummy2;
+    private IEffortInformation dummy1;
+    private IEffortInformation dummy2;
     /**
      * @param args the command line arguments
      */
