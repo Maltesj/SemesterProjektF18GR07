@@ -128,7 +128,6 @@ public class BusinessFacade implements IBusinessFacade {
     @Override
     public Set<Checklistable> checkFields() {
         return this.udred.checkFields();
-        
     }
 
     @Override
@@ -166,22 +165,23 @@ public class BusinessFacade implements IBusinessFacade {
     
     IActionplan getActionPlan(){
 //        return this.dataFacade.getActionPlan(); //temp
-return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     IWork getWork(String caseID){
 //        return this.dataFacade.getWork(caseID); //temp
-return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     void save(Information info, String caseID){
 //        this.dataFacade.save(info, caseID); //temp
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
     
     ICaseInformation getCaseInfo(String caseID){
 //        return this.dataFacade.getCaseInfo(caseID); //temp
-return null;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

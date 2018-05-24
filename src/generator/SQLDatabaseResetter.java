@@ -13,15 +13,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
-import java.util.Map;
 
 /**
  *
@@ -33,7 +30,6 @@ public class SQLDatabaseResetter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         SQLDatabaseResetter resetter = new SQLDatabaseResetter();
         resetter.clearDatabase();
         resetter.setupDatabase();
@@ -42,41 +38,34 @@ public class SQLDatabaseResetter {
     }
     
     private void clearDatabase() {
-
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
         }
-
+        
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             Statement st = db.createStatement();
             st.executeQuery("drop table cases");
-            
         } catch (Exception e) {
             System.out.println(e);
-
         }
         
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (java.lang.ClassNotFoundException e) {
-            System.out.println(e);
-        }
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//        } catch (java.lang.ClassNotFoundException e) {
+//            System.out.println(e);
+//        }
         
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             Statement st = db.createStatement();
             st.execute("drop table cases");
-            
         } catch (Exception e) {
             System.out.println(e);
-            
         }
-        
     }
     
     private void setupDatabase() {
-        
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -96,26 +85,18 @@ public class SQLDatabaseResetter {
                     + "primary key(caseID, date_last_changed)"
                     + ")"
             );
-            
-            
-            
-            
         } catch (Exception e) {
             System.out.println(e);
-            
         }
-        
     }
     
     private void populateDatabase() {
-        
         ICaseInformation caseInfo1 = new SaveDummyCaseInfo().getDummy1();
         ICaseInformation caseInfo2 = new SaveDummyCaseInfo().getDummy2();
         IEffortInformation effort1 = new SaveDummyEffortInfo().getDummy1();
         IEffortInformation effort2 = new SaveDummyEffortInfo().getDummy2();
         
-        
-          try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e);
@@ -171,12 +152,10 @@ public class SQLDatabaseResetter {
             st.execute();
         } catch (Exception e) {
             System.out.println(e);
-            
         }
     }
     
     private void testWork(){
-        
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -184,7 +163,6 @@ public class SQLDatabaseResetter {
         }
         
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
-            
             Statement statement = db.createStatement();
             ResultSet results = statement.executeQuery("select work from cases");
             results.next();
@@ -198,11 +176,8 @@ public class SQLDatabaseResetter {
             IWork work = (IWork)objectIS.readObject();
             
             System.out.println("");
-            
-            
         } catch (Exception e) {
             System.out.println(e);
-            
         }
     }
     

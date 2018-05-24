@@ -9,15 +9,12 @@ import acquaintance.IActionplan;
 import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 

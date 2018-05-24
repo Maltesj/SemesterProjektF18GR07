@@ -10,6 +10,8 @@ import acquaintance.ICaseInformation;
 import acquaintance.IWork;
 import acquaintance.IAssessment;
 import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -133,7 +135,7 @@ public class DataController {
             LoadDatabase loadDatabase = new LoadDatabase();
             caseIDs = loadDatabase.getCaseIDs();
         }
-        catch (Exception ex) {
+        catch (IOException | SQLException ex) {
             File file = new File("assets\\");
             String[] files = file.list();
             for (int i = 0; i < files.length; i++) {
