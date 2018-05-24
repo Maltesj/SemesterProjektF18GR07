@@ -94,22 +94,19 @@ public class DataController {
     }
     
     ICaseInformation loadCaseInformationDatabase(String caseID){
-        return new LoadDatabase().loadCaseInformation();
-        
+        return new LoadDatabase().loadCaseInformation(caseID);
     }
     
     IAssessment loadAssessmentDatabase(String caseID){
-        return new LoadDatabase().loadAssessment();
+        return new LoadDatabase().loadAssessment(caseID);
     }
     
     IActionplan loadActionplanDatabase(String caseID){
-        return new LoadDatabase().loadActionplan();
-        
+        return new LoadDatabase().loadActionplan(caseID);
     }
     
     IWork loadWorkDatabase(String caseID){
-        return new LoadDatabase().loadWork();
-        
+        return new LoadDatabase().loadWork(caseID);
     }
     
     ICaseInformation loadCaseInformationLocal(String caseID){

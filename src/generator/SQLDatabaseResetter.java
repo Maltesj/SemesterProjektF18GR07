@@ -31,9 +31,9 @@ public class SQLDatabaseResetter {
      */
     public static void main(String[] args) {
         SQLDatabaseResetter resetter = new SQLDatabaseResetter();
-        resetter.clearDatabase();
-        resetter.setupDatabase();
-        resetter.populateDatabase();
+//        resetter.clearDatabase();
+//        resetter.setupDatabase();
+//        resetter.populateDatabase();
         resetter.testWork();
     }
     
@@ -46,20 +46,7 @@ public class SQLDatabaseResetter {
         
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             Statement st = db.createStatement();
-            st.executeQuery("drop table cases");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        
-//        try {
-//            Class.forName("org.postgresql.Driver");
-//        } catch (java.lang.ClassNotFoundException e) {
-//            System.out.println(e);
-//        }
-        
-        try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
-            Statement st = db.createStatement();
-            st.execute("drop table cases");
+            st.execute("drop table if exists cases");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -164,7 +151,9 @@ public class SQLDatabaseResetter {
         
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             Statement statement = db.createStatement();
-            ResultSet results = statement.executeQuery("select work from cases");
+            ResultSet results = statement.executeQuery("SELECT work "
+                                                     + "FROM cases "
+                                                     + "WHERE caseID = 'DummyCase1'");
             results.next();
             byte[] bytes = results.getBytes(1);
             
