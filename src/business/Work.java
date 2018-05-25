@@ -6,23 +6,23 @@
 package business;
 
 import acquaintance.Checklistable;
-import acquaintance.IEffortInformation;
 import acquaintance.IWork;
 import java.io.Serializable;
 import java.util.HashMap;
+import acquaintance.IWorkInformation;
 
 /**
  *
  * @author Kasper
  */
-public class EffortInformation implements Serializable, IEffortInformation, IWork {
+public class Work implements Serializable, IWorkInformation, IWork {
     private HashMap<Checklistable, String> textInformation;
 
-    public EffortInformation() {
+    public Work() {
         
     }
 
-    public EffortInformation(HashMap<Checklistable, String> textInformation) {
+    public Work(HashMap<Checklistable, String> textInformation) {
         this.textInformation = textInformation;
     }
 

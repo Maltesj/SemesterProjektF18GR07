@@ -5,7 +5,6 @@
  */
 package generator;
 
-import acquaintance.IEffortInformation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +14,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import acquaintance.IWorkInformation;
 
 /**
  *
@@ -27,10 +27,10 @@ public class EffortInfoLoader {
         caseIDs = new TreeSet<>();
     }
     
-    IEffortInformation getCaseInfo(String caseID) {
+    IWorkInformation getCaseInfo(String caseID) {
         try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("assets\\" + caseID + ".dummy")))
         {
-            IEffortInformation EffortInfo = (IEffortInformation) in.readObject();
+            IWorkInformation EffortInfo = (IWorkInformation) in.readObject();
             return EffortInfo;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
