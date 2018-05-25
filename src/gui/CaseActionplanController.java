@@ -112,6 +112,7 @@ public class CaseActionplanController implements Initializable, IController {
         informationFields.put(EnumActionplan.EFFORTOFFER2, goal2Area);
         informationFields.put(EnumActionplan.EFFORTSERVICE1, serviceArea);
 
+        this.online = true;
   
 //dateArea;
 //closetsNextOfKinArea
@@ -123,11 +124,7 @@ public class CaseActionplanController implements Initializable, IController {
     }
 
     
-    @FXML
-    private void continueActionplanEventHandler(ActionEvent event) {
-        
-        GUIFacade.getInstance().continueActionPlan(online);
-    }
+    
 
     @FXML
     private void discardPhaseEventHandler(ActionEvent event) {

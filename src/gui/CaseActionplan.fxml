@@ -319,7 +319,6 @@
                   <Image url="@sensum.png" />
                </image>
             </ImageView>
-            <Button layoutX="11.0" layoutY="276.0" mnemonicParsing="false" onAction="#continueActionplanEventHandler" text="continue actionplan" />
             <Button layoutX="44.0" layoutY="327.0" mnemonicParsing="false" onAction="#discardPhaseEventHandler" text="discard phase" />
             <Button layoutX="54.0" layoutY="373.0" mnemonicParsing="false" onAction="#savePhaseEventHandler" text="save phase" />
          </children>
