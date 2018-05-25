@@ -16,6 +16,7 @@ import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,6 +68,8 @@ public class SaveDatabaseRun implements Runnable {
         this.blobMaaap.put("work", work);
     }
 
+   
+
     @Override
     public void run() {
 
@@ -77,25 +80,66 @@ public class SaveDatabaseRun implements Runnable {
         }
 
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
-            for (Map.Entry<String, Serializable> entry : this.blobMaaap.entrySet()) {
-                Blob blob = db.createBlob();
-                ByteArrayOutputStream d = new ByteArrayOutputStream();
-                ObjectOutputStream bs = new ObjectOutputStream(d);
-                bs.writeObject(entry.getValue());
-                bs.flush();
-                blob.setBytes(0, d.toByteArray());
+            
+            PreparedStatement statement = db.prepareStatement("Insert into cases("
+                    + "date_last_changed, "
+                    + "caseID, "
+                    + "date_created, "
+                    + "work, "
+                    + "assessment, "
+                    + "actionplan, "
+                    + "case_information "
+                    + ") values(now(), "
+                    + "(Select caseID From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select date_created From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select work From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select assessment From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select actionplan From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select case_information From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)))");
+                                     
+            
+//            , date_created, work, assessment, actionplan, case_information
+//            
+//            + "ORDER BY caseID "
+//                                     + "DESC LIMIT 1))");
 
-                PreparedStatement prepared = db.prepareStatement("Update Cases Set Last_changed = getDate(), " + entry.getKey() + "= ? where caseID = ?");
-                prepared.setBlob(1, blob);
+            statement.setString(1, this.caseID);
+            statement.setString(2, this.caseID);
+            statement.setString(3, this.caseID);
+            statement.setString(4, this.caseID);
+            statement.setString(5, this.caseID);
+            statement.setString(6, this.caseID);
+            statement.setString(7, this.caseID);
+            statement.setString(8, this.caseID);
+            statement.setString(9, this.caseID);
+            statement.setString(10, this.caseID);
+            statement.setString(11, this.caseID);
+            statement.setString(12, this.caseID);
+            
+             for (Map.Entry<String, Serializable> entry : this.blobMaaap.entrySet()) {
+               
+                ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+                ObjectOutputStream objectOS = new ObjectOutputStream(byteArrayOS);
+                objectOS.writeObject(entry.getValue());
+                objectOS.flush();
+                byte[] byteA = byteArrayOS.toByteArray();
+
+                PreparedStatement prepared = db.prepareStatement(
+                        "Update Cases set " + entry.getKey() + "= ? "
+                        + "where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)");
+                
+                prepared.setBytes(1, byteA);
                 prepared.setString(2, caseID);
-                prepared.execute();
-            }
+                prepared.setString(3, caseID);
 
+                prepared.executeUpdate();
+
+            }
+            
+            statement.execute();
         } catch (Exception e) {
             System.out.println(e);
-
         }
-
     }
 
 }
