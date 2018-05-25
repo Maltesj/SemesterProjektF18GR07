@@ -33,7 +33,7 @@ public enum EnumWork implements Checklistable {
     WORKSERVICEPRICE2("WorkServicePrice2", true),
     WORKPRICE1("WorkPrice1", true),
     WORKPRICE2("WorkPrice2", true),
-    EFFPRTPRICETOTAL("EffortPriceTotal", true);
+    WORKPRICETOTAL("WorkPriceTotal", true);
     
     private String sourceID;
     private boolean obligatory;
