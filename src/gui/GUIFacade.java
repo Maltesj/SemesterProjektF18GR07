@@ -44,8 +44,8 @@ public class GUIFacade implements IGUIFacade {
         
     }
     
-    void startAssessment(String caseID, String caseWorkerID){
-        this.businessFacade.startAssessment(caseID, caseWorkerID);
+    void startAssessment(String caseID, String caseWorkerID, boolean online){
+        this.businessFacade.startAssessment(caseID, caseWorkerID, online);
     }
     
     Set<String> getCaseIDS(){
@@ -65,36 +65,36 @@ public class GUIFacade implements IGUIFacade {
         return this.businessFacade.getCaseInformation(caseID);
     }
     
-    Set<Checklistable> done(){
-        return this.businessFacade.done();
+    Set<Checklistable> done(boolean online){
+        return this.businessFacade.done(online);
     }
     
     void write(String text, Checklistable sourceInfo){
         this.businessFacade.write(text, sourceInfo);
     }
     
-    boolean save(){
-        return this.businessFacade.save();
+    boolean save(boolean online){
+        return this.businessFacade.save(online);
     }
     
     void setState(EnumPhases phase){
         this.businessFacade.setState(phase);
     }
     
-    boolean savePhase(){
-        return this.businessFacade.savePhase();
+    boolean savePhase(boolean online){
+        return this.businessFacade.savePhase(online);
     }
     
     void discardPhase(){
         this.businessFacade.discardPhase();
     }
     
-    Map<Checklistable, String> continueActionPlan(){
-        return this.businessFacade.continueActionPlan();
+    Map<Checklistable, String> continueActionPlan(boolean online){
+        return this.businessFacade.continueActionPlan(online);
     }
     
-    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
-        return this.businessFacade.startActionPlan(caseWorkerID, caseID);
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID, boolean online){
+        return this.businessFacade.startActionPlan(caseWorkerID, caseID, online);
     }
     
 }

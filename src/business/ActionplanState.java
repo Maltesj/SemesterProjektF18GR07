@@ -21,10 +21,9 @@ public class ActionplanState implements IUdredState {
     }
     
     @Override
-    public boolean savePhase(Information information) {
-//        information.getActionplanInformation();
+    public boolean savePhase(Information information, boolean online) {
         String caseID = information.getCaseID();
-        BusinessFacade.getInstance().savePhase(information, EnumPhases.ACTIONPLAN, caseID); //temp
+        BusinessFacade.getInstance().saveActionplan(information.getActionplanInformation(), caseID, online);
         
         if (information.getCaseID() == null) {
             return false;
@@ -43,8 +42,8 @@ public class ActionplanState implements IUdredState {
     }
     
     @Override
-    public Set<Checklistable> done(Information information) {
-        savePhase(information);
+    public Set<Checklistable> done(Information information, boolean online) {
+        this.savePhase(information, online);
         return this.checkFields(information);
     }
     

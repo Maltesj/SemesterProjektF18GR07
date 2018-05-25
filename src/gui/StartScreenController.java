@@ -61,6 +61,8 @@ public class StartScreenController implements Initializable {
     @FXML
     private Button startActionPlanButton;
     
+    private boolean online;
+    
     /**
      * Initializes the controller class.
      */
@@ -76,13 +78,15 @@ public class StartScreenController implements Initializable {
         
         chooseCase.setItems(listen);
         
+        this.online = true;
+        
     }
     
     @FXML
     private void onaction(ActionEvent event) {
         String caseID =  chooseCase.getValue();
         
-        GUIFacade.getInstance().startAssessment(caseID, caseWorkerID);
+        GUIFacade.getInstance().startAssessment(caseID, caseWorkerID, online);
     }
     
     @FXML
@@ -153,7 +157,7 @@ public class StartScreenController implements Initializable {
                 });
                 
                 this.topTab.getTabs().add(tab);        
-                GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID);
+                GUIFacade.getInstance().startAssessment(caseID, this.caseWorkerID, online);
 
             } catch (IOException ex) {
                 Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,7 +218,7 @@ public class StartScreenController implements Initializable {
                 });
                 
                 this.topTab.getTabs().add(tab);        
-                Map<Checklistable, String> information = GUIFacade.getInstance().startActionPlan(caseWorkerID, caseID);
+                Map<Checklistable, String> information = GUIFacade.getInstance().startActionPlan(caseWorkerID, caseID, online);
                 CaseActionplanController control = (CaseActionplanController)controller;
                 control.loadInformation(caseID, information);
                 

@@ -49,12 +49,12 @@ public class Udred {
      * @param caseWorkerID The ID of the current caseworker
      * @return Returns true if there was case information in the database
      */
-    boolean startAssessment(String caseID, String caseWorkerID) {
+    boolean startAssessment(String caseID, String caseWorkerID, boolean online) {
         this.currentCaseID = caseID;
         this.currentCaseWorkerID = caseWorkerID;
         
         if (!this.cases.containsKey(caseID)) {
-            CaseInformation Cinfo = (CaseInformation) BusinessFacade.getInstance().getCaseInfo(this.currentCaseID);
+            CaseInformation Cinfo = (CaseInformation) BusinessFacade.getInstance().getCaseInfo(this.currentCaseID, online);
             
             Information info = new Information(caseID, Cinfo);
             cases.put(caseID, info);
@@ -73,9 +73,9 @@ public class Udred {
      * The method sends the current case to the database
      * @return Returns true if the current case wasn't null
      */
-    boolean save() {
+    boolean save(boolean online) {
         Information info = cases.get(currentCaseID);
-        BusinessFacade.getInstance().save(info, currentCaseID);
+        BusinessFacade.getInstance().save(info.getAssessmentInformation(), info.getActionplanInformation(), info.getCaseInformation(), currentCaseID, online);
         
         if (currentCaseID == null) {
             return false;
@@ -87,9 +87,9 @@ public class Udred {
      * The method goes through the assessmentsfields and returns the missing fields after saving the case
      * @return Returns a set with the missing obligatory fields
      */
-    Set<Checklistable> done() {
+    Set<Checklistable> done(boolean online) {
         Information info = cases.get(currentCaseID);
-        return this.state.done(info);
+        return this.state.done(info, online);
     }
     
     /**
@@ -118,8 +118,8 @@ public class Udred {
         return this.state.checkFields(this.cases.get(this.currentCaseID));
     }
     
-    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID){
-        IWork work = BusinessFacade.getInstance().getWork(caseID);
+    Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID, boolean online){
+        IWork work = BusinessFacade.getInstance().getWork(caseID, online);
         Information info = this.cases.get(caseID);
         ActionplanInformation actionplan = new ActionplanInformation(work);
         
@@ -128,10 +128,10 @@ public class Udred {
         return actionplan.getInformation();
     }
     
-    Map<Checklistable, String> continueActionPlan(){
+    Map<Checklistable, String> continueActionPlan(boolean online){
         Information info = this.cases.get(this.currentCaseID);
         
-        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan();
+        ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan(this.currentCaseID, online);
         info.setActionplanInformation(actionplan);
         
         Map<Checklistable, String> fieldInfo = actionplan.getInformation();
@@ -144,9 +144,9 @@ public class Udred {
         this.state.discard(info);
     }
     
-    boolean savePhase(){
+    boolean savePhase(boolean online){
         Information info = this.cases.get(this.currentCaseID);
-        return this.state.savePhase(info);
+        return this.state.savePhase(info, online);
     }
     
     void setState(EnumPhases phase){

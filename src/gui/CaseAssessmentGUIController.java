@@ -43,6 +43,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     private GridPane BackgroundGrid;
     
     private HashMap<EnumAssessment, TextArea> informationFields;
+    private boolean online;
 
     /**
      * Initializes the controller class.
@@ -56,6 +57,8 @@ public class CaseAssessmentGUIController implements Initializable, IController {
         
         this.informationFields.put(EnumAssessment.PROFFESSIONALASSESSMENT1, textAreaAcademicallyAssessment);
         
+        this.online = true;
+        
     }
     
     @FXML
@@ -68,7 +71,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     
     @FXML
     private void afslutEvent(ActionEvent event) {
-        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().done();
+        Set<Checklistable> obligatoryFields = GUIFacade.getInstance().done(online);
         checkText.setText(obligatoryFields.toString());
         
         this.updateIfFieldsIsFilled(obligatoryFields);
@@ -76,7 +79,7 @@ public class CaseAssessmentGUIController implements Initializable, IController {
     
     @FXML
     private void SaveAction(ActionEvent event) {
-        GUIFacade.getInstance().save();
+        GUIFacade.getInstance().save(online);
     }
 
     @FXML

@@ -22,8 +22,8 @@ public class AssessmentState implements IUdredState{
     }
     
     @Override
-    public boolean savePhase(Information info) {
-        BusinessFacade.getInstance().savePhase(info, EnumPhases.ASSESSMENT, info.getCaseID()); // temp
+    public boolean savePhase(Information info, boolean online) {
+        BusinessFacade.getInstance().saveAssessment(info.getAssessmentInformation(), info.getCaseID(), online);
         
         if (info.getCaseID() == null) {
             return false;
@@ -42,8 +42,8 @@ public class AssessmentState implements IUdredState{
     }
 
     @Override
-    public Set<Checklistable> done(Information info) {
-        this.savePhase(info);
+    public Set<Checklistable> done(Information info, boolean online) {
+        this.savePhase(info, online);
         return this.checkList.checkCollection(info.getAssessmentInformation().getFilledFields(), EnumPhases.ASSESSMENT);
     }
 

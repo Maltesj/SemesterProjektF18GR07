@@ -66,11 +66,11 @@ public class BusinessFacade implements IBusinessFacade {
      * Initializes an assessment of a case and loads the case information
      * @param caseID ID of a case
      * @param caseWorkerID ID of a case worker
-     * @return 
+     * @return
      */
     @Override
-    public boolean startAssessment(String caseID, String caseWorkerID) {
-        boolean returnValue = this.udred.startAssessment(caseID, caseWorkerID);
+    public boolean startAssessment(String caseID, String caseWorkerID, boolean online) {
+        boolean returnValue = this.udred.startAssessment(caseID, caseWorkerID, online);
         return returnValue;
     }
     
@@ -79,8 +79,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return True if the case exists in Udred
      */
     @Override
-    public boolean save() {
-        boolean returnValue = this.udred.save();
+    public boolean save(boolean online) {
+        boolean returnValue = this.udred.save(online);
         return returnValue;
     }
     
@@ -89,8 +89,8 @@ public class BusinessFacade implements IBusinessFacade {
      * @return The set of obligatory fields that aren't filled
      */
     @Override
-    public Set<Checklistable> done() {
-        Set<Checklistable> returnValue = this.udred.done();
+    public Set<Checklistable> done(boolean online) {
+        Set<Checklistable> returnValue = this.udred.done(online);
         return returnValue;
     }
     
@@ -107,7 +107,7 @@ public class BusinessFacade implements IBusinessFacade {
     /**
      * Returns the case information corresponding to the case ID
      * @param CaseID ID of a case
-     * @return 
+     * @return
      */
     @Override
     public Map<Checklistable, String> getCaseInformation(String CaseID) {
@@ -124,64 +124,115 @@ public class BusinessFacade implements IBusinessFacade {
         Set<String> returnValue = this.dataFacade.getCaseIDs();
         return returnValue;
     }
-
+    
     @Override
     public Set<Checklistable> checkFields() {
         return this.udred.checkFields();
     }
-
+    
     @Override
-    public Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID) {
-        return this.udred.startActionPlan(caseWorkerID, caseID);
+    public Map<Checklistable, String> startActionPlan(String caseWorkerID, String caseID, boolean online) {
+        return this.udred.startActionPlan(caseWorkerID, caseID, online);
     }
-
+    
     @Override
-    public Map<Checklistable, String> continueActionPlan() {
-        return this.udred.continueActionPlan();
+    public Map<Checklistable, String> continueActionPlan(boolean online) {
+        return this.udred.continueActionPlan(online);
     }
-
+    
     @Override
     public void discardPhase() {
         this.udred.discardPhase();
     }
-
-    @Override
-    public boolean savePhase() {
-        return this.udred.savePhase();
-    }
+    
+    
     
     @Override
     public void setState(EnumPhases phase){
         this.udred.setState(phase);
     }
     
-    boolean savePhase(Information info, EnumPhases phase, String caseID){
-        return this.dataFacade.savePhase(info, phase, caseID);
-    }
     
-    boolean discard(EnumPhases phase, String caseID){
+    
+    boolean discard(EnumPhases phase, String caseID){ // temp
         return this.dataFacade.discard(phase, caseID);
     }
     
-    IActionplan getActionPlan(){
-//        return this.dataFacade.getActionPlan(); //temp
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    IActionplan getActionPlan(String caseID, boolean online){
+        if (online) {
+            return this.dataFacade.loadActionplanDatabase(caseID);
+        }
+        else{
+            return this.dataFacade.loadActionplanLocal(caseID);
+        }
     }
     
-    IWork getWork(String caseID){
-//        return this.dataFacade.getWork(caseID); //temp
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    IWork getWork(String caseID, boolean online){
+        if (online) {
+            return this.dataFacade.loadWorkDatabase(caseID);
+        }
+        else{
+            return this.dataFacade.loadWorkLocal(caseID);
+        }
     }
     
-    void save(Information info, String caseID){
-//        this.dataFacade.save(info, caseID); //temp
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ICaseInformation getCaseInfo(String caseID, boolean online){
+        if (online) {
+            return this.dataFacade.loadCaseInformationDatabase(caseID);
+        }
+        else{
+            return this.dataFacade.loadCaseInformationLocal(caseID);
+        }
+    }
+    
+    void saveCaseInfo(CaseInformation caseInfo, String caseID, boolean online){
+        if (online) {
+            this.dataFacade.saveDatabase(caseInfo, caseID);
+        }
+        else{
+            this.dataFacade.saveLocal(caseInfo, caseID);
+        }
+    }
+    
+    void saveWork(EffortInformation work, String caseID, boolean online){
+        if (online) {
+            this.dataFacade.saveDatabase(work, caseID);
+        }
+        else{
+            this.dataFacade.saveLocal(work, caseID);
+        }
+    }
+    
+    void saveActionplan(ActionplanInformation actionplan, String caseID, boolean online){
+        if (online) {
+            this.dataFacade.saveDatebase(actionplan, caseID);
+        }
+        else{
+            this.dataFacade.saveLocal(actionplan, caseID);
+        }
+    }
+    
+    void saveAssessment(AssessmentInformation assessment, String caseID, boolean online){
+        if (online) {
+           this.dataFacade.saveDatebase(assessment, caseID);
+        }
+        else{
+            this.dataFacade.loadActionplanLocal(caseID);
+        }
+    }
 
+    @Override
+    public boolean savePhase(boolean online) {
+        return this.udred.savePhase(online);
     }
     
-    ICaseInformation getCaseInfo(String caseID){
-//        return this.dataFacade.getCaseInfo(caseID); //temp
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void save(AssessmentInformation assessment, ActionplanInformation actionplan, CaseInformation caseInfo, String caseID, boolean online){
+        if (online) {
+           this.dataFacade.saveDatebase(assessment, caseID);
+        }
+        else{
+            this.dataFacade.loadActionplanLocal(caseID);
+        }
     }
     
 }

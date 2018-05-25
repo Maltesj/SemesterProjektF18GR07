@@ -90,6 +90,8 @@ public class CaseActionplanController implements Initializable, IController {
     private Map<EnumActionplan, TextArea> informationFields;
     @FXML
     private TextArea effortPurposeArea;
+    
+    private boolean online;
     /**
      * Initializes the controller class.
      */
@@ -120,15 +122,11 @@ public class CaseActionplanController implements Initializable, IController {
 //goal3Area;FollowupDate3;
     }
 
-    private void startActionplanEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().startActionPlan("caseWorkerID", "DummyCase1");
-        
-    }
-
+    
     @FXML
     private void continueActionplanEventHandler(ActionEvent event) {
         
-        GUIFacade.getInstance().continueActionPlan();
+        GUIFacade.getInstance().continueActionPlan(online);
     }
 
     @FXML
@@ -138,7 +136,7 @@ public class CaseActionplanController implements Initializable, IController {
 
     @FXML
     private void savePhaseEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().savePhase();
+        GUIFacade.getInstance().savePhase(online);
     }
 
     @FXML

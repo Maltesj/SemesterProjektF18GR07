@@ -14,9 +14,9 @@ import java.util.Set;
  */
 public interface IUdredState {
 
-    boolean savePhase(Information information);
+    boolean savePhase(Information information, boolean online);
     void write(String text, Checklistable sourceInfo, Information information);
     Set<Checklistable> checkFields(Information information);
-    Set<Checklistable> done(Information information);
+    Set<Checklistable> done(Information information, boolean online);
     void discard(Information information);
 }
