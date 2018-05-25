@@ -107,10 +107,10 @@ public class CaseActionplanController implements Initializable, IController {
         informationFields.put(EnumActionplan.MAIL, mail_area);
         informationFields.put(EnumActionplan.TELEPHONENUMBER, telephonenumber_area);
         
-        informationFields.put(EnumActionplan.EFFORTPURPOSE, effortPurposeArea);
-        informationFields.put(EnumActionplan.EFFORTOFFER1, goal1Area);
-        informationFields.put(EnumActionplan.EFFORTOFFER2, goal2Area);
-        informationFields.put(EnumActionplan.EFFORTSERVICE1, serviceArea);
+        informationFields.put(EnumActionplan.WORKPURPOSE, effortPurposeArea);
+        informationFields.put(EnumActionplan.WORKOFFER1, goal1Area);
+        informationFields.put(EnumActionplan.WORKOFFER2, goal2Area);
+        informationFields.put(EnumActionplan.WORKSERVICE1, serviceArea);
 
         this.online = true;
   

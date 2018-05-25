@@ -194,7 +194,7 @@ public class BusinessFacade implements IBusinessFacade {
         }
     }
     
-    void saveWork(EffortInformation work, String caseID, boolean online){
+    void saveWork(Work work, String caseID, boolean online){
         if (online) {
             this.dataFacade.saveDatabase(work, caseID);
         }

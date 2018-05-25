@@ -7,7 +7,7 @@ package business;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumActionplan;
-import acquaintance.EnumEffort;
+import acquaintance.EnumWork;
 import acquaintance.IActionplan;
 import acquaintance.IWork;
 import java.io.Serializable;
@@ -24,11 +24,11 @@ public class ActionplanInformation implements Serializable, IActionplan {
     
     ActionplanInformation(IWork work){
         textInformation = new HashMap<>();
-        EffortInformation businessWork = (EffortInformation)work;
+        Work businessWork = (Work)work;
         Map<Checklistable, String> workInfo = businessWork.getTextInformation();
         
         for (EnumActionplan action : EnumActionplan.values()) {
-            for (EnumEffort effort : EnumEffort.values()) {
+            for (EnumWork effort : EnumWork.values()) {
                 if (action.toString().equals(effort.toString())) {
                     textInformation.put(action, workInfo.get(effort));
                 }
