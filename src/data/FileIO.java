@@ -11,6 +11,7 @@ import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
 import generator.CaseInfoLoader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -133,6 +134,12 @@ public class FileIO {
             Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    void discard(EnumPhases phase){
+        File file = new File("assets/" + caseID +"." + phase.getFileType());
+        file.delete();
+        
     }
     
 }

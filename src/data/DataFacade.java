@@ -44,12 +44,7 @@ public class DataFacade implements IDataFacade{
 
     @Override // temp
     public boolean discard(EnumPhases phase, String caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override //temp
-    public boolean savePhase(IInformation info, EnumPhases phase, String caseID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.dataController.discard(phase, caseID);
     }
 
     @Override
