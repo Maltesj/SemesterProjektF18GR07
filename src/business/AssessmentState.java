@@ -51,7 +51,7 @@ public class AssessmentState implements IUdredState{
     public void discard(Information info) {
         info.setAssessmentInformation(null);
         String caseID = info.getCaseID();
-        BusinessFacade.getInstance().discard(EnumPhases.ASSESSMENT, caseID); //temp
+        BusinessFacade.getInstance().discard(EnumPhases.ASSESSMENT, caseID);
     }
     
 }
