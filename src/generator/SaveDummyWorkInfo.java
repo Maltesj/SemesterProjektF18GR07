@@ -22,7 +22,7 @@ import business.EffortInformation;
  *
  * @author Kasper
  */
-public class SaveDummyEffortInfo {
+public class SaveDummyWorkInfo {
 
     
     private HashMap<Checklistable, String> case1;
@@ -35,11 +35,11 @@ public class SaveDummyEffortInfo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SaveDummyEffortInfo se = new SaveDummyEffortInfo();
+        SaveDummyWorkInfo se = new SaveDummyWorkInfo();
         se.saveEffort();
     }
 
-    SaveDummyEffortInfo() {
+    SaveDummyWorkInfo() {
         System.out.println("hey listen");
         case1 = new HashMap<>();
         case2 = new HashMap<>();

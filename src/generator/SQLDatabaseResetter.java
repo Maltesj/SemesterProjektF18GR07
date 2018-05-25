@@ -80,8 +80,8 @@ public class SQLDatabaseResetter {
     private void populateDatabase() {
         ICaseInformation caseInfo1 = new SaveDummyCaseInfo().getDummy1();
         ICaseInformation caseInfo2 = new SaveDummyCaseInfo().getDummy2();
-        IEffortInformation effort1 = new SaveDummyEffortInfo().getDummy1();
-        IEffortInformation effort2 = new SaveDummyEffortInfo().getDummy2();
+        IEffortInformation effort1 = new SaveDummyWorkInfo().getDummy1();
+        IEffortInformation effort2 = new SaveDummyWorkInfo().getDummy2();
         
         try {
             Class.forName("org.postgresql.Driver");
