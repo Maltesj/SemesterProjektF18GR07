@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
@@ -31,10 +32,10 @@ public class SaveDatabaseRun implements Runnable {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("work", work);
-        this.blobMaaap.put("caseInfo", caseInfo);
-        this.blobMaaap.put("assessment", assessment);
-        this.blobMaaap.put("actionplan", actionplan);
+        this.blobMaaap.put(EnumPhases.WORK.getPhase(), work);
+        this.blobMaaap.put(EnumPhases.INFORMATION.getPhase(), caseInfo);
+        this.blobMaaap.put(EnumPhases.ASSESSMENT.getPhase(), assessment);
+        this.blobMaaap.put(EnumPhases.ACTIONPLAN.getPhase(), actionplan);
 
     }
 
@@ -42,28 +43,28 @@ public class SaveDatabaseRun implements Runnable {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("caseInfo", caseInfo);
+        this.blobMaaap.put(EnumPhases.INFORMATION.getPhase(), caseInfo);
     }
 
     SaveDatabaseRun(IAssessment assessment, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("assessment", assessment);
+        this.blobMaaap.put(EnumPhases.ASSESSMENT.getPhase(), assessment);
     }
 
     SaveDatabaseRun(IActionplan actionplan, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("actionplan", actionplan);
+        this.blobMaaap.put(EnumPhases.ACTIONPLAN.getPhase(), actionplan);
     }
 
     SaveDatabaseRun(IWork work, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("work", work);
+        this.blobMaaap.put(EnumPhases.WORK.getPhase(), work);
     }
 
    
@@ -83,17 +84,17 @@ public class SaveDatabaseRun implements Runnable {
                     + "date_last_changed, "
                     + "caseID, "
                     + "date_created, "
-                    + "work, "
-                    + "assessment, "
-                    + "actionplan, "
-                    + "case_information "
+                    + EnumPhases.WORK.getPhase() + ", "
+                    + EnumPhases.ASSESSMENT.getPhase() + ", "
+                    + EnumPhases.ACTIONPLAN.getPhase() + ", "
+                    + EnumPhases.INFORMATION.getPhase() + " "
                     + ") values(now(), "
                     + "(Select caseID From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
                     + "(Select date_created From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
-                    + "(Select work From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
-                    + "(Select assessment From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
-                    + "(Select actionplan From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
-                    + "(Select case_information From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)))");
+                    + "(Select " + EnumPhases.WORK.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.ASSESSMENT.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.ACTIONPLAN.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.INFORMATION.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)))");
                                      
             
 //            , date_created, work, assessment, actionplan, case_information
