@@ -66,6 +66,13 @@ public class SaveDatabaseRun implements Runnable {
         this.blobMaaap = new HashMap<>();
         this.blobMaaap.put(EnumPhases.WORK.getPhase(), work);
     }
+    
+    SaveDatabaseRun (EnumPhases phase, String caseID){
+        this.caseID = caseID;
+        
+        this.blobMaaap = new HashMap<>();
+        this.blobMaaap.put(phase.getPhase(), null);
+    }
 
    
 

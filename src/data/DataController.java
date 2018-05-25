@@ -129,19 +129,8 @@ public class DataController {
 
     boolean discard(EnumPhases phase, String caseID){
 
-        switch (phase){
-            case ACTIONPLAN:
-                
-                break;
-            case ASSESSMENT:
-                break;
-            case INFORMATION:
-                break;
-            case WORK:
-                break;
-            
-        }
-        
+        new DatabaseIO().discardPhase(phase, caseID);
+        new FileIO(caseID).discard(phase);
         return true;
     }
 }

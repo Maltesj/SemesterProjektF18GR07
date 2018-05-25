@@ -136,7 +136,7 @@ public class FileIO {
         return null;
     }
     
-    void discard(EnumPhases phase, String caseID){
+    void discard(EnumPhases phase){
         File file = new File("assets/" + caseID +"." + phase.getFileType());
         file.delete();
         

@@ -230,22 +230,12 @@ public class DatabaseIO {
     }
     
     void discardPhase(EnumPhases phase, String caseID){
+        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(phase, caseID);
         
+        Thread saveThread = new Thread(saveRunnable);
         
+        saveThread.start();
         
-        
-        switch (phase){
-            case ACTIONPLAN:
-                
-                break;
-            case ASSESSMENT:
-                break;
-            case INFORMATION:
-                break;
-            case WORK:
-                break;
-            
-        }
     }
     
 }
