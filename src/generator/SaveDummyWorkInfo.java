@@ -87,7 +87,7 @@ public class SaveDummyWorkInfo {
                                                       "Ydelse 2 = (10*pris) = vvv\n" +
                                                       "Pris for enkeltindsats = (xxx+vvv)");
         case1.put(EnumWork.WORKPRICE2, "");
-        case1.put(EnumWork.EFFPRTPRICETOTAL, "Forventet pris for samlet indsats = (Pris for indsats 1 + pris for indsats 2)");
+        case1.put(EnumWork.WORKPRICETOTAL, "Forventet pris for samlet indsats = (Pris for indsats 1 + pris for indsats 2)");
         
         //Create case 2
         case2.put(EnumWork.WORKPURPOSE, "");
@@ -112,7 +112,7 @@ public class SaveDummyWorkInfo {
         case2.put(EnumWork.WORKSERVICEPRICE2, "");
         case2.put(EnumWork.WORKPRICE1, "");
         case2.put(EnumWork.WORKPRICE2, "");
-        case2.put(EnumWork.EFFPRTPRICETOTAL, "");
+        case2.put(EnumWork.WORKPRICETOTAL, "");
     }
 
     private void saveEffort() {
