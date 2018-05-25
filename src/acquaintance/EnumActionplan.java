@@ -38,7 +38,12 @@ public enum EnumActionplan implements Checklistable {
     WORKSERVICEPRICE2("WorkServicePrice2", true),
     WORKPRICE1("WorkPrice1", true),
     WORKPRICE2("WorkPrice2", true),
-    WORKPRICETOTAL("WorkPriceTotal", true);
+    WORKPRICETOTAL("WorkPriceTotal", true),
+    ACTIONPLANOTHER1("ActionplanOther1", true),
+    ACTIONPLANOTHER2("ActionplanOther2", true),
+    ACTIONPLANCOORDINATING1("ActionplanCoordinating1", true),
+    ACTIONPLANCOORDINATING2("ActionplanCoordinating2", true);
+    
     
     private String sourceID;
     private boolean obligatory;
