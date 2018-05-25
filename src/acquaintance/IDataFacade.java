@@ -39,6 +39,5 @@ public interface IDataFacade {
     
     
     public boolean discard(EnumPhases phase, String caseID); //temp
-    public boolean savePhase(IInformation info, EnumPhases phase, String caseID); //temp
     
 }
