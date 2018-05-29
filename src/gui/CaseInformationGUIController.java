@@ -172,7 +172,7 @@ public class CaseInformationGUIController implements Initializable, IController 
 
     @FXML
     private void ShowFunktions(MouseEvent event) {
-        ScrollpaneIndholdfortegnelse.setVvalue(1);
+        ScrollpaneIndholdfortegnelse.setVvalue(0);
     }
 
     @FXML
@@ -184,6 +184,11 @@ public class CaseInformationGUIController implements Initializable, IController 
     @FXML
     private void showExampleSocial(MouseEvent event) {
            socialFunktionFXID1.setVisible(true);
+    }
+
+    @FXML
+    private void ShowSocialt(MouseEvent event) {
+        ScrollpaneIndholdfortegnelse.setVvalue(1);
     }
   
 }
