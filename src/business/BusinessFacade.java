@@ -231,7 +231,7 @@ public class BusinessFacade implements IBusinessFacade {
            this.dataFacade.saveDatebase(assessment, caseID);
         }
         else{
-            this.dataFacade.loadActionplanLocal(caseID);
+            this.dataFacade.saveLocal(assessment, caseID);
         }
     }
     
