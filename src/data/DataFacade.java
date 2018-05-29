@@ -42,7 +42,7 @@ public class DataFacade implements IDataFacade{
         return this.dataController.getCaseIDs();
     }
 
-    @Override // temp
+    @Override
     public boolean discard(EnumPhases phase, String caseID) {
         return this.dataController.discard(phase, caseID);
     }
