@@ -7,10 +7,10 @@ package acquaintance;
 
 /**
  *
- * @author HCHB
+ * @author Kasper
  */
-public enum EnumActionplan implements Checklistable {
-
+public enum EnumWork implements Checklistable {
+    
     NAME("name", true),
     CPR("cpr", true),
     ADDRESS("address", true),
@@ -38,29 +38,24 @@ public enum EnumActionplan implements Checklistable {
     WORKSERVICEPRICE2("WorkServicePrice2", true),
     WORKPRICE1("WorkPrice1", true),
     WORKPRICE2("WorkPrice2", true),
-    WORKPRICETOTAL("WorkPriceTotal", true),
-    ACTIONPLANOTHER1("ActionplanOther1", true),
-    ACTIONPLANOTHER2("ActionplanOther2", true),
-    ACTIONPLANCOORDINATING1("ActionplanCoordinating1", true),
-    ACTIONPLANCOORDINATING2("ActionplanCoordinating2", true);
-    
+    WORKPRICETOTAL("WorkPriceTotal", true);
     
     private String sourceID;
     private boolean obligatory;
     
-    private EnumActionplan(String sourceID, boolean obligatory){
-        this.sourceID = sourceID;
+    EnumWork(String sourceID, boolean obligatory)
+    {
         this.obligatory = obligatory;
+        this.sourceID = sourceID;
     }
     
-    @Override
-    public String toString(){
-        return this.sourceID;
+    public String toString()
+    {
+        return sourceID;
     }
-    
+
     @Override
-    public boolean isObligatory(){
+    public boolean isObligatory() {
         return this.obligatory;
-    }
-    
+        }
 }

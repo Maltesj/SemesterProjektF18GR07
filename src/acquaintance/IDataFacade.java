@@ -37,8 +37,6 @@ public interface IDataFacade {
     public IActionplan loadActionplanLocal(String caseID);
     public IWork loadWorkLocal(String caseID);
     
-    
-    public boolean discard(EnumPhases phase, String caseID); //temp
-    public boolean savePhase(IInformation info, EnumPhases phase, String caseID); //temp
+    public boolean discard(EnumPhases phase, String caseID);
     
 }

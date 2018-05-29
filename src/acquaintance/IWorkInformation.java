@@ -9,6 +9,6 @@ package acquaintance;
  *
  * @author Kasper
  */
-public interface IEffortInformation {
+public interface IWorkInformation {
     
 }

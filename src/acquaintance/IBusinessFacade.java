@@ -15,16 +15,16 @@ import java.util.Set;
 public interface IBusinessFacade {
     
     public void injectDataFacade(IDataFacade dataFacade);
-    public boolean startAssessment(String caseID , String caseWorkerID);
-    public boolean save();
-    public Set<Checklistable> done();
+    public boolean startAssessment(String caseID , String caseWorkerID, boolean online);
+    public boolean save(boolean online);
+    public Set<Checklistable> done(boolean online);
     public void write(String text, Checklistable sourceInfo);
     public Map<Checklistable, String> getCaseInformation(String caseID);
     public Set<String> getCaseIDs();
     public Set<Checklistable> checkFields();
-    public Map<Checklistable,String> startActionPlan(String caseWorkerID, String caseID);
-    public Map<Checklistable, String> continueActionPlan();
+    public Map<Checklistable,String> startActionPlan(String caseWorkerID, String caseID, boolean online);
+    public Map<Checklistable, String> continueActionPlan(boolean online);
     public void discardPhase();
-    public boolean savePhase();
+    public boolean savePhase(boolean online);
     public void setState(EnumPhases phase);
 }
