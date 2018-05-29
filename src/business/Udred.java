@@ -132,11 +132,19 @@ public class Udred {
         Information info = this.cases.get(this.currentCaseID);
         
         ActionplanInformation actionplan = (ActionplanInformation)BusinessFacade.getInstance().getActionPlan(this.currentCaseID, online);
-        info.setActionplanInformation(actionplan);
         
-        Map<Checklistable, String> fieldInfo = actionplan.getInformation();
+        if (actionplan != null) {
+            info.setActionplanInformation(actionplan);
+            
+            Map<Checklistable, String> fieldInfo = actionplan.getInformation();
+            
+            return fieldInfo;
+        }
+        else {
+            this.startActionPlan(currentCaseWorkerID, currentCaseID, online);
+            return info.getActionplanInformation().getInformation();
+        }
         
-        return fieldInfo;
     }
     
     void discardPhase(){
