@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
@@ -26,43 +27,23 @@ public class DataController {
     }
     
     void saveDatabase(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
-        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(work, caseInfo, assessment, actionplan, caseID);
-        
-        Thread saveThread = new Thread(saveRunnable);
-        
-        saveThread.start();       
+        new DatabaseIO().save(work, caseInfo, assessment, actionplan, caseID);
     }
     
     void saveDatabase(ICaseInformation caseInfo, String caseID){
-        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(caseInfo, caseID);
-        
-        Thread saveThread = new Thread(saveRunnable);
-        
-        saveThread.start();
+        new DatabaseIO().save(caseInfo, caseID);
     }
     
     void saveDatebase(IAssessment assessment, String caseID){
-        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(assessment, caseID);
-        
-        Thread saveThread = new Thread(saveRunnable);
-        
-        saveThread.start();
+        new DatabaseIO().save(assessment, caseID);
     }
     
     void saveDatebase(IActionplan actionplan, String caseID){
-        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(actionplan, caseID);
-        
-        Thread saveThread = new Thread(saveRunnable);
-        
-        saveThread.start();
+        new DatabaseIO().save(actionplan, caseID);
     }
     
     void saveDatabase(IWork work, String caseID){
-        SaveDatabaseRun saveRunnable = new SaveDatabaseRun(work, caseID);
-        
-        Thread saveThread = new Thread(saveRunnable);
-        
-        saveThread.start();
+        new DatabaseIO().save(work, caseID);
     }
     
     void saveLocal(IWork work, ICaseInformation caseInfo, IAssessment assessment, IActionplan actionplan, String caseID){
@@ -94,19 +75,19 @@ public class DataController {
     }
     
     ICaseInformation loadCaseInformationDatabase(String caseID){
-        return new LoadDatabase().loadCaseInformation(caseID);
+        return new DatabaseIO().loadCaseInformation(caseID);
     }
     
     IAssessment loadAssessmentDatabase(String caseID){
-        return new LoadDatabase().loadAssessment(caseID);
+        return new DatabaseIO().loadAssessment(caseID);
     }
     
     IActionplan loadActionplanDatabase(String caseID){
-        return new LoadDatabase().loadActionplan(caseID);
+        return new DatabaseIO().loadActionplan(caseID);
     }
     
     IWork loadWorkDatabase(String caseID){
-        return new LoadDatabase().loadWork(caseID);
+        return new DatabaseIO().loadWork(caseID);
     }
     
     ICaseInformation loadCaseInformationLocal(String caseID){
@@ -129,7 +110,7 @@ public class DataController {
         Set<String> caseIDs = new TreeSet<>();
         
         try{
-            LoadDatabase loadDatabase = new LoadDatabase();
+            DatabaseIO loadDatabase = new DatabaseIO();
             caseIDs = loadDatabase.getCaseIDs();
         }
         catch (IOException | SQLException ex) {
@@ -146,4 +127,10 @@ public class DataController {
         return caseIDs;
     }
 
+    boolean discard(EnumPhases phase, String caseID){
+
+        new DatabaseIO().discardPhase(phase, caseID);
+        new FileIO(caseID).discard(phase);
+        return true;
+    }
 }

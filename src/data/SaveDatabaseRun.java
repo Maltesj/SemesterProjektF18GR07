@@ -5,6 +5,7 @@
  */
 package data;
 
+import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
@@ -12,7 +13,6 @@ import acquaintance.IWork;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,10 +32,10 @@ public class SaveDatabaseRun implements Runnable {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("work", work);
-        this.blobMaaap.put("caseInfo", caseInfo);
-        this.blobMaaap.put("assessment", assessment);
-        this.blobMaaap.put("actionplan", actionplan);
+        this.blobMaaap.put(EnumPhases.WORK.getPhase(), work);
+        this.blobMaaap.put(EnumPhases.INFORMATION.getPhase(), caseInfo);
+        this.blobMaaap.put(EnumPhases.ASSESSMENT.getPhase(), assessment);
+        this.blobMaaap.put(EnumPhases.ACTIONPLAN.getPhase(), actionplan);
 
     }
 
@@ -43,29 +43,38 @@ public class SaveDatabaseRun implements Runnable {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("caseInfo", caseInfo);
+        this.blobMaaap.put(EnumPhases.INFORMATION.getPhase(), caseInfo);
     }
 
     SaveDatabaseRun(IAssessment assessment, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("assessment", assessment);
+        this.blobMaaap.put(EnumPhases.ASSESSMENT.getPhase(), assessment);
     }
 
     SaveDatabaseRun(IActionplan actionplan, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("actionplan", actionplan);
+        this.blobMaaap.put(EnumPhases.ACTIONPLAN.getPhase(), actionplan);
     }
 
     SaveDatabaseRun(IWork work, String caseID) {
         this.caseID = caseID;
 
         this.blobMaaap = new HashMap<>();
-        this.blobMaaap.put("work", work);
+        this.blobMaaap.put(EnumPhases.WORK.getPhase(), work);
     }
+    
+    SaveDatabaseRun (EnumPhases phase, String caseID){
+        this.caseID = caseID;
+        
+        this.blobMaaap = new HashMap<>();
+        this.blobMaaap.put(phase.getPhase(), null);
+    }
+
+   
 
     @Override
     public void run() {
@@ -77,25 +86,66 @@ public class SaveDatabaseRun implements Runnable {
         }
 
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
-            for (Map.Entry<String, Serializable> entry : this.blobMaaap.entrySet()) {
-                Blob blob = db.createBlob();
-                ByteArrayOutputStream d = new ByteArrayOutputStream();
-                ObjectOutputStream bs = new ObjectOutputStream(d);
-                bs.writeObject(entry.getValue());
-                bs.flush();
-                blob.setBytes(0, d.toByteArray());
+            
+            PreparedStatement statement = db.prepareStatement("Insert into cases("
+                    + "date_last_changed, "
+                    + "caseID, "
+                    + "date_created, "
+                    + EnumPhases.WORK.getPhase() + ", "
+                    + EnumPhases.ASSESSMENT.getPhase() + ", "
+                    + EnumPhases.ACTIONPLAN.getPhase() + ", "
+                    + EnumPhases.INFORMATION.getPhase() + " "
+                    + ") values(now(), "
+                    + "(Select caseID From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select date_created From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.WORK.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.ASSESSMENT.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.ACTIONPLAN.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)), "
+                    + "(Select " + EnumPhases.INFORMATION.getPhase() + " From cases where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)))");
+                                     
+            
+//            , date_created, work, assessment, actionplan, case_information
+//            
+//            + "ORDER BY caseID "
+//                                     + "DESC LIMIT 1))");
 
-                PreparedStatement prepared = db.prepareStatement("Update Cases Set Last_changed = getDate(), " + entry.getKey() + "= ? where caseID = ?");
-                prepared.setBlob(1, blob);
+            statement.setString(1, this.caseID);
+            statement.setString(2, this.caseID);
+            statement.setString(3, this.caseID);
+            statement.setString(4, this.caseID);
+            statement.setString(5, this.caseID);
+            statement.setString(6, this.caseID);
+            statement.setString(7, this.caseID);
+            statement.setString(8, this.caseID);
+            statement.setString(9, this.caseID);
+            statement.setString(10, this.caseID);
+            statement.setString(11, this.caseID);
+            statement.setString(12, this.caseID);
+            
+             for (Map.Entry<String, Serializable> entry : this.blobMaaap.entrySet()) {
+               
+                ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+                ObjectOutputStream objectOS = new ObjectOutputStream(byteArrayOS);
+                objectOS.writeObject(entry.getValue());
+                objectOS.flush();
+                byte[] byteA = byteArrayOS.toByteArray();
+
+                PreparedStatement prepared = db.prepareStatement(
+                        "Update Cases set " + entry.getKey() + "= ? "
+                        + "where caseID = ? AND date_last_changed = (select max(date_last_changed) From cases where caseID = ?)");
+                
+                prepared.setBytes(1, byteA);
                 prepared.setString(2, caseID);
-                prepared.execute();
-            }
+                prepared.setString(3, caseID);
 
+                prepared.executeUpdate();
+
+            }
+            
+            statement.execute();
         } catch (Exception e) {
             System.out.println(e);
-
         }
-
     }
 
 }

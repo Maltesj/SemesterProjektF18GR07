@@ -7,6 +7,7 @@ package gui;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumActionplan;
+import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -90,6 +92,16 @@ public class CaseActionplanController implements Initializable, IController {
     private Map<EnumActionplan, TextArea> informationFields;
     @FXML
     private TextArea effortPurposeArea;
+    
+    private boolean online;
+    @FXML
+    private TextArea otherField1;
+    @FXML
+    private TextArea otherField2;
+    @FXML
+    private TextArea coordinationField1;
+    @FXML
+    private TextArea coordinatingField2;
     /**
      * Initializes the controller class.
      */
@@ -105,11 +117,16 @@ public class CaseActionplanController implements Initializable, IController {
         informationFields.put(EnumActionplan.MAIL, mail_area);
         informationFields.put(EnumActionplan.TELEPHONENUMBER, telephonenumber_area);
         
-        informationFields.put(EnumActionplan.EFFORTPURPOSE, effortPurposeArea);
-        informationFields.put(EnumActionplan.EFFORTOFFER1, goal1Area);
-        informationFields.put(EnumActionplan.EFFORTOFFER2, goal2Area);
-        informationFields.put(EnumActionplan.EFFORTSERVICE1, serviceArea);
+        informationFields.put(EnumActionplan.WORKPURPOSE, effortPurposeArea);
+        informationFields.put(EnumActionplan.WORKOFFER1, goal1Area);
+        informationFields.put(EnumActionplan.WORKOFFER2, goal2Area);
+        informationFields.put(EnumActionplan.WORKSERVICE1, serviceArea);
+        informationFields.put(EnumActionplan.ACTIONPLANOTHER1, otherField1);
+        informationFields.put(EnumActionplan.ACTIONPLANOTHER2, otherField2);
+        informationFields.put(EnumActionplan.ACTIONPLANCOORDINATING1, coordinationField1);
+        informationFields.put(EnumActionplan.ACTIONPLANCOORDINATING2, coordinatingField2);
 
+        this.online = true;
   
 //dateArea;
 //closetsNextOfKinArea
@@ -120,16 +137,8 @@ public class CaseActionplanController implements Initializable, IController {
 //goal3Area;FollowupDate3;
     }
 
-    private void startActionplanEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().startActionPlan("caseWorkerID", "DummyCase1");
-        
-    }
-
-    @FXML
-    private void continueActionplanEventHandler(ActionEvent event) {
-        
-        GUIFacade.getInstance().continueActionPlan();
-    }
+    
+    
 
     @FXML
     private void discardPhaseEventHandler(ActionEvent event) {
@@ -138,7 +147,7 @@ public class CaseActionplanController implements Initializable, IController {
 
     @FXML
     private void savePhaseEventHandler(ActionEvent event) {
-        GUIFacade.getInstance().savePhase();
+        GUIFacade.getInstance().savePhase(online);
     }
 
     @FXML
@@ -173,6 +182,22 @@ public class CaseActionplanController implements Initializable, IController {
         }
         
 //        System.out.println(this.effortPurposeArea.getText());
+    }
+    @FXML
+    private void writeEventHandler(KeyEvent event) {
+        TextArea area = (TextArea)(event.getSource());
+        
+        String textArea = area.getId();
+        EnumActionplan sourceID = null;
+        
+        // get the enum value corresponding to the FXID 
+        for (Map.Entry<EnumActionplan, TextArea> entry : this.informationFields.entrySet()) {
+            if (entry.getValue().equals(area)) {
+                sourceID = entry.getKey();
+            }
+        }
+        
+        GUIFacade.getInstance().write(area.getText(), sourceID);
     }
    
 }

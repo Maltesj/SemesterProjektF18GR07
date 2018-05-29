@@ -6,7 +6,7 @@
 package generator;
 
 import acquaintance.Checklistable;
-import acquaintance.EnumEffort;
+import acquaintance.EnumWork;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,8 +15,8 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import acquaintance.IEffortInformation;
-import business.EffortInformation;
+import business.Work;
+import acquaintance.IWorkInformation;
 
 /**
  *
@@ -28,8 +28,8 @@ public class SaveDummyWorkInfo {
     private HashMap<Checklistable, String> case1;
     private HashMap<Checklistable, String> case2;
     
-    private IEffortInformation dummy1;
-    private IEffortInformation dummy2;
+    private IWorkInformation dummy1;
+    private IWorkInformation dummy2;
     /**
      * @param args the command line arguments
      */
@@ -44,75 +44,88 @@ public class SaveDummyWorkInfo {
         case1 = new HashMap<>();
         case2 = new HashMap<>();
         makeDummy();
-        dummy1 = new EffortInformation(case1);
-        dummy2 = new EffortInformation(case2);
+        dummy1 = new Work(case1);
+        dummy2 = new Work(case2);
         
     }
 
-    public IEffortInformation getDummy1() {
+    public IWorkInformation getDummy1() {
         return dummy1;
     }
 
-    public IEffortInformation getDummy2() {
+    public IWorkInformation getDummy2() {
         return dummy2;
     }
     
 
     private void makeDummy() {
         //Create case 2
-        case1.put(EnumEffort.EFFORTPURPOSE, "Formålet med indsatsen er at støtte Jørgen til at blive stoffri, samt at han får stabile rammer angående sin økonomi og bolig.");
-        case1.put(EnumEffort.EFFORTGOAL, "1. At Jørgen bliver stoffri\n" +
+        
+        
+        case1.put(EnumWork.NAME, "Jørgen Hansen");
+        case1.put(EnumWork.CPR, "2233445566");
+        case1.put(EnumWork.ADDRESS, "XXXXXXXXX");
+        case1.put(EnumWork.TELEPHONENUMBER, "XXXXXXXXXX");
+        case1.put(EnumWork.MAIL, "XXXXXXXXXX");
+     
+        case1.put(EnumWork.WORKPURPOSE, "Formålet med indsatsen er at støtte Jørgen til at blive stoffri, samt at han får stabile rammer angående sin økonomi og bolig.");
+        case1.put(EnumWork.WORKGOAL, "1. At Jørgen bliver stoffri\n" +
                                                     "2. At Jørgen ikke får tilbagefald i perioden\n" +
                                                     "3. At Jørgen får afklaret sine ønsker ift. sin bolig");
-        case1.put(EnumEffort.EFFORTSERVICE1, "Misbrugsbehandling (§ 101)\n" +
+        case1.put(EnumWork.WORKSERVICE1, "Misbrugsbehandling (§ 101)\n" +
                                                         "Støtte til administration (§85)");
-        case1.put(EnumEffort.EFFORTSERVICE2, "");
-        case1.put(EnumEffort.EFFORTOFFER1, "Midlertidigt botilbud");
-        case1.put(EnumEffort.EFFORTOFFER2, "");
-        case1.put(EnumEffort.EFFORTACCOUNTNUMBER1, "xxxxx");
-        case1.put(EnumEffort.EFFORTACCOUNTNUMBER2, "");
-        case1.put(EnumEffort.EFFORTSUPPLIER1, "Center for misbrug, xxx");
-        case1.put(EnumEffort.EFFORTSUPPLIER2, "");
-        case1.put(EnumEffort.EFFORTSTARTDATE1, "1.maj 2012");
-        case1.put(EnumEffort.EFFORTSTARTDATE2, "");
-        case1.put(EnumEffort.EFFORTENDDATE1, "1.august 2012");
-        case1.put(EnumEffort.EFFORTENDDATE2, "");
-        case1.put(EnumEffort.EFFORTSERVICEUNIT1, "dag");
-        case1.put(EnumEffort.EFFORTSERVICEUNIT2, "");
-        case1.put(EnumEffort.EFFORTSERVICEAMOUNT1, "90");
-        case1.put(EnumEffort.EFFORTSERVICEAMOUNT2, "");
-        case1.put(EnumEffort.EFFORTSERVICEPRICE1, "xxx");
-        case1.put(EnumEffort.EFFORTSERVICEPRICE2, "");
-        case1.put(EnumEffort.EFFORTPRICE1, "Ydelse 1 = (90*pris) = xxx\n" +
+        case1.put(EnumWork.WORKSERVICE2, "");
+        case1.put(EnumWork.WORKOFFER1, "Midlertidigt botilbud");
+        case1.put(EnumWork.WORKOFFER2, "");
+        case1.put(EnumWork.WORKACCOUNTNUMBER1, "xxxxx");
+        case1.put(EnumWork.WORKACCOUNTNUMBER2, "");
+        case1.put(EnumWork.WORKSUPPLIER1, "Center for misbrug, xxx");
+        case1.put(EnumWork.WORKSUPPLIER2, "");
+        case1.put(EnumWork.WORKSTARTDATE1, "1.maj 2012");
+        case1.put(EnumWork.WORKSTARTDATE2, "");
+        case1.put(EnumWork.WORKENDDATE1, "1.august 2012");
+        case1.put(EnumWork.WORKENDDATE2, "");
+        case1.put(EnumWork.WORKSERVICEUNIT1, "dag");
+        case1.put(EnumWork.WORKSERVICEUNIT2, "");
+        case1.put(EnumWork.WORKSERVICEAMOUNT1, "90");
+        case1.put(EnumWork.WORKSERVICEAMOUNT2, "");
+        case1.put(EnumWork.WORKSERVICEPRICE1, "xxx");
+        case1.put(EnumWork.WORKSERVICEPRICE2, "");
+        case1.put(EnumWork.WORKPRICE1, "Ydelse 1 = (90*pris) = xxx\n" +
                                                       "Ydelse 2 = (10*pris) = vvv\n" +
                                                       "Pris for enkeltindsats = (xxx+vvv)");
-        case1.put(EnumEffort.EFFORTPRICE2, "");
-        case1.put(EnumEffort.EFFPRTPRICETOTAL, "Forventet pris for samlet indsats = (Pris for indsats 1 + pris for indsats 2)");
+        case1.put(EnumWork.WORKPRICE2, "");
+        case1.put(EnumWork.WORKPRICETOTAL, "Forventet pris for samlet indsats = (Pris for indsats 1 + pris for indsats 2)");
         
         //Create case 2
-        case2.put(EnumEffort.EFFORTPURPOSE, "");
-        case2.put(EnumEffort.EFFORTGOAL, "");
-        case2.put(EnumEffort.EFFORTSERVICE1, "");
-        case2.put(EnumEffort.EFFORTSERVICE2, "");
-        case2.put(EnumEffort.EFFORTOFFER1, "");
-        case2.put(EnumEffort.EFFORTOFFER2, "");
-        case2.put(EnumEffort.EFFORTACCOUNTNUMBER1, "");
-        case2.put(EnumEffort.EFFORTACCOUNTNUMBER2, "");
-        case2.put(EnumEffort.EFFORTSUPPLIER1, "");
-        case2.put(EnumEffort.EFFORTSUPPLIER2, "");
-        case2.put(EnumEffort.EFFORTSTARTDATE1, "");
-        case2.put(EnumEffort.EFFORTSTARTDATE2, "");
-        case2.put(EnumEffort.EFFORTENDDATE1, "");
-        case2.put(EnumEffort.EFFORTENDDATE2, "");
-        case2.put(EnumEffort.EFFORTSERVICEUNIT1, "");
-        case2.put(EnumEffort.EFFORTSERVICEUNIT2, "");
-        case2.put(EnumEffort.EFFORTSERVICEAMOUNT1, "");
-        case2.put(EnumEffort.EFFORTSERVICEAMOUNT2, "");
-        case2.put(EnumEffort.EFFORTSERVICEPRICE1, "");
-        case2.put(EnumEffort.EFFORTSERVICEPRICE2, "");
-        case2.put(EnumEffort.EFFORTPRICE1, "");
-        case2.put(EnumEffort.EFFORTPRICE2, "");
-        case2.put(EnumEffort.EFFPRTPRICETOTAL, "");
+        case2.put(EnumWork.NAME, "Rikke Hansen");
+        case2.put(EnumWork.CPR, "1122344112");
+        case2.put(EnumWork.ADDRESS, "XXXXXXXXX");
+        case2.put(EnumWork.TELEPHONENUMBER, "XXXXXXXXXX");
+        case2.put(EnumWork.MAIL, "XXXXXXXXXX");
+        case2.put(EnumWork.WORKPURPOSE, "");
+        case2.put(EnumWork.WORKGOAL, "");
+        case2.put(EnumWork.WORKSERVICE1, "");
+        case2.put(EnumWork.WORKSERVICE2, "");
+        case2.put(EnumWork.WORKOFFER1, "");
+        case2.put(EnumWork.WORKOFFER2, "");
+        case2.put(EnumWork.WORKACCOUNTNUMBER1, "");
+        case2.put(EnumWork.WORKACCOUNTNUMBER2, "");
+        case2.put(EnumWork.WORKSUPPLIER1, "");
+        case2.put(EnumWork.WORKSUPPLIER2, "");
+        case2.put(EnumWork.WORKSTARTDATE1, "");
+        case2.put(EnumWork.WORKSTARTDATE2, "");
+        case2.put(EnumWork.WORKENDDATE1, "");
+        case2.put(EnumWork.WORKENDDATE2, "");
+        case2.put(EnumWork.WORKSERVICEUNIT1, "");
+        case2.put(EnumWork.WORKSERVICEUNIT2, "");
+        case2.put(EnumWork.WORKSERVICEAMOUNT1, "");
+        case2.put(EnumWork.WORKSERVICEAMOUNT2, "");
+        case2.put(EnumWork.WORKSERVICEPRICE1, "");
+        case2.put(EnumWork.WORKSERVICEPRICE2, "");
+        case2.put(EnumWork.WORKPRICE1, "");
+        case2.put(EnumWork.WORKPRICE2, "");
+        case2.put(EnumWork.WORKPRICETOTAL, "");
     }
 
     private void saveEffort() {

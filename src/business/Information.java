@@ -7,8 +7,6 @@ package business;
 
 import acquaintance.IInformation;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Set;
 
 /** Class for holding case information and asssessment information
  *

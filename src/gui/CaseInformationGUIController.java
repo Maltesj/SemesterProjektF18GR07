@@ -94,6 +94,8 @@ public class CaseInformationGUIController implements Initializable, IController 
     private Text socialFunktionFXID1;
     @FXML
     private Text SocialtFXID1;
+    
+    private boolean online;
 
     /**
      * Initializes the controller class.
@@ -114,6 +116,8 @@ public class CaseInformationGUIController implements Initializable, IController 
         informationFields.put(EnumCaseInformation.SOCIALPROBLEM2, Socialt_oplysning_andre);
         informationFields.put(EnumCaseInformation.SOCIALPROBLEM3, Socialt_behandlers_bemaerk);
         informationFields.put(EnumCaseInformation.SOCIALPROBLEM4, socialt_funktions_tekst);
+    
+        this.online = true;
     }
 
     void loadInformation(String caseID){

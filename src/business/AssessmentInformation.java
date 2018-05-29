@@ -6,6 +6,7 @@
 package business;
 
 import acquaintance.Checklistable;
+import acquaintance.IAssessment;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
@@ -14,7 +15,7 @@ import java.util.Set;
  *
  * @author michael og malte
  */
-public class AssessmentInformation implements Serializable {
+public class AssessmentInformation implements Serializable, IAssessment {
     private HashMap<Checklistable, String> textInformation;
     
     public AssessmentInformation(){
