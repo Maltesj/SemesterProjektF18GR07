@@ -232,6 +232,7 @@ public class BusinessFacade implements IBusinessFacade {
         }
         else{
             this.dataFacade.loadActionplanLocal(caseID);
+            this.dataFacade.saveLocal(assessment, caseID);
         }
     }
     

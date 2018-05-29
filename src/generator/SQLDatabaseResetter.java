@@ -19,6 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
+import acquaintance.EnumPhases;
+import acquaintance.IWorkInformation;
 
 /**
  *
@@ -31,10 +33,10 @@ public class SQLDatabaseResetter {
      */
     public static void main(String[] args) {
         SQLDatabaseResetter resetter = new SQLDatabaseResetter();
-//        resetter.clearDatabase();
-//        resetter.setupDatabase();
-//        resetter.populateDatabase();
-        resetter.testWork();
+        resetter.clearDatabase();
+        resetter.setupDatabase();
+        resetter.populateDatabase();
+//        resetter.testWork();
     }
     
     private void clearDatabase() {
@@ -64,11 +66,11 @@ public class SQLDatabaseResetter {
             st.execute("create table cases ("
                     + "caseID varchar(20), "
                     + "date_created date, "
-                    + "date_last_changed date, "
-                    + "work bytea, "
-                    + "assessment bytea, "
-                    + "actionplan bytea, "
-                    + "case_information bytea, "
+                    + "date_last_changed timestamp, "
+                    + EnumPhases.WORK.getPhase()+ " bytea, "
+                    + EnumPhases.ASSESSMENT.getPhase() + " bytea, "
+                    + EnumPhases.ACTIONPLAN.getPhase() + " bytea, "
+                    + EnumPhases.INFORMATION.getPhase() + " bytea, "
                     + "primary key(caseID, date_last_changed)"
                     + ")"
             );
@@ -94,10 +96,10 @@ public class SQLDatabaseResetter {
                     + "caseID, "
                     + "date_created, "
                     + "date_last_changed, "
-                    + "work, "
-                    + "assessment, "
-                    + "actionplan, "
-                    + "case_information "
+                    + EnumPhases.WORK.getPhase() + ", "
+                    + EnumPhases.ASSESSMENT.getPhase() + ", "
+                    + EnumPhases.ACTIONPLAN.getPhase() + ", "
+                    + EnumPhases.INFORMATION.getPhase() + " "
                     + ") values(?, now(), now(), ?, null, null, ?)"
             );
             
