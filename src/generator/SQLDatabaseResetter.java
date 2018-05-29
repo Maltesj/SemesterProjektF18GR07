@@ -6,6 +6,7 @@
 package generator;
 
 import acquaintance.ICaseInformation;
+import acquaintance.IWorkInformation;
 import acquaintance.IWork;
 import data.EnumDatabaseAccount;
 import java.io.ByteArrayInputStream;
