@@ -11,6 +11,11 @@ package acquaintance;
  */
 public enum EnumWork implements Checklistable {
     
+    NAME("name", true),
+    CPR("cpr", true),
+    ADDRESS("address", true),
+    TELEPHONENUMBER("telephone number", true),
+    MAIL("mail", true),
     WORKPURPOSE("WorkPurpose", true),
     WORKGOAL("WorkGoal", true),
     WORKSERVICE1("WorkService1", true),

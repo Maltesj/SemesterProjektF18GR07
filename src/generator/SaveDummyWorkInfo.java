@@ -60,6 +60,14 @@ public class SaveDummyWorkInfo {
 
     private void makeDummy() {
         //Create case 2
+        
+        
+        case1.put(EnumWork.NAME, "Jørgen Hansen");
+        case1.put(EnumWork.CPR, "2233445566");
+        case1.put(EnumWork.ADDRESS, "XXXXXXXXX");
+        case1.put(EnumWork.TELEPHONENUMBER, "XXXXXXXXXX");
+        case1.put(EnumWork.MAIL, "XXXXXXXXXX");
+     
         case1.put(EnumWork.WORKPURPOSE, "Formålet med indsatsen er at støtte Jørgen til at blive stoffri, samt at han får stabile rammer angående sin økonomi og bolig.");
         case1.put(EnumWork.WORKGOAL, "1. At Jørgen bliver stoffri\n" +
                                                     "2. At Jørgen ikke får tilbagefald i perioden\n" +
@@ -90,6 +98,11 @@ public class SaveDummyWorkInfo {
         case1.put(EnumWork.WORKPRICETOTAL, "Forventet pris for samlet indsats = (Pris for indsats 1 + pris for indsats 2)");
         
         //Create case 2
+        case2.put(EnumWork.NAME, "Rikke Hansen");
+        case2.put(EnumWork.CPR, "1122344112");
+        case2.put(EnumWork.ADDRESS, "XXXXXXXXX");
+        case2.put(EnumWork.TELEPHONENUMBER, "XXXXXXXXXX");
+        case2.put(EnumWork.MAIL, "XXXXXXXXXX");
         case2.put(EnumWork.WORKPURPOSE, "");
         case2.put(EnumWork.WORKGOAL, "");
         case2.put(EnumWork.WORKSERVICE1, "");

@@ -131,7 +131,7 @@ public class DatabaseIO {
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             
             Statement statement = db.createStatement();
-            ResultSet results = statement.executeQuery("Select actionplan "
+            ResultSet results = statement.executeQuery("Select "+ EnumPhases.ACTIONPLAN.getPhase() + " "
                     + "From cases "
                     + "Where caseID = '"+caseID+"' "
                             + "AND date_last_changed = (Select MAX(date_last_Changed) "
@@ -165,7 +165,7 @@ public class DatabaseIO {
         try (Connection db = DriverManager.getConnection(EnumDatabaseAccount.ACCOUNT1.url, EnumDatabaseAccount.ACCOUNT1.userName, EnumDatabaseAccount.ACCOUNT1.password)) {
             
             Statement statement = db.createStatement();
-            ResultSet results = statement.executeQuery("Select case_information "
+            ResultSet results = statement.executeQuery("Select " + EnumPhases.INFORMATION.getPhase() + " "
                     + "From cases "
                     + "Where caseID = '"+caseID+"' "
                             + "AND date_last_changed = (Select MAX(date_last_Changed) "

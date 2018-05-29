@@ -6,7 +6,7 @@
 package data;
 
 import generator.SaveInformation;
-import generator.CaseInfoLoader;
+
 import acquaintance.EnumPhases;
 import acquaintance.IActionplan;
 import acquaintance.ICaseInformation;

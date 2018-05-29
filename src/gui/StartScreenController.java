@@ -231,4 +231,45 @@ public class StartScreenController implements Initializable {
             
         }
     }
+
+    @FXML
+    private void continueActionplan(ActionEvent event) {
+         
+        
+        String caseID = this.chooseCase.getValue();
+        ObservableList<String> caseIDs = this.chooseCase.getItems();
+        
+        if (caseIDs.contains(caseID)) {
+            FXMLLoader loader = new FXMLLoader();
+            
+            loader.setLocation(getClass().getResource("CaseActionplan.fxml"));
+            
+            try {
+                Parent root = loader.load();
+                IController controller = loader.getController();
+                controllers.add(controller);
+                Scene scene = new Scene(root);
+                
+                Tab tab = new Tab();
+                tab.setContent(root);
+                tab.setText("Handleplan");
+                tab.setStyle("-fx-border-color: darkgrey; -fx-background-color: #e4f0d4;-fx-background-radius: 7; -fx-border-radius: 5;");
+                tab.setOnSelectionChanged(e -> {
+                    GUIFacade.getInstance().setState(EnumPhases.ACTIONPLAN);
+                });
+                
+                this.topTab.getTabs().add(tab);        
+                Map<Checklistable, String> information = GUIFacade.getInstance().continueActionPlan(online);
+                CaseActionplanController control = (CaseActionplanController)controller;
+                control.loadInformation(caseID, information);
+                
+            } catch (IOException ex) {
+                Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            System.out.println("No such case exists");
+            
+        }
+    }
 }

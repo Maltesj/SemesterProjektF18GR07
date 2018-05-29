@@ -18,6 +18,7 @@ public enum EnumPhases {
     
     private String filetype;
     private String phase;
+
     
     private EnumPhases(String filetype, String phase){
         this.filetype = filetype;

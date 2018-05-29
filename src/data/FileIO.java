@@ -10,7 +10,7 @@ import acquaintance.IActionplan;
 import acquaintance.IAssessment;
 import acquaintance.ICaseInformation;
 import acquaintance.IWork;
-import generator.CaseInfoLoader;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -90,9 +90,9 @@ public class FileIO {
             ICaseInformation caseInfo = (ICaseInformation) in.readObject();
             return caseInfo;
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -103,9 +103,9 @@ public class FileIO {
             IAssessment assessmentInfo = (IAssessment) in.readObject();
             return assessmentInfo;
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -116,9 +116,9 @@ public class FileIO {
             IActionplan actionplanInfo = (IActionplan) in.readObject();
             return actionplanInfo;
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -129,9 +129,9 @@ public class FileIO {
             IWork workInfo = (IWork) in.readObject();
             return workInfo;
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(CaseInfoLoader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

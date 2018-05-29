@@ -7,6 +7,7 @@ package gui;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumActionplan;
+import acquaintance.EnumAssessment;
 import acquaintance.IController;
 import java.net.URL;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -92,6 +94,14 @@ public class CaseActionplanController implements Initializable, IController {
     private TextArea effortPurposeArea;
     
     private boolean online;
+    @FXML
+    private TextArea otherField1;
+    @FXML
+    private TextArea otherField2;
+    @FXML
+    private TextArea coordinationField1;
+    @FXML
+    private TextArea coordinatingField2;
     /**
      * Initializes the controller class.
      */
@@ -111,6 +121,10 @@ public class CaseActionplanController implements Initializable, IController {
         informationFields.put(EnumActionplan.WORKOFFER1, goal1Area);
         informationFields.put(EnumActionplan.WORKOFFER2, goal2Area);
         informationFields.put(EnumActionplan.WORKSERVICE1, serviceArea);
+        informationFields.put(EnumActionplan.ACTIONPLANOTHER1, otherField1);
+        informationFields.put(EnumActionplan.ACTIONPLANOTHER2, otherField2);
+        informationFields.put(EnumActionplan.ACTIONPLANCOORDINATING1, coordinationField1);
+        informationFields.put(EnumActionplan.ACTIONPLANCOORDINATING2, coordinatingField2);
 
         this.online = true;
   
@@ -168,6 +182,22 @@ public class CaseActionplanController implements Initializable, IController {
         }
         
 //        System.out.println(this.effortPurposeArea.getText());
+    }
+    @FXML
+    private void writeEventHandler(KeyEvent event) {
+        TextArea area = (TextArea)(event.getSource());
+        
+        String textArea = area.getId();
+        EnumActionplan sourceID = null;
+        
+        // get the enum value corresponding to the FXID 
+        for (Map.Entry<EnumActionplan, TextArea> entry : this.informationFields.entrySet()) {
+            if (entry.getValue().equals(area)) {
+                sourceID = entry.getKey();
+            }
+        }
+        
+        GUIFacade.getInstance().write(area.getText(), sourceID);
     }
    
 }
