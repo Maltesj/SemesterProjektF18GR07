@@ -6,7 +6,6 @@
 package generator;
 
 import acquaintance.ICaseInformation;
-import acquaintance.IWorkInformation;
 import acquaintance.IWork;
 import data.EnumDatabaseAccount;
 import java.io.ByteArrayInputStream;
@@ -20,7 +19,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
 import acquaintance.EnumPhases;
-import acquaintance.IWorkInformation;
 
 /**
  *
@@ -82,8 +80,8 @@ public class SQLDatabaseResetter {
     private void populateDatabase() {
         ICaseInformation caseInfo1 = new SaveDummyCaseInfo().getDummy1();
         ICaseInformation caseInfo2 = new SaveDummyCaseInfo().getDummy2();
-        IWorkInformation effort1 = new SaveDummyWorkInfo().getDummy1();
-        IWorkInformation effort2 = new SaveDummyWorkInfo().getDummy2();
+        IWork effort1 = new SaveDummyWorkInfo().getDummy1();
+        IWork effort2 = new SaveDummyWorkInfo().getDummy2();
         
         try {
             Class.forName("org.postgresql.Driver");

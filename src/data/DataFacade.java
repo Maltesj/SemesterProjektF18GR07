@@ -5,7 +5,6 @@
  */
 package data;
 
-import generator.SaveInformation;
 
 import acquaintance.EnumPhases;
 import acquaintance.IActionplan;

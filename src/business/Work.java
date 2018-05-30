@@ -9,13 +9,12 @@ import acquaintance.Checklistable;
 import acquaintance.IWork;
 import java.io.Serializable;
 import java.util.HashMap;
-import acquaintance.IWorkInformation;
 
 /**
  *
  * @author Kasper
  */
-public class Work implements Serializable, IWorkInformation, IWork {
+public class Work implements Serializable, IWork {
     private HashMap<Checklistable, String> textInformation;
 
     public Work() {

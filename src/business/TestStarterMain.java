@@ -5,7 +5,6 @@
  */
 package business;
 
-import acquaintance.Constants;
 import java.util.HashSet;
 import java.util.Set;
 

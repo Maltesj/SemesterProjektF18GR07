@@ -7,6 +7,7 @@ package generator;
 
 import acquaintance.Checklistable;
 import acquaintance.EnumWork;
+import acquaintance.IWork;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,7 +17,6 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import business.Work;
-import acquaintance.IWorkInformation;
 
 /**
  *
@@ -28,8 +28,8 @@ public class SaveDummyWorkInfo {
     private HashMap<Checklistable, String> case1;
     private HashMap<Checklistable, String> case2;
     
-    private IWorkInformation dummy1;
-    private IWorkInformation dummy2;
+    private IWork dummy1;
+    private IWork dummy2;
     /**
      * @param args the command line arguments
      */
@@ -49,11 +49,11 @@ public class SaveDummyWorkInfo {
         
     }
 
-    public IWorkInformation getDummy1() {
+    public IWork getDummy1() {
         return dummy1;
     }
 
-    public IWorkInformation getDummy2() {
+    public IWork getDummy2() {
         return dummy2;
     }
     
