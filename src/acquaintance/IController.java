@@ -5,8 +5,6 @@
  */
 package acquaintance;
 
-import scaryExperimentalShit.*;
-
 /**
  *
  * @author HCHB
